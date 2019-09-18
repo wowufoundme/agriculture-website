@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Starter Template - Materialize</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+
+    <div class="navbar-fixed navbar-toggleable-lg navbar-expand-lg">
+        <nav class="light-green lighten-1" role="navigation">
+            <a data-target="slide-out" class="sidenav-trigger show-on-large">
+                <i class="material-icons">menu</i>
+            </a>
+            <div class="nav-wrapper">
+                <a id="logo-container" href="#" class="brand-logo">Dashboard</a>
+            </div>
+        </nav>
+
+    </div>
+
+    <ul id="slide-out" class="sidenav">
+        <!-- <li>
+                <div class="user-view">
+                    <a href="#name"><span class="white-text name">John Doe</span></a>
+                    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div>
+            </li> -->
+        <li><a href="index.html">DISTRICTS</a></li>
+        <li><a href="villages.html">VILLAGES</a></li>
+        <li><a href="#!">DDA</a></li>
+        <li><a href="#!">ADO</a></li>
+        <li><a href="#!">LOCATIONS</a></li>
+    </ul>
+
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col l12 s12 m6">
+                    <div class="card white darken-1">
+                        <div class="card-content">
+                            <a class="right waves-effect waves-light btn">ADD</a>
+                            <span class="card-title">Districts</span>
+
+                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+    </div>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>
