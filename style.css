@@ -1,5 +1,5 @@
 tbody {
-    height: 500px;
+    height: 420px;
     display: block;
     overflow: auto;
 }
@@ -9,4 +9,21 @@ tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed;
+}
+
+.sidenav-trigger {
+    cursor: pointer;
+}
+
+#slide-out {
+    top: 10%;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+li a:hover {
+    color: blue;
 }
