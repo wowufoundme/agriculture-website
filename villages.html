@@ -50,16 +50,16 @@
             <div class="card white darken-1">
                 <div class="card-content">
                     <div class="row">
-                        <div class="col l10 m8 s6">
+                        <div class="col xl10 l10 m8 s6">
                             <span class="card-title">Villages</span>
                         </div>
-                        <div class="col l2 m4 s6">
+                        <div class="col xl2 l2 m4 s6">
                             <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addVillage"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
                     <div class="row" id="tablerow">
-                        <div class="col l12">
+                        <div class="col xl12 l12">
                             <table class="responsive-table highlight centered bordered">
                                 <thead>
                                     <tr>
@@ -81,6 +81,19 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="row">
+                            <div class="col xl12 l12 m12 s12">
+                                <ul class="pagination center" style="margin-top: 5%">
+                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                                    <li class="active"><a href="#!">1</a></li>
+                                    <li class="waves-effect"><a href="#!">2</a></li>
+                                    <li class="waves-effect"><a href="#!">3</a></li>
+                                    <li class="waves-effect"><a href="#!">4</a></li>
+                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,9 +106,9 @@
             <h4>Add Village</h4>
             <div class="form-group">
                 <label class="control-label">Village name</label>
-                <input placeholder="Name of Village" name="district" required type="text" id="villageText" class="form-control" value="">
+                <input placeholder="Name of Village" name="village" required type="text" id="villageText" class="form-control" value="">
                 <label class="control-label">Village Code</label>
-                <input placeholder="Code of Village" name="district_code" required type="number" id="villageCode" class="form-control" value="">
+                <input placeholder="Code of Village" name="village_code" required type="number" id="villageCode" class="form-control" value="">
             </div>
 
         </div>
