@@ -3,6 +3,13 @@
         $('.modaledit').modal();
         $('.modaldelete').modal();
 
+        $("#editbutton").click(function() {
+            alert('response');
+            var item = $(this).closest('tr');
+            console.log(item);
+            alert('no response');
+        });
+
         $.ajax({
             url: "http://13.235.100.235:8000/api/district/",
             type: 'GET',
@@ -17,11 +24,11 @@
             success: function(res) {
                 if(res.length > 0){
                     res.map(item=>{
-                        row = `<tr key=${res.id}>
+                        row = `<tr key=${item.id}>
                             <td>${res.indexOf(item)+1}</td>
-                                <td>${item.district}</td>
+                                <td id="title">${item.district}</td>
                                 <td>
-                                    <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                    <a id="editbutton" class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
                                     <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
                                 </td>
                             </tr>`
@@ -38,6 +45,46 @@
             }
         });
 
+    });
+
+    // edit functions to set data in the fields of modal and make request
+    //set data when modal is shown
+    $(document).on("click","#editbutton",function() {
+        // get id of the row clicked
+        var id = $(this).parent().parent().attr('key');
+        var district = $(this).parent().siblings('#title');
+        console.log(id, district.html());
+        // set id of the row to the modal
+        $("#editDistrict").attr("key", id);
+        $('#districtName').val(district.html());
+    });
+
+    $("#edit").click(function() {
+        var id = $("#editDistrict").attr("key");
+        var districtName = $('#districtName').val();
+        $.ajax({
+            url: `http://13.235.100.235:8000/api/district/${id}/`,
+            type: 'PUT',
+            headers: {
+                'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            },
+            data: {
+                "district": districtName,
+            },
+            async: true,
+            dataType: 'json',
+            beforeSend: function() {
+                $(".loading").show();
+            },
+            success: function(res) {
+                console.log('edit successfull')
+                $(".loading").hide();
+                console.log(res)
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
     });
 
     $("#addid").click(function() {
