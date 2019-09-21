@@ -8,8 +8,8 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="materialize.min.css">
-    <link rel="stylesheet" href="css/dda.css">
+    <link rel="stylesheet" href="./lib/materialize.min.css">
+    <link rel="stylesheet" href="./css/dda.css">
 </head>
 
 <body>
@@ -35,9 +35,9 @@
         <ul id="slide-out" class="sidenav invesible-top">
 
             <li><a class="sidenav-close" href="#!"><i class="material-icons right">close</i></a></li>
-            <li class="active light-green lighten-1"><a href="districts.html">DISTRICTS</a></li>
+            <li><a href="districts.html">DISTRICTS</a></li>
             <li><a href="villages.html">VILLAGES</a></li>
-            <li><a href="dda.html">DDA</a></li>
+            <li class="active light-green lighten-1"><a href="dda.html">DDA</a></li>
             <li><a href="ado.html">ADO</a></li>
             <li><a href="location.html">LOCATIONS</a></li>
         </ul>
@@ -51,10 +51,10 @@
                 <div class="card-content">
                     <div class="row">
                         <div class="col l10 m8 s6">
-                            <span class="card-title">Districts</span>
+                            <span class="card-title">List of Dda</span>
                         </div>
                         <div class="col l2 m4 s6">
-                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDda"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
@@ -64,7 +64,10 @@
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>
-                                        <th>District Name</th>
+                                        <th>Dda Name</th>
+                                        <th>District</th>
+                                        <th>Phone No.</th>
+                                        <th>Email</th>
                                         <th>Options</th>
                                     </tr>
                                 </thead>
@@ -72,10 +75,13 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Ambala</td>
+                                        <td>DDA 1</td>
+                                        <td>ambala</td>
+                                        <td>1234567890</td>
+                                        <td>abc@gmail.com</td>
                                         <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDda"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDda"><i class="material-icons left">delete</i>DELETE</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -88,14 +94,20 @@
         </div>
     </div>
     <!-- Modals -->
-    <div id="addDistrict" class="modal modaladd">
+    <div id="addDda" class="modal modaladd">
         <div class="modal-content">
-            <h4>Add District</h4>
+            <h4>Add Dda</h4>
             <div class="form-group">
-                <label class="control-label">District name</label>
-                <input placeholder="Name of district" name="district" required type="text" id="districtText" class="form-control" value="">
-                <label class="control-label">District Code</label>
-                <input placeholder="Code of district" name="district_code" required type="number" id="districtCode" class="form-control" value="">
+                <label class="control-label"><b>Dda name:</b></label>
+                <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="">
+                <label class="control-label"><b>District Name:</b></label>
+                <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value="">
+                <label class="control-label"><b>Phone:</b></label>
+                <input placeholder="Phone Number" name="phone" required type="number" id="ddanumber" class="form-control" value="">
+                <label class="control-label"><b>Email Id:</b></label>
+                <input placeholder="Email" name="email" required type="email" id="ddaemail" class="form-control" value="">
+                <label class="control-label"><b>Password:</b></label>
+                <input placeholder="Password" name="password" required type="password" id="ddapassword" class="form-control" value="">
             </div>
 
         </div>
@@ -105,12 +117,18 @@
         </div>
     </div>
 
-    <div id="editDistrict" class=" modal modaledit">
+    <div id="editDda" class=" modal modaledit">
         <div class="modal-content">
             <h4>Edit</h4>
             <div class="form-group">
-                <label class="control-label">District name</label>
-                <input placeholder="Name of district" name="districtName" required type="text" id="districtName" class="form-control" value="">
+                <label class="control-label"><b>Dda name:</b></label>
+                <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="">
+                <label class="control-label"><b>District Name:</b></label>
+                <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value="">
+                <label class="control-label"><b>Phone:</b></label>
+                <input placeholder="Phone Number" name="phone" required type="number" id="ddanumber" class="form-control" value="">
+                <label class="control-label"><b>Email Id:</b></label>
+                <input placeholder="Email" name="email" required type="email" id="ddaemail" class="form-control" value="">
             </div>
         </div>
         <div class="modal-footer">
@@ -119,9 +137,9 @@
         </div>
     </div>
 
-    <div id="deleteDistrict" class="modal modaldelete">
+    <div id="deleteDda" class="modal modaldelete">
         <div class="modal-content">
-            <p>Are you sure you want to delete this district?</p>
+            <p>Are you sure you want to remove this dda?</p>
         </div>
         <div class="modal-footer">
             <a class="modal-close waves-effect waves-green btn-flat">DELETE</a>
@@ -135,10 +153,11 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="materialize.min.js"></script>
-    <script src="dda.js"></script>
-    <script src="common.js"></script>
+    <script src="./lib/materialize.min.js"></script>
 </body>
+
+<script src="./js/dda.js"></script>
+<script src="./js/common.js"></script>
 
 
 
