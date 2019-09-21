@@ -8,8 +8,8 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="dda.css">
 </head>
 
 <body>
@@ -172,19 +172,9 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            $('.sidenav').sidenav();
-
-            $('ul li a').click(function() {
-                $('li a').removeClass("active");
-                $(this).addClass("active")
-            });
-        });
-    </script>
+    <script src="materialize.min.js"></script>
+    <script src="dda.js"></script>
+    <script src="common.js"></script>
 </body>
 
 </html>

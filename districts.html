@@ -8,7 +8,7 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="materialize.min.css">
     <link rel="stylesheet" href="districts.css">
 </head>
 
@@ -21,6 +21,9 @@
             </a>
             <div class="nav-wrapper">
                 <a id="logo-container" href="#" class="brand-logo">Dashboard</a>
+                <ul id="nav-mobile" class="right show-on-extra-large">
+                    <li><a href="#">Logout</a></li>
+                </ul>
             </div>
         </nav>
 
@@ -28,7 +31,10 @@
     </div>
 
     <div id="side">
+
         <ul id="slide-out" class="sidenav invesible-top">
+
+            <li><a class="sidenav-close" href="#!"><i class="material-icons right">close</i></a></li>
             <li class="active light-green lighten-1"><a href="districts.html">DISTRICTS</a></li>
             <li><a href="villages.html">VILLAGES</a></li>
             <li><a href="dda.html">DDA</a></li>
@@ -66,79 +72,6 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
                                         <td>Ambala</td>
                                         <td>
                                             <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
@@ -202,9 +135,11 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="materialize.min.js"></script>
+    <script src="districts.js"></script>
+    <script src="common.js"></script>
 </body>
 
-<script src="index.js"></script>
+
 
 </html>
