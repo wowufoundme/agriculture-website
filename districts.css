@@ -1,0 +1,25 @@
+div {
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.sidenav-trigger {
+    cursor: pointer;
+}
+
+@media screen and (min-device-width:320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    * {
+        float: none;
+        width: auto;
+        height: auto;
+    }
+}

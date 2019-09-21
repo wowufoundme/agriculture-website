@@ -9,13 +9,13 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="districts.css">
 </head>
 
 <body>
 
-    <div class="navbar-toggleable-lg navbar-expand-lg">
-        <nav class="light-green lighten-1" role="navigation">
+    <div id="navid" class="navbar-toggleable-lg navbar-expand-lg">
+        <nav class="light-green lighten-1 s12" role="navigation">
             <a data-target="slide-out" class="sidenav-trigger show-on-large">
                 <i class="material-icons">menu</i>
             </a>
@@ -41,85 +41,160 @@
     <div class="container">
         <div class="section">
 
-            <div class="row">
-                <div class="col l12 s12 m12">
-                    <div class="card white darken-1">
-                        <div class="card-content">
-                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+            <div class="card white darken-1">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col l10 m8 s6">
                             <span class="card-title">Districts</span>
-                            <div>
-                                <table class="responsive-table highlight">
-                                    <thead>
-                                        <tr>
-                                            <th>S.No.</th>
-                                            <th>District Name</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </thead>
+                        </div>
+                        <div class="col l2 m4 s6">
+                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+                        </div>
+                    </div>
 
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Ambala</td>
-                                            <td>
-                                                <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                                <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="row" id="tablerow">
+                        <div class="col l12">
+                            <table class="responsive-table highlight centered bordered">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>District Name</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Ambala</td>
+                                        <td>
+                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+            <br><br>
+        </div>
+    </div>
+    <!-- Modals -->
+    <div id="addDistrict" class="modal modaladd">
+        <div class="modal-content">
+            <h4>Add District</h4>
+            <div class="form-group">
+                <label class="control-label">District name</label>
+                <input placeholder="Name of district" name="" required type="text" id="districtText" class="form-control">
+                <label class="control-label">District Code</label>
+                <input placeholder="Code of district" name="" required type="text" id="districtCode" class="form-control">
+            </div>
 
         </div>
-        <br><br>
-
-        <!-- Modals -->
-        <div id="addDistrict" class="modal modaladd">
-            <div class="modal-content">
-                <h4>Add District</h4>
-                <div class="form-group">
-                    <label class="control-label">District name</label>
-                    <input placeholder="Name of district" name="districtName" required type="text" id="districtText" class="form-control" value="">
-                    <label class="control-label">District Code</label>
-                    <input placeholder="Code of district" name="districtCode" required type="text" id="districtCode" class="form-control" value="">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a id="addid" class="modal-close waves-effect waves-green btn-flat">ADD</a>
-                <a id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
-            </div>
-        </div>
-
-        <div id="editDistrict" class=" modal modaledit">
-            <div class="modal-content">
-                <h4>Edit</h4>
-                <div class="form-group">
-                    <label class="control-label">District name</label>
-                    <input placeholder="Name of district" name="districtName" required type="text" id="districtName" class="form-control" value="">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-close waves-effect waves-green btn-flat">OK</a>
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
-            </div>
-        </div>
-
-        <div id="deleteDistrict" class="modal modaldelete">
-            <div class="modal-content">
-                <p>Are you sure you want to delete this district?</p>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-close waves-effect waves-green btn-flat">DELETE</a>
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
-            </div>
+        <div class="modal-footer">
+            <a id="addid" class="modal-close waves-effect waves-green btn-flat">ADD</a>
+            <a id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 
+    <div id="editDistrict" class=" modal modaledit">
+        <div class="modal-content">
+            <h4>Edit</h4>
+            <div class="form-group">
+                <label class="control-label">District name</label>
+                <input placeholder="Name of district" name="districtName" required type="text" id="districtName" class="form-control" value="">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">OK</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        </div>
+    </div>
 
+    <div id="deleteDistrict" class="modal modaldelete">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this district?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">DELETE</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        </div>
+    </div>
 
 
 
@@ -154,25 +229,25 @@
             console.log('Cancel clicked')
         });
 
-        $("#addid").click(function() {
-            console.log('Add clicked')
-            $.ajax({
-                url: "http://13.235.100.235:8000/api/district/",
-                type: 'POST',
-                headers: {
-                    'Authorization': 'Token 55252124e33664e45be5accba4e6085c87fce699'
-                },
-                data: {
-                    "district": districtName,
-                    "district_code": districtCode
-                },
-                dataType: 'json',
-                success: function(res) {
-                    console.log('add successfull')
-                    alert('Thanks for your comment!');
-                }
-            });
-        });
+        // $("#addid").click(function() {
+        //     console.log('Add clicked')
+        //     $.ajax({
+        //         url: "http://13.235.100.235:8000/api/district/",
+        //         type: 'POST',
+        //         headers: {
+        //             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        //         },
+        //         data: {
+        //             "district": districtName,
+        //             "district_code": districtCode
+        //         },
+        //         dataType: 'json',
+        //         success: function(res) {
+        //             console.log('add successfull')
+        //             alert('Thanks for your comment!');
+        //         }
+        //     });
+        // });
 
         // $.ajax({
         //     url: "http://13.235.100.235:8000/api/district/",
@@ -190,5 +265,7 @@
         // });
     </script>
 </body>
+
+<script src="index.js"></script>
 
 </html>
