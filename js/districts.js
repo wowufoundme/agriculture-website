@@ -2,6 +2,42 @@
         $('.modaladd').modal();
         $('.modaledit').modal();
         $('.modaldelete').modal();
+
+        $.ajax({
+            url: "http://13.235.100.235:8000/api/district/",
+            type: 'GET',
+            headers: {
+                'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            },
+            async: false,
+            dataType: 'json',
+            beforeSend: function() {
+                $(".loading").show();
+            },
+            success: function(res) {
+                if(res.length > 0){
+                    res.map(item=>{
+                        row = `<tr key=${res.id}>
+                            <td>${res.indexOf(item)+1}</td>
+                                <td>${item.district}</td>
+                                <td>
+                                    <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
+                                    <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
+                                </td>
+                            </tr>`
+                        $('.table-body').append(row)
+                    })
+                }else{
+                    $('#tablerow').after('<center>No Data Available</center>')
+                }
+                $(".loading").hide();
+                console.log(res)
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+
     });
 
     $("#addid").click(function() {
@@ -22,8 +58,12 @@
             },
             async: true,
             dataType: 'json',
+            beforeSend: function() {
+                $(".loading").show();
+            },
             success: function(res) {
                 console.log('add successfull')
+                $(".loading").hide();
                 console.log(res)
             },
             error: function(e) {

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <!-- loading initial -->
     <div id="navid" class="navbar-toggleable-lg navbar-expand-lg">
         <nav class="light-green lighten-1 s12" role="navigation">
             <a data-target="slide-out" class="sidenav-trigger show-on-large">
@@ -57,7 +57,7 @@
                             <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
-
+                    
                     <div class="row" id="tablerow">
                         <div class="col l12">
                             <table class="responsive-table highlight centered bordered">
@@ -68,20 +68,24 @@
                                         <th>Options</th>
                                     </tr>
                                 </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Ambala</td>
-                                        <td>
-                                            <a class="btn waves-effect waves-light modal-trigger" data-target="editDistrict"><i class="large material-icons left">edit</i>Edit</a>
-                                            <a class="btn red waves-effect modal-trigger" data-target="deleteDistrict"><i class="material-icons left">delete</i>DELETE</a>
-                                        </td>
-                                    </tr>
+                                <tbody class="table-body"> 
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <center class="loading">
+                        <div class="preloader-wrapper small active">
+                            <div class="spinner-layer spinner-green-only">
+                              <div class="circle-clipper left">
+                                <div class="circle"></div>
+                              </div><div class="gap-patch">
+                                <div class="circle"></div>
+                              </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </center>
                 </div>
             </div>
             <br><br>
@@ -135,7 +139,7 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="lib/materialize.min.js"></script>
+    <script src="./lib/materialize.min.js"></script>
     <script src="./js/districts.js"></script>
     <script src="./js/common.js"></script>
 </body>
