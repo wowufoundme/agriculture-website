@@ -160,9 +160,9 @@
             <h4>Add District</h4>
             <div class="form-group">
                 <label class="control-label">District name</label>
-                <input placeholder="Name of district" name="" required type="text" id="districtText" class="form-control">
+                <input placeholder="Name of district" name="district" required type="text" id="districtText" class="form-control" value="">
                 <label class="control-label">District Code</label>
-                <input placeholder="Code of district" name="" required type="text" id="districtCode" class="form-control">
+                <input placeholder="Code of district" name="district_code" required type="number" id="districtCode" class="form-control" value="">
             </div>
 
         </div>
@@ -210,60 +210,41 @@
             $('.modaladd').modal();
             $('.modaledit').modal();
             $('.modaldelete').modal();
+            $("#addid").click(function() {
+                var districtName = $('#districtText').val();
+                var districtCode = $('#districtCode').val();
+                console.log(districtName);
+                console.log(districtCode);
+                console.log('Add clicked')
+                $.ajax({
+                    url: "http://13.235.100.235:8000/api/district/",
+                    type: 'POST',
+                    headers: {
+                        'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+                    },
+                    data: {
+                        "district": districtName,
+                        "district_code": districtCode
+                    },
+                    async: true,
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log('add successfull')
+                        console.log(res)
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                });
+            });
+
         });
 
 
-        // $("addid").click(function() {
-        //     console.log("You clicked a paragraph!");
-        //     url: "http://13.235.100.235:8000/api/district/",
-        //         type: 'POST',
-        //         headers: {
-        //             "Authorization": "Token 55252124e33664e45be5accba4e6085c87fce699"
-        //         },
-        //         success: function(res) {
-
-        //         }
-        // });
 
         $("#cancelid").click(function() {
             console.log('Cancel clicked')
         });
-
-        $("#addid").click(function() {
-            console.log('Add clicked')
-            $.ajax({
-                url: "http://13.235.100.235:8000/api/district/",
-                type: 'POST',
-                headers: {
-                    'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
-                },
-                data: {
-                    "district": districtName,
-                    "district_code": districtCode
-                },
-                processData: false,
-                dataType: 'json',
-                success: function(res) {
-                    console.log('add successfull')
-                    alert('Thanks for your comment!');
-                }
-            });
-        });
-
-        // $.ajax({
-        //     url: "http://13.235.100.235:8000/api/district/",
-        //     type: 'GET',
-        //     headers: {
-        //         "Authorization": "Token 55252124e33664e45be5accba4e6085c87fce699"
-        //     },
-        //     success: function(res) {
-        //         console.log('get successfull')
-        //     }
-        // });
-
-        // $.get("http://13.235.100.235:8000/api/district/").done(function(data) {
-        //     console.log(data);
-        // });
     </script>
 </body>
 
