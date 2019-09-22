@@ -119,7 +119,32 @@ $('#addbutton').click(function(){
     $('#ddaPassword').val("");
     $('select').val("default");
     // re-initialize material-select
-    $('select').formSelect();
+    $('select').html("")
+    $('select').append(`<option value="default" disabled selected>Choose District</option>`)
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/district/",
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        async: false,
+        dataType: 'json',
+        success: function(res) {
+            if (res.length > 0) {
+                res.map(item => {
+                    row = `
+                    <option value="${item.id}">${item.district}</option>
+                    `
+                    $('select').append(row)
+                })
+            }
+            $('select').formSelect();
+        },
+        error: function(e) {
+            console.log(e);
+            $('select').formSelect();
+        }
+    });
 })
 
 $("#addid").click(function() {
