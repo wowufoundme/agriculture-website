@@ -54,7 +54,7 @@
                             <span class="card-title">List of Dda</span>
                         </div>
                         <div class="col l2 m4 s6">
-                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDda"><i class="material-icons left">add</i>Add</a>
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDda"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
@@ -114,26 +114,26 @@
 
 
                 <label for="ddanumber" class="control-label"><b>Phone:</b></label>
-                <input placeholder="Phone Number" name="phone" required type="number" id="ddanumber" class="form-control" value="">
+                <input placeholder="Phone Number" name="phone" required type="number" id="ddaNumber" class="form-control" value="">
 
                 <label for="ddaemail" class="control-label"><b>Email Id:</b></label>
-                <input placeholder="Email" name="email" required type="email" id="ddaemail" class="form-control" value="">
+                <input placeholder="Email" name="email" required type="email" id="ddaEmail" class="form-control" value="">
 
 
                 <label for="districtSelect" class="control-label"><b>District Name:</b></label>
                 <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
                 <div id="districtSelect" class="input-field col xl12 form-control">
-                    <select>
-                      <option value="" disabled selected>Choose District</option>
+                    <select id="select-district">
+                      <option value="default" disabled selected>Choose District</option>
                       <option value="1">ambala</option>
                       <option value="2">karnal</option>
                     </select>
                 </div>
                 <label for="ddaUsername" class="control-label"><b>Username</b></label>
-                <input placeholder="username" name="ddausername" required type="text" id="ddaUsername" class="form-control" value="">
+                <input placeholder="username" name="ddaUsername" required type="text" id="ddaUsername" class="form-control" value="">
 
-                <label for="ddapassword" class="control-label"><b>Password:</b></label>
-                <input placeholder="Password" name="password" required type="password" id="ddapassword" class="form-control" value="">
+                <label for="ddaPassword" class="control-label"><b>Password:</b></label>
+                <input placeholder="Password" name="password" required type="password" id="ddaPassword" class="form-control" value="">
             </div>
         </div>
         <div class="modal-footer">

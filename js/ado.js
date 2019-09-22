@@ -78,6 +78,27 @@ function getData(page = 1){
     });
 }
 
+// pagination handle functions
+$(document).on("click", "#page-tab", function() {
+    // get id of the row clicked
+    var id = $(this).children('a').html()
+    getData(parseInt(id));
+});
+
+// left arrow
+$(document).on("click", "#left", function() {
+    // get id of the row clicked
+    var id = $(this).siblings('.active').children('a').html();
+    getData(parseInt(id)-1);
+});
+
+// right arrow
+$(document).on("click", "#right", function() {
+    // get id of the row clicked
+    var id = $(this).siblings('.active').children('a').html();
+    getData(parseInt(id)+1);
+});
+
 $(document).ready(function() {
     $('.modaladd').modal();
     $('.modaledit').modal();

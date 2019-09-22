@@ -78,6 +78,27 @@ function getData(page = 1){
     });
 }
 
+// pagination handle functions
+$(document).on("click", "#page-tab", function() {
+    // get id of the row clicked
+    var id = $(this).children('a').html()
+    getData(parseInt(id));
+});
+
+// left arrow
+$(document).on("click", "#left", function() {
+    // get id of the row clicked
+    var id = $(this).siblings('.active').children('a').html();
+    getData(parseInt(id)-1);
+});
+
+// right arrow
+$(document).on("click", "#right", function() {
+    // get id of the row clicked
+    var id = $(this).siblings('.active').children('a').html();
+    getData(parseInt(id)+1);
+});
+
 $(document).ready(function() {
     $('.modaladd').modal();
     $('.modaledit').modal();
@@ -86,5 +107,62 @@ $(document).ready(function() {
         $('select').formSelect();
     });
     getData();
+});
+
+// add functions
+$('#addbutton').click(function(){
+    $('#ddaText').val("");
+    $('#ddaNumber').val("");
+    $('#ddaEmail').val("");
+    $('#ddatNumber').val("");
+    $('#ddaUsername').val("");
+    $('#ddaPassword').val("");
+    $('select').val("default");
+    // re-initialize material-select
+    $('select').formSelect();
+})
+
+$("#addid").click(function() {
+    var name = $('#ddaText').val();
+    var number = $('#ddaNumber').val();
+    var email = $('#ddaEmail').val();
+    var password = $('#ddaPassword').val();
+    var username = $('#ddaUsername').val();
+    var district = $('select').val();
+    var type = 'dda'
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/user/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        data: {
+            "name": name,
+            "number": number,
+            "email": email,
+            "username": username,
+            "password": password,
+            "type_of_user": type,
+            "district": district,
+        },
+        async: true,
+        dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
+        },
+        success: function(res) {
+            console.log('add successfull')
+            $(".loading").hide();
+            console.log(res)
+            getData();
+            M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
+        },
+        error: function(e) {
+            console.log(e);
+            M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+        }
+    });
 });
 
