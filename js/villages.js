@@ -13,9 +13,9 @@ function getData(page = 1){
         async: false,
         dataType: 'json',
         beforeSend: function() {
-            $(".loading").show();
-            $("tbody").html("");
             $(".pagination").html("");
+            $("tbody").html("");
+            $(".loading").show();
         },
         success: function(res) {
             if (res.results.length > 0) {
@@ -103,6 +103,94 @@ $(document).ready(function() {
 
     getData();
 });
+
+// edit functions to set data in the fields of modal and make request
+//set data when modal is shown
+$(document).on("click", "#editbutton", function() {
+    // get id of the row clicked
+    var id = $(this).parent().parent().attr('key');
+    var village = $(this).parent().siblings('#title');
+    // set id of the row to the modal
+    $("#editVillage").attr("key", id);
+    $('#villageName').val(village.html());
+});
+
+$("#edit").click(function() {
+    var id = $("#editVillage").attr("key");
+    var villageName = $('#villageName').val();
+    $.ajax({
+        url: `http://13.235.100.235:8000/api/village/${id}/`,
+        type: 'PUT',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        data: {
+            "village": villageName,
+        },
+        async: true,
+        dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+            $('tbody').html("")
+        },
+        success: function(res) {
+            console.log('edit successfull')
+            var page = $('.pagination').children('.active').children('a').html();
+            M.toast({ html: 'District has been changed!!', classes: 'rounded green center' })
+            getData(parseInt(page));
+            $(".loading").hide();
+        },
+        error: function(e) {
+            console.log(e);
+            var page = $('.pagination').children('.active').children('a').html();
+            getData(parseInt(page));
+            M.toast({ html: 'Some error occured.No changes!!', classes: 'rounded red' })
+        }
+    });
+});
+
+// delete functions to set data in the fields of modal and make request
+//set data when modal is shown
+$(document).on("click","#deletebutton",function() {
+    // get id of the row clicked
+    var id = $(this).parent().parent().attr('key');
+    // set id of the row to the modal
+    $("#deleteVillage").attr("key", id);
+});
+
+$("#delete").click(function() {
+    var id = $("#deleteVillage").attr("key");
+    $.ajax({
+        url: `http://13.235.100.235:8000/api/village/${id}/`,
+        type: 'DELETE',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        async: true,
+        dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+            $('tbody').html("")
+        },
+        success: function(res) {
+            console.log('delete successfull')
+            var page = $('.pagination').children('.active').children('a').html();
+            getData();
+            M.toast({ html: 'District deleted successfully', classes: 'rounded green' })
+        },
+        error: function(e) {
+            console.log(e);
+            var page = $('.pagination').children('.active').children('a').html();
+            getData();
+            M.toast({ html: 'Some error occured.No changes!!', classes: 'rounded red' })
+        }
+    });
+});
+
+$('#addbutton').click(function(){
+    $('#villageText').val("");
+    $('#villageCode').val("");
+})
 
 $("#addid").click(function() {
     var villageName = $('#villageText').val();
