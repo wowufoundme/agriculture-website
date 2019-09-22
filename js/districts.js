@@ -40,12 +40,12 @@
         $('.modaledit').modal();
         $('.modaldelete').modal();
 
-        $("#editbutton").click(function() {
-            alert('response');
-            var item = $(this).closest('tr');
-            console.log(item);
-            alert('no response');
-        });
+        // $("#editbutton").click(function() {
+        //     alert('response');
+        //     var item = $(this).closest('tr');
+        //     console.log(item);
+        //     alert('no response');
+        // });
 
         getData();
 
@@ -111,6 +111,7 @@
             },
             success: function(res) {
                 console.log('edit successfull')
+                M.toast({ html: 'District has been changed!!', classes: 'rounded green center' })
                 getData();
                 // $(".loading").hide();
                 console.log(res)
@@ -118,6 +119,7 @@
             error: function(e) {
                 console.log(e);
                 getData();
+                M.toast({ html: 'Some error occured.No changes!!', classes: 'rounded red' })
             }
         });
     });
@@ -151,7 +153,7 @@
                 getData();
                 // $(".loading").hide();
                 console.log(res)
-                M.toast({ html: 'District has been changed!!', classes: 'rounded green center' })
+                M.toast({ html: 'District deleted successfully', classes: 'rounded green' })
             },
             error: function(e) {
                 console.log(e);
