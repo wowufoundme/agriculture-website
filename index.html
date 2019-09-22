@@ -2,99 +2,77 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Admin Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/materialize.min.css">
+    <link rel="stylesheet" href="css/registerstyle.css">
 </head>
 
 <body>
+    <div class="container">
+        <div id="heading" class="row">
+            <div class="col xl12 l12 m12 s12">
+                <h4>Welcome</h4>
+            </div>
+        </div>
+        <div class="card white darken-1">
+            <div class="card-content">
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form" action="districts.html" method="POST">
-                    <span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-                    <span class="login100-form-title p-b-48">
-                        <!-- <i class="zmdi zmdi-font"></i> -->
-                        ADMIN
-					</span>
-
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-                        <input class="input100" type="text" name="email">
-                        <span class="focus-input100" data-placeholder="Email"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-                        <input class="input100" type="password" name="pass">
-                        <span class="focus-input100" data-placeholder="Password"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-								Login
-                                </button>
+                <div class="form-group">
+                    <div class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <h5>Login</h5>
                         </div>
                     </div>
-
-                    <div class="text-center p-t-115">
-                        <span class="txt1">
-							<a href="#">Forgot password?</a>
-						</span>
+                    <div class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <div class="input-field inline">
+                                <input id="inputusername" type="text" class="validate">
+                                <label for="inputusername">Username</label>
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                    <div class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <div class="input-field inline">
+                                <input id="inputpassword" type="password" class="validate">
+                                <label for="inputpassword">Password</label>
+                                <span class="helper-text" data-error="wrong" data-success="right"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btnrow" class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <a id="loginbtn" class="waves-effect blue lighten-1 waves-light btn ">Login</a>
+                        </div>
+                    </div>
+                    <center class="loading">
+                        <div class="preloader-wrapper big active">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                </div>
             </div>
         </div>
     </div>
-
-
-    <div id="dropDownSelect1"></div>
-
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="js/main.js"></script>
-
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="lib/materialize.min.js "></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
