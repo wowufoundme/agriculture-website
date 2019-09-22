@@ -98,15 +98,22 @@
         <div class="modal-content">
             <h4>Add Dda</h4>
             <div class="form-group">
-                <label class="control-label"><b>Dda name:</b></label>
+                <label for="ddaText" class="control-label"><b>Dda name:</b></label>
                 <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="">
-                <label class="control-label"><b>District Name:</b></label>
-                <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value="">
-                <label class="control-label"><b>Phone:</b></label>
+                <label for="districtSelect" class="control-label"><b>District Name:</b></label>
+                <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
+                <div id="districtSelect" class="input-field col xl12">
+                    <select>
+                      <option value="" disabled selected>Choose District</option>
+                      <option value="1">ambala</option>
+                      <option value="2">karnal</option>
+                    </select>
+                </div>
+                <label for="ddanumber" class="control-label"><b>Phone:</b></label>
                 <input placeholder="Phone Number" name="phone" required type="number" id="ddanumber" class="form-control" value="">
-                <label class="control-label"><b>Email Id:</b></label>
+                <label for="ddaemail" class="control-label"><b>Email Id:</b></label>
                 <input placeholder="Email" name="email" required type="email" id="ddaemail" class="form-control" value="">
-                <label class="control-label"><b>Password:</b></label>
+                <label for="ddapassword" class="control-label"><b>Password:</b></label>
                 <input placeholder="Password" name="password" required type="password" id="ddapassword" class="form-control" value="">
             </div>
 
@@ -121,13 +128,21 @@
         <div class="modal-content">
             <h4>Edit</h4>
             <div class="form-group">
-                <label class="control-label"><b>Dda name:</b></label>
+                <label for="ddaText" class="control-label"><b>Dda name:</b></label>
                 <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="">
-                <label class="control-label"><b>District Name:</b></label>
-                <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value="">
-                <label class="control-label"><b>Phone:</b></label>
+                <label for="editdistrict" class="control-label"><b>District Name:</b></label>
+                <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
+                <div id="editdistrict" class="input-field col xl12">
+                    <select>
+                      <option value="" disabled selected>Choose District</option>
+                      <option value="1">ambala</option>
+                      <option value="2">karnal</option>
+                    </select>
+                </div>
+
+                <label for="ddanumber" class="control-label"><b>Phone:</b></label>
                 <input placeholder="Phone Number" name="phone" required type="number" id="ddanumber" class="form-control" value="">
-                <label class="control-label"><b>Email Id:</b></label>
+                <label for="ddaemail" class="control-label"><b>Email Id:</b></label>
                 <input placeholder="Email" name="email" required type="email" id="ddaemail" class="form-control" value="">
             </div>
         </div>
