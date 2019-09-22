@@ -40,13 +40,6 @@
         $('.modaledit').modal();
         $('.modaldelete').modal();
 
-        // $("#editbutton").click(function() {
-        //     alert('response');
-        //     var item = $(this).closest('tr');
-        //     console.log(item);
-        //     alert('no response');
-        // });
-
         getData();
 
     });
