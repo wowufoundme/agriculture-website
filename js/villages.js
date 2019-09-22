@@ -124,11 +124,14 @@ $("#addid").click(function() {
         dataType: 'json',
         beforeSend: function() {
             $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
         },
         success: function(res) {
             console.log('add successfull')
             $(".loading").hide();
             console.log(res)
+            getData();
             M.toast({ html: 'Village added succesfully!!', classes: 'rounded green' })
         },
         error: function(e) {
