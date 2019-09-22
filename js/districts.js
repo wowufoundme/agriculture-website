@@ -64,33 +64,6 @@
         $('#districtName').val(district.html());
     });
 
-    // $('#delete').click(function() {
-    //     var deleteid = $("#deletedistrict").attr("key");
-    //     console.log("deleteid:" + deleteid);
-    //     $.ajax({
-    //         url: `http://13.235.100.235:8000/api/district/${deleteid}/`,
-    //         type: 'DELETE',
-    //         headers: {
-    //             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
-    //         },
-    //         async: true,
-    //         dataType: 'json',
-    //         beforeSend: function() {
-    //             $(".loading").show();
-    //         },
-    //         success: function(res) {
-    //             console.log('edit successfull')
-    //             $(".loading").hide();
-    //             console.log(res)
-    //             M.toast({ html: 'District deleted successfully', classes: 'rounded green' })
-    //         },
-    //         error: function(e) {
-    //             console.log(e);
-    //             M.toast({ html: 'Some error occured.District not deleted!!', classes: 'rounded red' })
-    //         }
-    //     })
-    // });
-
     $("#edit").click(function() {
         var id = $("#editDistrict").attr("key");
         var districtName = $('#districtName').val();
@@ -163,6 +136,11 @@
         });
     });
 
+    $('#addbutton').click(function(){
+        $('#districtText').val("");
+        $('#districtCode').val("");
+    })
+
     $("#addid").click(function() {
         var districtName = $('#districtText').val();
         var districtCode = $('#districtCode').val();
@@ -182,16 +160,19 @@
             async: true,
             dataType: 'json',
             beforeSend: function() {
+                $('.table-body').html("")
                 $(".loading").show();
             },
             success: function(res) {
                 console.log('add successfull')
                 $(".loading").hide();
                 console.log(res)
+                getData();
                 M.toast({ html: 'District added succesfully!!', classes: 'rounded green' })
             },
             error: function(e) {
                 console.log(e);
+                getData();
                 M.toast({ html: 'Some error occured.District not added!!', classes: 'rounded red' })
             }
         });
@@ -199,6 +180,6 @@
 
     $("#cancelid").click(function() {
         console.log('Cancel clicked')
-        $('districtText').val("");
-        $('districtCode').val("");
+        $('#districtText').val("");
+        $('#districtCode').val("");
     });
