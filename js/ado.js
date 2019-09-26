@@ -103,6 +103,7 @@ $(document).ready(function() {
     $('.modaladd').modal();
     $('.modaledit').modal();
     $('.modaldelete').modal();
+    $('.modalbulk').modal();
     $(document).ready(function() {
         $('select').formSelect();
     });

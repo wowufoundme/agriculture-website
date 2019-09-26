@@ -40,7 +40,7 @@ $(document).ready(function() {
     $('.modaladd').modal();
     $('.modaledit').modal();
     $('.modaldelete').modal();
-
+    $('.modalbulk').modal();
     getData();
 
 });

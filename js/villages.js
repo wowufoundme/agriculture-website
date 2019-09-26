@@ -1,5 +1,5 @@
 // get data for specified page
-function getData(page = 1){
+function getData(page = 1) {
     if (page !== 1)
         url = `http://13.235.100.235:8000/api/villages-list/?page=${page}`
     else
@@ -32,28 +32,28 @@ function getData(page = 1){
                     `
                     $('tbody').append(row)
                 })
-                arrow_left_enabled = 
-                `
+                arrow_left_enabled =
+                    `
                     <li id="left" class="waves-effect">
                         <a href="#!">
                             <i class="material-icons">chevron_left</i>
                         </a>
                     </li>
                 `
-                if(page!==1){
+                if (page !== 1) {
                     $('.pagination').append(arrow_left_enabled);
                 }
-                for(var i=0;i<res.count/10;i++){
+                for (var i = 0; i < res.count / 10; i++) {
                     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
-                    if(i===page-1){
+                    if (i === page - 1) {
                         $('.pagination').append(active_tab);
-                    }else{
+                    } else {
                         $('.pagination').append(page_tab);
                     }
                 }
 
-                if(res.count > 10 && page - 1 !== parseInt(res.count/10)){
+                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
                     arrow_right = `
                         <li id="right" class="waves-effect">
                             <a href="#!">
@@ -86,20 +86,21 @@ $(document).on("click", "#page-tab", function() {
 $(document).on("click", "#left", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id)-1);
+    getData(parseInt(id) - 1);
 });
 
 // right arrow
 $(document).on("click", "#right", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id)+1);
+    getData(parseInt(id) + 1);
 });
 
 $(document).ready(function() {
     $('.modaladd').modal();
     $('.modaledit').modal();
     $('.modaldelete').modal();
+    $('.modalbulk').modal();
 
     getData();
 });
@@ -151,7 +152,7 @@ $("#edit").click(function() {
 
 // delete functions to set data in the fields of modal and make request
 //set data when modal is shown
-$(document).on("click","#deletebutton",function() {
+$(document).on("click", "#deletebutton", function() {
     // get id of the row clicked
     var id = $(this).parent().parent().attr('key');
     // set id of the row to the modal
@@ -187,7 +188,7 @@ $("#delete").click(function() {
     });
 });
 
-$('#addbutton').click(function(){
+$('#addbutton').click(function() {
     $('#villageText').val("");
     $('#villageCode').val("");
 })
