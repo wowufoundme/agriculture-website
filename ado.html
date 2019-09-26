@@ -50,11 +50,14 @@
             <div class="card white darken-1">
                 <div class="card-content">
                     <div class="row">
-                        <div class="col l10 m8 s6">
-                            <span class="card-title">List of Ada</span>
+                        <div class="col xl8 l8 m8 s8">
+                            <span class="card-title">List of Ado</span>
                         </div>
-                        <div class="col l2 m4 s6">
-                            <a class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo"><i class="material-icons left">add</i>Add</a>
+                        <div id="addbulkbtnid" class="col xl2 l2 m2 s2">
+                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
+                        </div>
+                        <div id="addbtnid" class="col xl2 l2 m2 s2">
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
@@ -112,18 +115,18 @@
                 <input placeholder="Name of ado" name="ado" required type="text" id="adoText" class="form-control" value="">
 
                 <label for="adonumber" class="control-label"><b>Phone:</b></label>
-                <input placeholder="Phone Number" name="phone" required type="number" id="adonumber" class="form-control" value="">
+                <input placeholder="Phone Number" name="phone" required type="number" id="adoNumber" class="form-control" value="">
 
                 <label for="adoemail" class="control-label"><b>Email Id:</b></label>
-                <input placeholder="Email" name="email" required type="email" id="adoemail" class="form-control" value="">
+                <input placeholder="Email" name="email" required type="email" id="adoEmail" class="form-control" value="">
 
                 <label for="adodistrict" class="control-label"><b>District Name:</b></label>
                 <!-- <input placeholder="Name of district" name="district_name" required type="text" id="adodistrict" class="form-control" value=""> -->
                 <div id="adodistrict" class="input-field col xl12 form-control">
                     <select>
-                      <option value="" disabled selected>Choose District</option>
+                      <!-- <option value="" disabled selected>Choose District</option>
                       <option value="1">ambala</option>
-                      <option value="2">karnal</option>
+                      <option value="2">karnal</option> -->
                     </select>
                 </div>
 
@@ -131,7 +134,7 @@
                 <input placeholder="username" name="adousername" required type="text" id="adoUsername" class="form-control" value="">
 
                 <label for="adopassword" class="control-label"><b>Password:</b></label>
-                <input placeholder="Password" name="password" required type="password" id="adopassword" class="form-control" value="">
+                <input placeholder="Password" name="password" required type="password" id="adoPassword" class="form-control" value="">
             </div>
 
         </div>
@@ -160,9 +163,9 @@
                 <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
                 <div id="editdistrict" class="input-field col xl12 form-control">
                     <select>
-                      <option value="" disabled selected>Choose District:</option>
+                      <!-- <option value="" disabled selected>Choose District:</option>
                       <option value="1">ambala</option>
-                      <option value="2">karnal</option>
+                      <option value="2">karnal</option> -->
                     </select>
                 </div>
             </div>
@@ -178,7 +181,7 @@
             <p>Are you sure you want to remove this ado?</p>
         </div>
         <div class="modal-footer">
-            <a class="modal-close waves-effect waves-green btn-flat">DELETE</a>
+            <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
@@ -196,6 +199,6 @@
 <script src="./js/ado.js"></script>
 <script src="./js/common.js"></script>
 
-
+<script src="./js/ado.js"></script>
 
 </html>

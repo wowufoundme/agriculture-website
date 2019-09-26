@@ -100,12 +100,20 @@ $(document).on("click", "#right", function() {
 });
 
 $(document).ready(function() {
+    $('.sidenav').sidenav();
     $('.modaladd').modal();
     $('.modaledit').modal();
     $('.modaldelete').modal();
     $(document).ready(function() {
         $('select').formSelect();
     });
+    if ($(window).width() < 480 && $(window).width() > 320) {
+
+        // $('a').remove();
+        $('#addbtnid').html('<a id="addbutton" class="left waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict">Add</a>')
+        $('#addbulkbtnid').html('<a id="addbulkbutton" class="left waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+        console.log("width less than 600");
+    }
     getData();
 });
 
@@ -331,5 +339,14 @@ $("#delete").click(function() {
             getData();
             M.toast({ html: 'Some error occured.No changes!!', classes: 'rounded red' })
         }
-    });
-});
+
+    })
+})
+
+// $('.dropdown-content').scroll(function() {
+//     console.log('try')
+//     console.log($(document).height() - $(this).height() == $(this).scrollTop())
+//     if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+//         alert('tada')
+//     }
+// });

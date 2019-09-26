@@ -50,16 +50,19 @@
             <div class="card white darken-1">
                 <div class="card-content">
                     <div class="row">
-                        <div class="col l10 m8 s6">
+                        <div class="col xl8 l8 m8 s6">
                             <span class="card-title">Districts</span>
                         </div>
-                        <div class="col l2 m4 s6">
+                        <div id="addbulkbtnid" class="col xl2 l2 m2 s3">
+                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
+                        </div>
+                        <div id="addbtnid" class="col xl2 l2 m2 s3">
                             <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
                     <div class="row" id="tablerow">
-                        <div class="col l12">
+                        <div class="col l12" style="overflow-x: auto">
                             <table class="responsive-table highlight centered bordered">
                                 <thead>
                                     <tr>

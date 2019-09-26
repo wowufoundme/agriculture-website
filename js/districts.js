@@ -1,4 +1,4 @@
-function getData(){
+function getData() {
     $.ajax({
         url: "http://13.235.100.235:8000/api/district/",
         type: 'GET',
@@ -27,9 +27,10 @@ function getData(){
                 $('#tablerow').after('<center>No Data Available</center>')
             }
             $(".loading").hide();
-            console.log(res)
         },
         error: function(e) {
+            $(".loading").hide();
+            $('#tablerow').after('<center>Unable to load data.Please try again..</center>')
             console.log(e);
         }
     });
@@ -92,11 +93,11 @@ $("#edit").click(function() {
 
 // delete functions to set data in the fields of modal and make request
 //set data when modal is shown
-$(document).on("click","#deletebutton",function() {
+$(document).on("click", "#deletebutton", function() {
     // get id of the row clicked
     var id = $(this).parent().parent().attr('key');
     console.log(id)
-    // set id of the row to the modal
+        // set id of the row to the modal
     $("#deleteDistrict").attr("key", id);
 });
 
@@ -129,7 +130,7 @@ $("#delete").click(function() {
     });
 });
 
-$('#addbutton').click(function(){
+$('#addbutton').click(function() {
     $('#districtText').val("");
     $('#districtCode').val("");
 })
@@ -137,8 +138,6 @@ $('#addbutton').click(function(){
 $("#addid").click(function() {
     var districtName = $('#districtText').val();
     var districtCode = $('#districtCode').val();
-    console.log(districtName);
-    console.log(districtCode);
     console.log('Add clicked')
     $.ajax({
         url: "http://13.235.100.235:8000/api/district/",
@@ -175,4 +174,12 @@ $("#cancelid").click(function() {
     console.log('Cancel clicked')
     $('#districtText').val("");
     $('#districtCode').val("");
+});
+
+$(window).scroll(function() {
+    console.log($(document).height(), $(this).height())
+    if ($(document).height() - $(this).height() == $(this).scrollTop()) {
+        // $(".loading").show();
+        console.log('done')
+    }
 });
