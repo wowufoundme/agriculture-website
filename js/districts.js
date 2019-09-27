@@ -175,11 +175,3 @@ $("#cancelid").click(function() {
     $('#districtText').val("");
     $('#districtCode').val("");
 });
-
-$(window).scroll(function() {
-    console.log($(document).height(), $(this).height())
-    if ($(document).height() - $(this).height() == $(this).scrollTop()) {
-        // $(".loading").show();
-        console.log('done')
-    }
-});
