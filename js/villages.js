@@ -234,18 +234,17 @@ $("#addid").click(function() {
 $("#csvfile").change(function() {
     var fd = new FormData();
 
-    fd.append('file', this.files[0]); // since this is your file input
-
+    fd.append('village_csv', this.files[0]); // since this is your file input
+    console.log(this.files[0])
     $.ajax({
         url: "http://13.235.100.235:8000/api/upload/villages/",
         type: 'POST',
         headers: {
-            // 'Content-Type': 'application/json',
             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
         },
-        dataType: 'json',
-        processData: false, // important
-        contentType: false, // important
+        enctype: 'multipart/form-data',
+        // dataType: 'json',
+        processData: false,
         data: {
             "village_csv": fd
         },
