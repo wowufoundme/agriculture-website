@@ -66,19 +66,42 @@ div {
     -o-transition: 1s;
 }
 
-@media screen and (min-device-width:320px) and (max-device-width: 620px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
         width: auto;
         height: auto;
     }
+    ul li {
+        min-width: 150px;
+    }
     tr th {
-        width: 100%;
-        height: 100%;
-        font-size: 1rem;
+        padding: 10px 10px 10px 10px;
+        margin: 5px 5px 5px 5px;
+        min-width: 150px;
     }
     table {
         display: block;
         overflow-x: scroll;
+    }
+    /* #listdda {
+        font-size: 18px;
+    } */
+}
+
+@media screen and (min-device-width:641px) and (-webkit-min-device-pixel-ratio: 2) {
+    tr th {
+        padding: 10px 10px 10px 10px;
+        margin: 5px 5px 5px 5px;
+        min-width: 200px;
+    }
+    /* .container {
+        width: 100%;
+        border: 1px solid black;
+    } */
+    table {
+        display: block;
+        overflow-x: scroll;
+        width: 100%;
     }
 }
