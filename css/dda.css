@@ -29,12 +29,6 @@ div {
     -o-transition: 1s;
 }
 
-.dropdown-content {
-    max-height: 350px !important;
-    overflow-y: auto !important;
-    backface-visibility: hidden !important;
-}
-
 @media screen and (min-device-width:320px) and (max-device-width: 620px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
