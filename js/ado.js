@@ -107,7 +107,7 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('select').formSelect();
     });
-    if ($(window).width() < 480 && $(window).width() > 320) {
+    if ($(window).width() < 640 && $(window).width() > 320) {
 
         // $('a').remove();
         $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict">Add</a>')
