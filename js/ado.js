@@ -107,6 +107,13 @@ $(document).ready(function() {
     $(document).ready(function() {
         $('select').formSelect();
     });
+    if ($(window).width() < 480 && $(window).width() > 320) {
+
+        // $('a').remove();
+        $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict">Add</a>')
+        $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+        console.log("width less than 600");
+    }
     getData();
 });
 

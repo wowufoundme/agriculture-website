@@ -243,7 +243,7 @@ $("#csvfile").change(function() {
             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
         },
         enctype: 'multipart/form-data',
-        // dataType: 'json',
+        contentType: false,
         processData: false,
         data: {
             "village_csv": fd

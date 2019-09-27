@@ -44,4 +44,7 @@ div {
         display: block;
         overflow-x: scroll;
     }
+    #listdda {
+        font-size: 18px;
+    }
 }
