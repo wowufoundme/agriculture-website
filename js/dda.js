@@ -290,7 +290,7 @@ $("#edit").click(function() {
         success: function(res) {
             console.log('edit successfull')
             var page = $('.pagination').children('.active').children('a').html();
-            M.toast({ html: 'District has been changed!!', classes: 'rounded green center' })
+            M.toast({ html: 'DDA has been changed!!', classes: 'rounded green center' })
             getData(parseInt(page));
             console.log(page);
             $(".loading").hide();

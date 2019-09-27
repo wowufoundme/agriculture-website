@@ -229,3 +229,32 @@ $("#addid").click(function() {
         }
     });
 });
+
+
+$("#csvfile").change(function() {
+    var fd = new FormData();
+
+    fd.append('file', this.files[0]); // since this is your file input
+
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/upload/villages/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        dataType: 'json',
+        processData: false, // important
+        contentType: false, // important
+        data: {
+            "village_csv": fd
+        },
+        success: function(res) {
+            console.log(res)
+            console.log("uploaded successfully")
+        },
+        error: function(e) {
+            console.log(e);
+            alert("An error occured, please try again.");
+        }
+    });
+});

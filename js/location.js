@@ -23,7 +23,8 @@ function getPendingData(page = 1) {
         beforeSend: function() {
             $("#paginationpending").html("");
             $("#pendingtbody").html("");
-            $("#pendingloading").show();
+            // $("#pendingloading").show();
+            $(".loading").show();
         },
         success: function(res) {
             if (res.results.length > 0) {
@@ -34,9 +35,6 @@ function getPendingData(page = 1) {
                     <td>${item.block_name + "," + item.village_name + "," + item.district}</td>
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
-                    <td>
-                        <a id="reportbtn" class="waves-effect blue lighten-1 waves-light btn">View Report</a>
-                    </td>
                 </tr>
                     `
                     $('#pendingtbody').append(row)
@@ -76,13 +74,18 @@ function getPendingData(page = 1) {
             } else {
                 $('#pendingtable').after('<center>No Data Available</center>')
             }
-            $("#pendingloading").hide();
+            // $("#pendingloading").hide();
+            $(".loading").hide();
         },
         error: function(e) {
             console.log(e);
         }
     });
 }
+
+//  <td>
+// <a id="reportbtn" class="waves-effect blue lighten-1 waves-light btn">View Report</a>
+// </td>
 
 function getOngoingData(page = 1) {
     console.log("in ongoing")
@@ -101,7 +104,8 @@ function getOngoingData(page = 1) {
         beforeSend: function() {
             $("#paginationongoing").html("");
             $("#ongoingtbody").html("");
-            $("#ongoingloading").show();
+            // $("#ongoingloading").show();
+            $(".loading").show();
         },
         success: function(res) {
             if (res.results.length > 0) {
@@ -154,7 +158,8 @@ function getOngoingData(page = 1) {
             } else {
                 $('#ongoingtable').after('<center>No Data Available</center>')
             }
-            $("#ongoingloading").hide();
+            // $("#ongoingloading").hide();
+            $(".loading").hide();
         },
         error: function(e) {
             console.log(e);
@@ -179,7 +184,8 @@ function getCompletedData(page = 1) {
         beforeSend: function() {
             $("#paginationcompleted").html("");
             $("#completedtbody").html("");
-            $("#completedloading").show();
+            // $("#completedloading").show();
+            $(".loading").show();
         },
         success: function(res) {
             if (res.results.length > 0) {
@@ -232,7 +238,8 @@ function getCompletedData(page = 1) {
             } else {
                 $('#completedtable').after('<center>No Data Available</center>')
             }
-            $("#completedloading").hide();
+            // $("#completedloading").hide();
+            $(".loading").hide();
         },
         error: function(e) {
             console.log(e);

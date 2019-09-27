@@ -24,7 +24,7 @@ function getData(page = 1) {
                 		<tr key=${item.auth_user.pk}>
                             <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
                             <td id="title">${item.name}</td>
-                            <td id="village">${item.village.village}</td>
+                            <td id="village">${item.village}</td>
                             <td id="number">${item.number}</td>
                             <td id="email">${item.email}</td>
                             <td>
@@ -118,10 +118,16 @@ $('#addbutton').click(function() {
     $('#adoEmail').val("");
     $('#adoUsername').val("");
     $('#adoPassword').val("");
-    $('select').val("default");
+    $('#selectvillage').val("default");
     // re-initialize material-select
-    $('select').html("")
-    $('select').append(`<option value="default" disabled selected>Choose District</option>`)
+    $('#selectvillage').html("")
+    $('#selectvillage').append(`<option value="default" disabled selected>Choose Village</option>`)
+
+    $('#selectdda').val("default");
+    // re-initialize material-select
+    $('#selectdda').html("")
+    $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
+
     $.ajax({
         url: "http://13.235.100.235:8000/api/village/",
         type: 'GET',
@@ -134,16 +140,43 @@ $('#addbutton').click(function() {
             if (res.length > 0) {
                 res.map(item => {
                     row = `
-                    <option value="${item.id}">${item.district}</option>
+                    <option value="${item.id}">${item.village}</option>
                     `
-                    $('select').append(row)
+                    $('#selectvillage').append(row)
                 })
             }
-            $('select').formSelect();
+            console.log("village loaded");
+            $('#selectvillage').formSelect();
         },
         error: function(e) {
             console.log(e);
-            $('select').formSelect();
+            $('#selectvillage').formSelect();
+        }
+    });
+
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/user/dda/",
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        async: false,
+        dataType: 'json',
+        success: function(res) {
+            if (res.length > 0) {
+                res.map(item => {
+                    row = `
+                    <option value="${item.id}">${item.name}</option>
+                    `
+                    $('#selectdda').append(row)
+                })
+            }
+            console.log("dda list loaded")
+            $('#selectdda').formSelect();
+        },
+        error: function(e) {
+            console.log(e);
+            $('#selectdda').formSelect();
         }
     });
 })
@@ -154,13 +187,8 @@ $("#addid").click(function() {
     var email = $('#adoEmail').val();
     var password = $('#adoPassword').val();
     var username = $('#adoUsername').val();
-    var village = $('select').val();
-    console.log(name);
-    console.log(number);
-    console.log(email)
-    console.log(password)
-    console.log(username)
-    console.log(village)
+    var village = $('#selectvillage').val();
+    var dda = $('#selectdda').val();
     var type = 'ado'
     $.ajax({
         url: "http://13.235.100.235:8000/api/user/",
@@ -176,6 +204,7 @@ $("#addid").click(function() {
             "password": password,
             "type_of_user": type,
             "village": village,
+            "dda": dda
         },
         async: true,
         dataType: 'json',
@@ -198,6 +227,133 @@ $("#addid").click(function() {
     });
 });
 
+
+
+
+// edit functions to set data in the fields of modal and make request
+//set data when modal is shown
+$(document).on("click", "#editbutton", function() {
+    // get id of the row clicked
+    var id = $(this).parent().parent().attr('key');
+    var adoname = $(this).parent().siblings('#title');
+    var adonumber = $(this).parent().siblings('#number');
+    var adoemail = $(this).parent().siblings('#email');
+
+    // set id of the row to the modal
+    $("#editAdo").attr("key", id);
+    $('#adoeditText').val(adoname.html());
+    $('#adoeditNumber').val(adonumber.html());
+    $('#adoeditEmail').val(adoemail.html());
+    $('#adoeditUsername').val("");
+
+
+    $('#selecteditvillage').val("default");
+    // re-initialize material-select
+    $('#selecteditvillage').html("")
+    $('#selecteditvillage').append(`<option value="default" disabled selected>Choose Village</option>`)
+
+    $('#selecteditdda').val("default");
+    // re-initialize material-select
+    $('#selecteditdda').html("")
+    $('#selecteditdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/village/",
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        async: false,
+        dataType: 'json',
+        success: function(res) {
+            if (res.length > 0) {
+                res.map(item => {
+                    row = `
+                    <option value="${item.id}">${item.village}</option>
+                    `
+                    $('#selecteditvillage').append(row)
+                })
+            }
+            console.log("village loaded");
+            $('#selecteditvillage').formSelect();
+        },
+        error: function(e) {
+            console.log(e);
+            $('#selecteditvillage').formSelect();
+        }
+    });
+
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/user/dda/",
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        async: false,
+        dataType: 'json',
+        success: function(res) {
+            if (res.length > 0) {
+                res.map(item => {
+                    row = `
+                    <option value="${item.id}">${item.name}</option>
+                    `
+                    $('#selecteditdda').append(row)
+                })
+            }
+            console.log("dda list loaded")
+            $('#selecteditdda').formSelect();
+        },
+        error: function(e) {
+            console.log(e);
+            $('#selecteditdda').formSelect();
+        }
+    });
+});
+
+$("#edit").click(function() {
+    console.log("Inside #editAdo")
+    var id = $("#editAdo").attr("key");
+    var name = $('#adoeditText').val();
+    var number = $('#adoeditNumber').val();
+    var email = $('#adoeditEmail').val();
+    var username = $('#adoeditUsername').val();
+    var village = $('#selecteditvillage').val();
+    console.log(village)
+    var dda = $('#selecteditdda').val();
+    $.ajax({
+        url: `http://13.235.100.235:8000/api/user/${id}/`,
+        type: 'PUT',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        data: {
+            "name": name,
+            "number": number,
+            "email": email,
+            "username": username,
+            "village": village,
+            "dda": dda
+        },
+        async: true,
+        dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+            $('tbody').html("")
+        },
+        success: function(res) {
+            console.log('edit successfull')
+            var page = $('.pagination').children('.active').children('a').html();
+            M.toast({ html: 'ADO has been changed!!', classes: 'rounded green center' })
+            getData(parseInt(page));
+            $(".loading").hide();
+        },
+        error: function(e) {
+            console.log(e);
+            var page = $('.pagination').children('.active').children('a').html();
+            getData(parseInt(page));
+            M.toast({ html: 'Some error occured.No changes!!', classes: 'rounded red' })
+        }
+    });
+});
 
 
 
@@ -240,33 +396,3 @@ $("#delete").click(function() {
 
     })
 })
-
-
-// $('.select-dropdown').scroll(function() {
-//     if ($('.select-dropdown').height() - $(this).height() == $(this).scrollTop()) {
-//         $(".loading").show();
-//         alert('tada')
-//     }
-// });
-
-
-// // Check the user is at the bottom of the element
-// if ($(window).scrollTop() + $(window).height() > $this.height() && !busy) {
-
-//     // Now we are working, so busy is true
-//     busy = true;
-
-//     // Tell the user we're loading posts
-//     $this.find('.loading-bar').html('Loading Posts');
-//     $(".loading").show();
-
-//     // Run the function to fetch the data inside a delay
-//     // This is useful if you have content in a footer you
-//     // want the user to see.
-//     setTimeout(function() {
-//         // This is the Ajax function                    
-//         getData();
-
-//     }, $settings.delay);
-
-// }

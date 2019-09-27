@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Admin page</title>
 
@@ -146,10 +145,19 @@
     </div>
     <div id="addBulk" class="modal modalbulk">
         <div class="modal-content">
-            <p>Press UPLOAD CSV for uploading the villages.</p>
+            <form action="#">
+                <div class="file-field input-field inline row">
+                    <div class="btn col xl4 l4 m12 s12">
+                        <span>UPLOAD CSV</span>
+                        <input id="csvfile" type="file">
+                    </div>
+                    <div class="file-path-wrapper col xl8 l8 m12 s12">
+                        <input id="csvpath" class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
-            <a id="delete" class="modal-close waves-effect waves-green btn-flat">UPLOAD CSV</a>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>

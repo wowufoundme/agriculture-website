@@ -57,7 +57,7 @@
                             <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
                         </div>
                         <div id="addbtnid" class="col xl2 l2 m2 s2">
-                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@
                                     <tr>
                                         <th>S.No.</th>
                                         <th>Ado Name</th>
-                                        <th>District</th>
+                                        <th>Village</th>
                                         <th>Phone No.</th>
                                         <th>Email</th>
                                         <th>Options</th>
@@ -120,13 +120,13 @@
                 <label for="adoemail" class="control-label"><b>Email Id:</b></label>
                 <input placeholder="Email" name="email" required type="email" id="adoEmail" class="form-control" value="">
 
-                <label for="adodistrict" class="control-label"><b>District Name:</b></label>
-                <!-- <input placeholder="Name of district" name="district_name" required type="text" id="adodistrict" class="form-control" value=""> -->
-                <div id="adodistrict" class="input-field col xl12 form-control">
-                    <select>
-                      <!-- <option value="" disabled selected>Choose District</option>
-                      <option value="1">ambala</option>
-                      <option value="2">karnal</option> -->
+                <div id="adovillage" class="input-field col xl12 l12 m12 s12 form-control">
+                    <select multiple id="selectvillage">
+                    </select>
+                </div>
+
+                <div id="ddalist" class="input-field col xl12 l12 m12 s12 form-control">
+                    <select id="selectdda">
                     </select>
                 </div>
 
@@ -149,29 +149,31 @@
             <h4>Edit</h4>
             <div class="form-group">
                 <label for="adoText" class="control-label"><b>Ado name:</b></label>
-                <input placeholder="Name of ado" name="ado" required type="text" id="adoText" class="form-control" value="">
+                <input placeholder="Name of ado" name="ado" required type="text" id="adoeditText" class="form-control" value="">
 
                 <label for="adoUsername" class="control-label"><b>Username:</b></label>
-                <input placeholder="username" name="adousername" required type="text" id="adoUsername" class="form-control" value="">
+                <input placeholder="username" name="adousername" required type="text" id="adoeditUsername" class="form-control" value="">
 
                 <label for="adonumber" class="control-label"><b>Phone:</b></label>
-                <input placeholder="Phone Number" name="phone" required type="number" id="adonumber" class="form-control" value="">
+                <input placeholder="Phone Number" name="phone" required type="number" id="adoeditNumber" class="form-control" value="">
 
                 <label for="adoemail" class="control-label"><b>Email Id:</b></label>
-                <input placeholder="Email" name="email" required type="email" id="adoemail" class="form-control" value="">
-                <label for="editdistrict" class="control-label"><b>District Name:</b></label>
-                <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
-                <div id="editdistrict" class="input-field col xl12 form-control">
-                    <select>
-                      <!-- <option value="" disabled selected>Choose District:</option>
-                      <option value="1">ambala</option>
-                      <option value="2">karnal</option> -->
+                <input placeholder="Email" name="email" required type="email" id="adoeditEmail" class="form-control" value="">
+
+                <div id="adoeditvillage" class="input-field col xl12 l12 m12 s12 form-control">
+                    <select multiple id="selecteditvillage">
                     </select>
                 </div>
+
+                <div id="ddaeditlist" class="input-field col xl12 l12 m12 s12 form-control">
+                    <select id="selecteditdda">
+                    </select>
+                </div>
+
             </div>
         </div>
         <div class="modal-footer">
-            <a class="modal-close waves-effect waves-green btn-flat">OK</a>
+            <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
@@ -188,10 +190,19 @@
 
     <div id="addBulk" class="modal modalbulk">
         <div class="modal-content">
-            <p>Press UPLOAD CSV for uploading the file.</p>
+            <form action="#">
+                <div class="file-field input-field inline row">
+                    <div class="btn col xl4 l4 m12 s12">
+                        <span>UPLOAD CSV</span>
+                        <input type="file">
+                    </div>
+                    <div class="file-path-wrapper col xl8 l8 m12 s12">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
-            <a id="delete" class="modal-close waves-effect waves-green btn-flat">UPLOAD CSV</a>
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
@@ -209,6 +220,5 @@
 <script src="./js/ado.js"></script>
 <script src="./js/common.js"></script>
 
-<script src="./js/ado.js"></script>
 
 </html>

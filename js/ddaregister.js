@@ -5,7 +5,6 @@ $(document).ready(function() {
     $('#ddaemail').val("");
     $('#ddapassword').val("");
     $('#ddausername').val("");
-    $('#ddadistrict').val("");
     $('select').val("default");
     $('select').html("")
     $('select').append(`<option value="default" disabled selected>Choose District</option>`)
@@ -73,7 +72,6 @@ $("#ddasignupbtn").click(function() {
             $('#ddaemail').val("");
             $('#ddapassword').val("");
             $('#ddausername').val("");
-            $('#ddadistrict').val("");
             $('select').val("default");
             $('select').html("")
             $('select').append(`<option value="default" disabled selected>Choose District</option>`)
