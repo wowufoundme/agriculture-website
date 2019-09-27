@@ -11,6 +11,12 @@ div {
     box-sizing: border-box;
 }
 
+
+/* table {
+    display: block;
+    overflow-x: scroll;
+} */
+
 .container {
     margin-top: 2%;
     margin-bottom: 2%;
@@ -29,7 +35,7 @@ div {
     -o-transition: 1s;
 }
 
-@media screen and (min-device-width:320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-device-width:320px) and (max-device-width: 620px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
         width: auto;
@@ -37,5 +43,9 @@ div {
     }
     tr {
         width: 100%;
+    }
+    table {
+        display: block;
+        overflow-x: scroll;
     }
 }

@@ -240,6 +240,7 @@ $("#csvfile").change(function() {
         url: "http://13.235.100.235:8000/api/upload/villages/",
         type: 'POST',
         headers: {
+            // 'Content-Type': 'application/json',
             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
         },
         dataType: 'json',

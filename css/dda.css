@@ -35,7 +35,7 @@ div {
     backface-visibility: hidden !important;
 }
 
-@media screen and (min-device-width:320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-device-width:320px) and (max-device-width: 620px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
         width: auto;
@@ -45,5 +45,9 @@ div {
         width: 100%;
         height: 100%;
         font-size: 1rem;
+    }
+    table {
+        display: block;
+        overflow-x: scroll;
     }
 }
