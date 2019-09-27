@@ -38,7 +38,6 @@ div {
     tr th {
         padding: 10px 10px 10px 10px;
         margin: 5px 5px 5px 5px;
-        border: 1px solid black;
         min-width: 150px;
     }
     table {
@@ -66,11 +65,9 @@ div {
         font-size: 24px;
     }
     #editbutton {
-        border: 1px solid black;
         display: block;
     }
     #deletebutton {
-        border: 1px solid black;
         display: block;
     }
 }
@@ -79,20 +76,22 @@ div {
     tr th {
         padding: 10px 10px 10px 10px;
         margin: 5px 5px 5px 5px;
-        border: 1px solid black;
         min-width: 150px;
     }
     #editbutton {
-        border: 1px solid black;
         display: block;
     }
     #deletebutton {
-        border: 1px solid black;
         display: block;
     }
+    /* .container {
+        width: 100%;
+        border: 1px solid black;
+    } */
     table {
         display: block;
         overflow-x: scroll;
+        width: 100%;
     }
     #titledda {
         position: relative;

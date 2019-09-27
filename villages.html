@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>Admin page</title>
+    <title>Villages page</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,7 +14,7 @@
 <body>
 
     <div id="navid" class="navbar-toggleable-lg navbar-expand-lg">
-        <nav class="light-green lighten-1 s12" role="navigation">
+        <nav class="teal s12" role="navigation">
             <a data-target="slide-out" class="sidenav-trigger show-on-extra-large">
                 <i class="material-icons">menu</i>
             </a>
@@ -35,7 +35,7 @@
 
             <li><a class="sidenav-close"><i class="material-icons right">close</i></a></li>
             <li><a href="districts.html">DISTRICTS</a></li>
-            <li class="active light-green lighten-1"><a href="villages.html">VILLAGES</a></li>
+            <li class="active teal lighten-1"><a href="villages.html">VILLAGES</a></li>
             <li><a href="dda.html">DDA</a></li>
             <li><a href="ado.html">ADO</a></li>
             <li><a href="location.html">LOCATIONS</a></li>
@@ -48,21 +48,21 @@
 
             <div class="card white darken-1">
                 <div class="card-content">
-                    <div class="row">
-                        <div class="col xl8 l8 m8 s6">
-                            <span class="card-title">Villages</span>
+                    <div id="heading" class="row">
+                        <div id="titlevillage" class="col xl8 l8 m8 s4 ">
+                            <span id="listvillage " class="card-title ">Villages</span>
                         </div>
-                        <div id="addbulkbtnid" class="col xl2 l2 m2 s3">
-                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
+                        <div id="addbulkbtnid" class="col xl2 l2 m2 s4 ">
+                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger " data-target="addBulk"><i class="material-icons left ">add</i>AddBulk</a>
                         </div>
-                        <div id="addbtnid" class="col xl2 l2 m2 s3">
-                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+                        <div id="addbtnid" class="col xl2 l2 m2 s4 ">
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger " data-target="addVillage"><i class="material-icons left ">add</i>Add</a>
                         </div>
                     </div>
 
-                    <div class="row" id="tablerow">
-                        <div class="col xl12 l12">
-                            <table class="highlight centered bordered">
+                    <div class="row " id="tablerow ">
+                        <div class="col xl12 l12 ">
+                            <table class="highlight centered bordered ">
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>
@@ -75,24 +75,24 @@
                                 </tbody>
                             </table>
                         </div>
-                        <center class="loading">
-                            <div class="preloader-wrapper small active" style="margin-top: 2%">
-                                <div class="spinner-layer spinner-green-only">
-                                    <div class="circle-clipper left">
-                                        <div class="circle"></div>
+                        <center class="loading ">
+                            <div class="preloader-wrapper small active " style="margin-top: 2% ">
+                                <div class="spinner-layer spinner-green-only ">
+                                    <div class="circle-clipper left ">
+                                        <div class="circle "></div>
                                     </div>
-                                    <div class="gap-patch">
-                                        <div class="circle"></div>
+                                    <div class="gap-patch ">
+                                        <div class="circle "></div>
                                     </div>
-                                    <div class="circle-clipper right">
-                                        <div class="circle"></div>
+                                    <div class="circle-clipper right ">
+                                        <div class="circle "></div>
                                     </div>
                                 </div>
                             </div>
                         </center>
-                        <div class="row">
-                            <div class="col xl12 l12 m12 s12">
-                                <ul class="pagination center" style="margin-top: 5%">
+                        <div class="row ">
+                            <div class="col xl12 l12 m12 s12 ">
+                                <ul class="pagination center " style="margin-top: 5% ">
                                 </ul>
                             </div>
                         </div>
@@ -103,62 +103,62 @@
         </div>
     </div>
     <!-- Modals -->
-    <div id="addVillage" class="modal modaladd">
-        <div class="modal-content">
+    <div id="addVillage " class="modal modaladd ">
+        <div class="modal-content ">
             <h4>Add Village</h4>
-            <div class="form-group">
-                <label class="control-label">Village name</label>
-                <input placeholder="Name of Village" name="village" required type="text" id="villageText" class="form-control" value="">
-                <label class="control-label">Village Code</label>
-                <input placeholder="Code of Village" name="village_code" required type="number" id="villageCode" class="form-control" value="">
+            <div class="form-group ">
+                <label class="control-label ">Village name</label>
+                <input placeholder="Name of Village " name="village " required type="text " id="villageText " class="form-control " value=" ">
+                <label class="control-label ">Village Code</label>
+                <input placeholder="Code of Village " name="village_code " required type="number " id="villageCode " class="form-control " value=" ">
             </div>
 
         </div>
-        <div class="modal-footer">
-            <a id="addid" class="modal-close waves-effect waves-green btn-flat">ADD</a>
-            <a id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        <div class="modal-footer ">
+            <a id="addid " class="modal-close waves-effect waves-green btn-flat ">ADD</a>
+            <a id="cancelid " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
 
-    <div id="editVillage" class=" modal modaledit">
-        <div class="modal-content">
+    <div id="editVillage " class=" modal modaledit ">
+        <div class="modal-content ">
             <h4>Edit</h4>
-            <div class="form-group">
-                <label class="control-label">Village name</label>
-                <input placeholder="Name of Village" name="villageName" required type="text" id="villageName" class="form-control" value="">
+            <div class="form-group ">
+                <label class="control-label ">Village name</label>
+                <input placeholder="Name of Village " name="villageName " required type="text " id="villageName " class="form-control " value=" ">
             </div>
         </div>
-        <div class="modal-footer">
-            <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        <div class="modal-footer ">
+            <a id="edit " class="modal-close waves-effect waves-green btn-flat ">OK</a>
+            <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
 
-    <div id="deleteVillage" class="modal modaldelete">
-        <div class="modal-content">
+    <div id="deleteVillage " class="modal modaldelete ">
+        <div class="modal-content ">
             <p>Are you sure you want to remove this village?</p>
         </div>
-        <div class="modal-footer">
-            <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        <div class="modal-footer ">
+            <a id="delete " class="modal-close waves-effect waves-green btn-flat ">DELETE</a>
+            <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
-    <div id="addBulk" class="modal modalbulk">
-        <div class="modal-content">
-            <form method="POST">
-                <div class="file-field input-field inline row">
-                    <div class="btn col xl4 l4 m12 s12">
+    <div id="addBulk " class="modal modalbulk ">
+        <div class="modal-content ">
+            <form method="POST ">
+                <div class="file-field input-field inline row ">
+                    <div class="btn col xl4 l4 m12 s12 ">
                         <span>UPLOAD CSV</span>
-                        <input id="csvfile" type="file">
+                        <input id="csvfile " type="file ">
                     </div>
-                    <div class="file-path-wrapper col xl8 l8 m12 s12">
-                        <input id="csvpath" class="file-path validate" type="text">
+                    <div class="file-path-wrapper col xl8 l8 m12 s12 ">
+                        <input id="csvpath " class="file-path validate " type="text ">
                     </div>
                 </div>
             </form>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+        <div class="modal-footer ">
+            <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
 
@@ -167,12 +167,12 @@
 
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="lib/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="lib/materialize.min.js "></script>
 
 </body>
-<script src="js/villages.js"></script>
-<script src="js/common.js"></script>
+<script src="js/villages.js "></script>
+<script src="js/common.js "></script>
 
 
 

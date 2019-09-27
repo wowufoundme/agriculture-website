@@ -33,19 +33,90 @@ span {
     font-size: 20px;
 }
 
-@media screen and (min-device-width:320px) and (max-device-width: 620px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
         width: auto;
         height: auto;
     }
     tr th {
-        width: 100%;
-        height: 100%;
-        font-size: 1rem;
+        padding: 10px 10px 10px 10px;
+        margin: 5px 5px 5px 5px;
+        border: 1px solid black;
+        min-width: 150px;
     }
     table {
         display: block;
         overflow-x: scroll;
+        width: 100%;
+    }
+    #titlevillage {
+        border: 1px solid black;
+        position: relative;
+        width: 45%;
+        margin: 5px 5px 5px 5px;
+    }
+    #addbulkbtnid,
+    #addbtnid {
+        border: 1px solid black;
+        float: right;
+        position: relative;
+        margin: 5px 5px 5px 5px;
+        width: 45%;
+    }
+    #listvillage,
+    a {
+        min-width: 100px;
+        font-size: 24px;
+    }
+    #editbutton {
+        border: 1px solid black;
+        display: block;
+    }
+    #deletebutton {
+        border: 1px solid black;
+        display: block;
+    }
+}
+
+@media screen and (min-device-width:641px) and (-webkit-min-device-pixel-ratio: 2) {
+    tr th {
+        padding: 10px 10px 10px 10px;
+        margin: 5px 5px 5px 5px;
+        border: 1px solid black;
+        min-width: 175px;
+    }
+    #editbutton {
+        border: 1px solid black;
+        display: block;
+    }
+    #deletebutton {
+        border: 1px solid black;
+        display: block;
+    }
+    table {
+        display: block;
+        overflow-x: scroll;
+        /* width: 100%; */
+    }
+    #titlevillage {
+        position: relative;
+        /* border: 1px solid black; */
+        width: 30%;
+        margin: 5px 5px 5px 5px;
+    }
+    #addbulkbtnid {
+        float: right;
+        position: relative;
+        /* border: 1px solid black; */
+        margin: 5px 5px 5px 5px;
+        width: 30%;
+    }
+    #addbtnid {
+        float: right;
+        position: relative;
+        /* border: 1px solid black; */
+        margin: 5px 5px 5px 5px;
+        width: 30%;
     }
 }
