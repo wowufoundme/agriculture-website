@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>Admin page</title>
+    <title>Districts page</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
     <!-- loading initial -->
     <div id="navid" class="navbar-toggleable-lg navbar-expand-lg">
-        <nav class="light-green lighten-1 s12" role="navigation">
+        <nav class="teal s12" role="navigation">
             <a data-target="slide-out" class="sidenav-trigger show-on-large">
                 <i class="material-icons">menu</i>
             </a>
@@ -35,7 +35,7 @@
         <ul id="slide-out" class="sidenav invesible-top">
 
             <li><a class="sidenav-close" href="#!"><i class="material-icons right">close</i></a></li>
-            <li class="active light-green lighten-1"><a href="districts.html">DISTRICTS</a></li>
+            <li class="active teal lighten-1"><a href="districts.html">DISTRICTS</a></li>
             <li><a href="villages.html">VILLAGES</a></li>
             <li><a href="dda.html">DDA</a></li>
             <li><a href="ado.html">ADO</a></li>
@@ -49,15 +49,15 @@
 
             <div class="card white darken-1">
                 <div class="card-content">
-                    <div class="row">
-                        <div class="col xl8 l8 m8 s4">
-                            <span class="card-title">Districts</span>
+                    <div id="heading" class="row">
+                        <div id="titledistrict" class="col xl8 l8 m8 s4">
+                            <span id="listdistrict" class="card-title">Districts</span>
                         </div>
                         <div id="addbulkbtnid" class="col xl2 l2 m2 s4">
-                            <a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
+                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
                         </div>
                         <div id="addbtnid" class="col xl2 l2 m2 s4">
-                            <a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
