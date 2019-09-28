@@ -5,9 +5,9 @@ $(document).ready(function() {
     $('#adoemail').val("");
     $('#adopassword').val("");
     $('#adousername').val("");
-    $('select').val("default");
-    $('select').html("")
-    $('select').append(`<option value="default" disabled selected>Choose Village</option>`)
+    $('#select-village').val("default");
+    $('#select-village').html("")
+    $('#select-village').append(`<option value="default" disabled selected>Choose Village</option>`)
 
     $('#selectdda').val("default");
     $('#selectdda').html("");
@@ -27,15 +27,15 @@ $(document).ready(function() {
                     row = `
                     <option value="${item.id}">${item.village}</option>
                     `
-                    $('select').append(row)
+                    $('#select-village').append(row)
                 })
             }
             console.log("villages loaded")
-            $('select').formSelect();
+            $('#select-village').formSelect();
         },
         error: function(e) {
             console.log(e);
-            $('select').formSelect();
+            $('#select-village').formSelect();
         }
     });
 
@@ -90,10 +90,10 @@ $("#adosignupbtn").click(function() {
             'username': username,
             'password': password,
             'type_of_user': type,
-            'village': village.map(id=>(parseInt(id))),
+            'village': village.map(id => (parseInt(id))),
             'dda': parseInt(dda)
         },
-    console.log(data)
+        console.log(data)
     $.ajax({
         url: "http://13.235.100.235:8000/api/user/",
         type: 'POST',
@@ -103,7 +103,7 @@ $("#adosignupbtn").click(function() {
         contentType: 'application/json',
         data: JSON.stringify(data),
         processData: false,
-        beforeSend: function(res) {console.log(res)},
+        beforeSend: function(res) { console.log(res) },
         success: function(res) {
             console.log('Registration successfull')
             $(".loading").hide();

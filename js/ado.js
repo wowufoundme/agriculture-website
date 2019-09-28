@@ -147,7 +147,6 @@ $('#addbutton').click(function() {
     // re-initialize material-select
     $('#selectdda').html("")
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
-}, function getdropdown() {
     $.ajax({
         url: "http://13.235.100.235:8000/api/village/",
         type: 'GET',
@@ -220,23 +219,25 @@ $("#addid").click(function() {
     console.log(village)
     var dda = $('#selectdda').val();
     var type = 'ado'
+    var data = {
+        "name": name,
+        "number": number,
+        "email": email,
+        "username": username,
+        "password": password,
+        "type_of_user": type,
+        "village": village.map(id => (parseInt(id))),
+        "dda": parseInt(dda)
+    }
     $.ajax({
         url: "http://13.235.100.235:8000/api/user/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
         },
-        data: {
-            "name": name,
-            "number": number,
-            "email": email,
-            "username": username,
-            "password": password,
-            "type_of_user": type,
-            "village": village,
-            "dda": dda
-        },
-        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        processData: false,
         dataType: 'json',
         beforeSend: function() {
             $(".loading").show();
@@ -349,21 +350,23 @@ $("#edit").click(function() {
     var village = $('#selecteditvillage').val();
     console.log(village)
     var dda = $('#selecteditdda').val();
+    var data = {
+        "name": name,
+        "number": number,
+        "email": email,
+        "username": username,
+        "village": village.map(id => (parseInt(id))),
+        "dda": parseInt(dda)
+    }
     $.ajax({
         url: `http://13.235.100.235:8000/api/user/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
         },
-        data: {
-            "name": name,
-            "number": number,
-            "email": email,
-            "username": username,
-            "village": village,
-            "dda": dda
-        },
-        async: true,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        processData: false,
         dataType: 'json',
         beforeSend: function() {
             $(".loading").show();
