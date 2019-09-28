@@ -2,10 +2,15 @@ var token = localStorage.getItem("TokenFile")
 
 
 $(document).ready(function() {
-    $('.tabs').tabs();
-    getPendingData();
-    getOngoingData();
-    getCompletedData();
+    if (token == null) {
+        window.location.href = "index.html"
+    } else {
+        $('.tabs').tabs();
+        getPendingData();
+        getOngoingData();
+        getCompletedData();
+    }
+
     // var index = $('li a[href="#ongoing"]').parent().index();
     // console.log(index);
     // if(index==0){

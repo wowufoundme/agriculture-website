@@ -1,6 +1,31 @@
 // get data for specified page
 var token = localStorage.getItem("TokenFile")
 
+$(document).ready(function() {
+
+    if (token == null) {
+        window.location.href = "index.html"
+    } else {
+        $('.modaladd').modal();
+        $('.modaledit').modal();
+        $('.modaldelete').modal();
+        $('.modalbulk').modal();
+
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+        if ($(window).width() < 640 && $(window).width() > 320) {
+
+            // $('a').remove();
+            $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo">Add</a>')
+            $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+            console.log("width less than 600");
+        }
+        getData();
+    }
+
+});
+
 function getData(page = 1) {
     if (page !== 1)
         url = `http://13.235.100.235:8000/api/users-list/ado/?page=${page}`
@@ -109,30 +134,11 @@ $(window).load(function() {
     $("#loader").hide();
 });
 
-$(document).ready(function() {
 
-    $('.modaladd').modal();
-    $('.modaledit').modal();
-    $('.modaldelete').modal();
-    $('.modalbulk').modal();
-
-    $(document).ready(function() {
-        $('select').formSelect();
-    });
-    if ($(window).width() < 640 && $(window).width() > 320) {
-
-        // $('a').remove();
-        $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo">Add</a>')
-        $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
-        console.log("width less than 600");
-    }
-    getData();
-});
 
 
 // add functions
 $('#addbutton').click(function() {
-    $("#loader").show();
     $('#adoText').val("");
     $('#adoNumber').val("");
     $('#adoEmail').val("");
@@ -155,9 +161,6 @@ $('#addbutton').click(function() {
         },
         async: true,
         dataType: 'json',
-        beforeSend: function before() {
-            $("#loader").show();
-        },
         success: function(res) {
             if (res.length > 0) {
                 res.map(item => {
@@ -167,12 +170,10 @@ $('#addbutton').click(function() {
                     $('#selectvillage').append(row)
                 })
             }
-            $("#loader").hide();
             console.log("village loaded");
             $('#selectvillage').formSelect();
         },
         error: function(e) {
-            $("#loader").hide();
             console.log(e);
             $('#selectvillage').formSelect();
         }
@@ -195,12 +196,10 @@ $('#addbutton').click(function() {
                     $('#selectdda').append(row)
                 })
             }
-            $("#loader").hide();
             console.log("dda list loaded")
             $('#selectdda').formSelect();
         },
         error: function(e) {
-            $("#loader").hide();
             console.log(e);
             $('#selectdda').formSelect();
         }

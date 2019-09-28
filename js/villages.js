@@ -1,6 +1,28 @@
 // get data for specified page
 var token = localStorage.getItem("TokenFile")
 
+$(document).ready(function() {
+
+    if (token == null) {
+        window.location.href = "index.html"
+    } else {
+        $('.modaladd').modal();
+        $('.modaledit').modal();
+        $('.modaldelete').modal();
+        $('.modalbulk').modal();
+        if ($(window).width() < 640 && $(window).width() > 320) {
+
+            // $('a').remove();
+            $('#addbtnid').html('<a id="addbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addVillage">Add</a>')
+            $('#addbulkbtnid').html('<a id="addbulkbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+            console.log("width less than 600");
+        }
+
+        getData();
+    }
+
+});
+
 function getData(page = 1) {
     if (page !== 1)
         url = `http://13.235.100.235:8000/api/villages-list/?page=${page}`
@@ -98,21 +120,7 @@ $(document).on("click", "#right", function() {
     getData(parseInt(id) + 1);
 });
 
-$(document).ready(function() {
-    $('.modaladd').modal();
-    $('.modaledit').modal();
-    $('.modaldelete').modal();
-    $('.modalbulk').modal();
-    if ($(window).width() < 640 && $(window).width() > 320) {
 
-        // $('a').remove();
-        $('#addbtnid').html('<a id="addbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addVillage">Add</a>')
-        $('#addbulkbtnid').html('<a id="addbulkbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
-        console.log("width less than 600");
-    }
-
-    getData();
-});
 
 // edit functions to set data in the fields of modal and make request
 //set data when modal is shown
