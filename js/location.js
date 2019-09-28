@@ -1,3 +1,6 @@
+var token = localStorage.getItem("TokenFile")
+
+
 $(document).ready(function() {
     $('.tabs').tabs();
     getPendingData();
@@ -24,7 +27,7 @@ function getPendingData(page = 1) {
         url: url,
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -105,7 +108,7 @@ function getOngoingData(page = 1) {
         url: url,
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -185,7 +188,7 @@ function getCompletedData(page = 1) {
         url: url,
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',

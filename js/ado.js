@@ -1,4 +1,6 @@
 // get data for specified page
+var token = localStorage.getItem("TokenFile")
+
 function getData(page = 1) {
     if (page !== 1)
         url = `http://13.235.100.235:8000/api/users-list/ado/?page=${page}`
@@ -8,7 +10,7 @@ function getData(page = 1) {
         url: url,
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -142,7 +144,7 @@ $('#addbutton').click(function() {
         url: "http://13.235.100.235:8000/api/village/",
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -168,7 +170,7 @@ $('#addbutton').click(function() {
         url: "http://13.235.100.235:8000/api/user/dda/",
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -205,7 +207,7 @@ $("#addid").click(function() {
         url: "http://13.235.100.235:8000/api/user/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "name": name,
@@ -271,7 +273,7 @@ $(document).on("click", "#editbutton", function() {
         url: "http://13.235.100.235:8000/api/village/",
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -297,7 +299,7 @@ $(document).on("click", "#editbutton", function() {
         url: "http://13.235.100.235:8000/api/user/dda/",
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -334,7 +336,7 @@ $("#edit").click(function() {
         url: `http://13.235.100.235:8000/api/user/${id}/`,
         type: 'PUT',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "name": name,
@@ -384,7 +386,7 @@ $("#delete").click(function() {
         url: `http://13.235.100.235:8000/api/user/${id}/`,
         type: 'DELETE',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: true,
         dataType: 'json',
@@ -422,7 +424,7 @@ $('#uploadados').click(function() {
         url: "http://13.235.100.235:8000/api/upload/ado/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         enctype: 'multipart/form-data',
         contentType: false,

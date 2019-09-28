@@ -1,9 +1,11 @@
+var token = localStorage.getItem("TokenFile")
+
 function getData() {
     $.ajax({
         url: "http://13.235.100.235:8000/api/district/",
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -72,7 +74,7 @@ $("#edit").click(function() {
         url: `http://13.235.100.235:8000/api/district/${id}/`,
         type: 'PUT',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "district": districtName,
@@ -114,7 +116,7 @@ $("#delete").click(function() {
         url: `http://13.235.100.235:8000/api/district/${id}/`,
         type: 'DELETE',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: true,
         dataType: 'json',
@@ -150,7 +152,7 @@ $("#addid").click(function() {
         url: "http://13.235.100.235:8000/api/district/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "district": districtName,
@@ -197,7 +199,7 @@ $('#uploaddistricts').click(function() {
         url: "http://13.235.100.235:8000/api/upload/districts/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         enctype: 'multipart/form-data',
         contentType: false,

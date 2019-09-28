@@ -1,4 +1,6 @@
 // get data for specified page
+var token = localStorage.getItem("TokenFile")
+
 function getData(page = 1) {
     if (page !== 1)
         url = `http://13.235.100.235:8000/api/villages-list/?page=${page}`
@@ -8,7 +10,7 @@ function getData(page = 1) {
         url: url,
         type: 'GET',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: false,
         dataType: 'json',
@@ -130,7 +132,7 @@ $("#edit").click(function() {
         url: `http://13.235.100.235:8000/api/village/${id}/`,
         type: 'PUT',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "village": villageName,
@@ -172,7 +174,7 @@ $("#delete").click(function() {
         url: `http://13.235.100.235:8000/api/village/${id}/`,
         type: 'DELETE',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         async: true,
         dataType: 'json',
@@ -210,7 +212,7 @@ $("#addid").click(function() {
         url: "http://13.235.100.235:8000/api/village/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         data: {
             "village": villageName,
@@ -250,7 +252,7 @@ $('#uploadvillages').click(function() {
         url: "http://13.235.100.235:8000/api/upload/villages/",
         type: 'POST',
         headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+            'Authorization': 'Token ' + token
         },
         enctype: 'multipart/form-data',
         contentType: false,
