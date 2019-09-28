@@ -83,24 +83,27 @@ $("#adosignupbtn").click(function() {
         // });
         // console.log(array);
     var type = 'ado'
+    data = {
+            'name': name,
+            'number': number,
+            'email': email,
+            'username': username,
+            'password': password,
+            'type_of_user': type,
+            'village': village.map(id=>(parseInt(id))),
+            'dda': parseInt(dda)
+        },
+    console.log(data)
     $.ajax({
         url: "http://13.235.100.235:8000/api/user/",
         type: 'POST',
         headers: {
             'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
         },
-        data: {
-            "name": name,
-            "number": number,
-            "email": email,
-            "username": username,
-            "password": password,
-            "type_of_user": type,
-            "village": village,
-            "dda": dda
-        },
-        dataType: 'json',
-        beforeSend: function() {},
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        processData: false,
+        beforeSend: function(res) {console.log(res)},
         success: function(res) {
             console.log('Registration successfull')
             $(".loading").hide();
