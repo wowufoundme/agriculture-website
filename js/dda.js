@@ -24,7 +24,7 @@ function getData(page = 1) {
                 		<tr key=${item.auth_user.pk}>
                             <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
                             <td id="title">${item.name}</td>
-                            <td id="district">${item.district.district}</td>
+                            <td id="district">${item.district==null ? "" : item.district.district}</td>
                             <td id="number">${item.number}</td>
                             <td id="email">${item.email}</td>
                             <td>
@@ -202,41 +202,41 @@ $("#addid").click(function() {
     // var number = $('#ddaNumber').val();
 
 
-    // $.ajax({
-    //     url: "http://13.235.100.235:8000/api/user/",
-    //     type: 'POST',
-    //     headers: {
-    //         'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
-    //     },
-    //     data: {
-    //         "name": name,
-    //         "number": number,
-    //         "email": email,
-    //         "username": username,
-    //         "password": password,
-    //         "type_of_user": type,
-    //         "district": district,
-    //     },
-    //     async: true,
-    //     dataType: 'json',
-    //     beforeSend: function() {
-    //         $(".loading").show();
-    //         $("tbody").html("");
-    //         $(".pagination").html("");
-    //     },
-    //     success: function(res) {
-    //         console.log('add successfull')
-    //         $(".loading").hide();
-    //         $(".modaladd").hide();
-    //         console.log(res)
-    //         getData();
-    //         M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
-    //     },
-    //     error: function(e) {
-    //         console.log(e);
-    //         M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
-    //     }
-    // });
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/user/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        data: {
+            "name": name,
+            "number": number,
+            "email": email,
+            "username": username,
+            "password": password,
+            "type_of_user": type,
+            "district": district,
+        },
+        async: true,
+        dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
+        },
+        success: function(res) {
+            console.log('add successfull')
+            $(".loading").hide();
+            $(".modaladd").hide();
+            console.log(res)
+            getData();
+            M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
+        },
+        error: function(e) {
+            console.log(e);
+            M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+        }
+    });
 
 });
 
@@ -385,10 +385,40 @@ $("#delete").click(function() {
     })
 })
 
-// $('.dropdown-content').scroll(function() {
-//     console.log('try')
-//     console.log($(document).height() - $(this).height() == $(this).scrollTop())
-//     if ($(document).height() - $(this).height() == $(this).scrollTop()) {
-//         alert('tada')
-//     }
-// });
+
+var fd = new FormData();
+$("#csvfile").change(function() {
+    fd.append('dda_csv', this.files[0], this.files[0].name); // since this is your file input
+    console.log(this.files[0])
+
+});
+
+
+$('#uploaddda').click(function() {
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/upload/dda/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        enctype: 'multipart/form-data',
+        contentType: false,
+        processData: false,
+        data: fd,
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
+        },
+        success: function(res) {
+            $(".loading").hide();
+            console.log(res)
+            console.log("uploaded successfully")
+            getData();
+        },
+        error: function(e) {
+            console.log(e);
+            alert("An error occured, please try again.");
+        }
+    });
+})

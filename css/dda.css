@@ -95,21 +95,18 @@ div {
     }
     #titledda {
         position: relative;
-        /* border: 1px solid black; */
         width: 30%;
         margin: 5px 5px 5px 5px;
     }
     #addbulkbtnid {
         float: right;
         position: relative;
-        /* border: 1px solid black; */
         margin: 5px 5px 5px 5px;
         width: 30%;
     }
     #addbtnid {
         float: right;
         position: relative;
-        /* border: 1px solid black; */
         margin: 5px 5px 5px 5px;
         width: 30%;
     }
