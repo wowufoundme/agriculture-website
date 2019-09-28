@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    <div id="editAdo" class=" modal modaledit">
+    <div id="editAdo" class="modal modaledit">
         <div class="modal-content">
             <h4>Edit</h4>
             <div class="form-group">
@@ -174,7 +174,7 @@
         </div>
         <div class="modal-footer">
             <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 
@@ -184,26 +184,27 @@
         </div>
         <div class="modal-footer">
             <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 
     <div id="addBulk" class="modal modalbulk">
         <div class="modal-content">
-            <form action="#">
+            <form method="POST">
                 <div class="file-field input-field inline row">
                     <div class="btn col xl4 l4 m12 s12">
                         <span>UPLOAD CSV</span>
-                        <input type="file">
+                        <input id="csvfile" type="file">
                     </div>
                     <div class="file-path-wrapper col xl8 l8 m12 s12">
-                        <input class="file-path validate" type="text">
+                        <input id="csvpath" class="file-path validate" type="text">
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a id="uploadados" class="modal-close waves-effect waves-green btn-flat">UPLOAD</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 

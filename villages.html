@@ -103,62 +103,63 @@
         </div>
     </div>
     <!-- Modals -->
-    <div id="addVillage " class="modal modaladd ">
-        <div class="modal-content ">
+    <div id="addVillage" class="modal modaladd">
+        <div class="modal-content">
             <h4>Add Village</h4>
             <div class="form-group ">
-                <label class="control-label ">Village name</label>
-                <input placeholder="Name of Village " name="village " required type="text " id="villageText " class="form-control " value=" ">
+                <label class="control-label">Village name</label>
+                <input placeholder="Name of Village" name="village" required type="text" id="villageText" class="form-control" value=" ">
                 <label class="control-label ">Village Code</label>
-                <input placeholder="Code of Village " name="village_code " required type="number " id="villageCode " class="form-control " value=" ">
+                <input placeholder="Code of Village" name="village_code" required type="number" id="villageCode" class="form-control" value=" ">
             </div>
 
         </div>
         <div class="modal-footer ">
-            <a id="addid " class="modal-close waves-effect waves-green btn-flat ">ADD</a>
-            <a id="cancelid " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
+            <a id="addid" class="modal-close waves-effect waves-green btn-flat ">ADD</a>
+            <a id="cancelid" class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
 
-    <div id="editVillage " class=" modal modaledit ">
+    <div id="editVillage" class=" modal modaledit">
         <div class="modal-content ">
             <h4>Edit</h4>
-            <div class="form-group ">
+            <div class="form-group">
                 <label class="control-label ">Village name</label>
-                <input placeholder="Name of Village " name="villageName " required type="text " id="villageName " class="form-control " value=" ">
+                <input placeholder="Name of Village" name="villageName" required type="text" id="villageName" class="form-control" value=" ">
             </div>
         </div>
-        <div class="modal-footer ">
+        <div class="modal-footer">
             <a id="edit " class="modal-close waves-effect waves-green btn-flat ">OK</a>
             <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
 
-    <div id="deleteVillage " class="modal modaldelete ">
+    <div id="deleteVillage" class="modal modaldelete">
         <div class="modal-content ">
             <p>Are you sure you want to remove this village?</p>
         </div>
         <div class="modal-footer ">
-            <a id="delete " class="modal-close waves-effect waves-green btn-flat ">DELETE</a>
+            <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
             <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
-    <div id="addBulk " class="modal modalbulk ">
-        <div class="modal-content ">
-            <form method="POST ">
-                <div class="file-field input-field inline row ">
-                    <div class="btn col xl4 l4 m12 s12 ">
+    <div id="addBulk" class="modal modalbulk">
+        <div class="modal-content">
+            <form method="POST">
+                <div class="file-field input-field inline row">
+                    <div class="btn col xl4 l4 m12 s12">
                         <span>UPLOAD CSV</span>
-                        <input id="csvfile " type="file ">
+                        <input id="csvfile" type="file">
                     </div>
-                    <div class="file-path-wrapper col xl8 l8 m12 s12 ">
-                        <input id="csvpath " class="file-path validate " type="text ">
+                    <div class="file-path-wrapper col xl8 l8 m12 s12">
+                        <input id="csvpath" class="file-path validate" type="text">
                     </div>
                 </div>
             </form>
         </div>
-        <div class="modal-footer ">
-            <a href="#! " class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
+        <div class="modal-footer">
+            <a id="uploadvillages" class="modal-close waves-effect waves-green btn-flat">UPLOAD</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 

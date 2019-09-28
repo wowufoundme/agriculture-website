@@ -115,6 +115,7 @@ $(document).ready(function() {
         $('#addbulkbtnid').html('<a id="addbulkbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
         console.log("width less than 600");
     }
+
     getData();
 });
 
@@ -157,48 +158,86 @@ $("#addbutton").click(function() {
 })
 
 $("#addid").click(function() {
-    console.log("#addid")
-    var name = $('#ddaText').val();
-    var number = $('#ddaNumber').val();
-    var email = $('#ddaEmail').val();
-    var password = $('#ddaPassword').val();
-    var username = $('#ddaUsername').val();
-    var district = $('select').val();
-    var type = 'dda'
-    $.ajax({
-        url: "http://13.235.100.235:8000/api/user/",
-        type: 'POST',
-        headers: {
-            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
-        },
-        data: {
-            "name": name,
-            "number": number,
-            "email": email,
-            "username": username,
-            "password": password,
-            "type_of_user": type,
-            "district": district,
-        },
-        async: true,
-        dataType: 'json',
-        beforeSend: function() {
-            $(".loading").show();
-            $("tbody").html("");
-            $(".pagination").html("");
-        },
-        success: function(res) {
-            console.log('add successfull')
-            $(".loading").hide();
-            console.log(res)
-            getData();
-            M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
-        },
-        error: function(e) {
-            console.log(e);
-            M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+    $("#ddaNumber").on("blur", function() {
+        var mobNum = $(this).val();
+        var filter = /^\d*(?:\.\d{1,2})?$/;
+
+        if (filter.test(mobNum)) {
+            if (mobNum.length == 10) {
+
+                console.log("valid  number")
+            } else {
+
+                console.log("Please put 10  digit mobile number")
+                    // return false;
+            }
+        } else {
+
+            console.log("Not a valid number")
+                // return false;
         }
+
     });
+    console.log("#addid")
+        // var name = $('#ddaText').val();
+
+    // var email = $('#ddaEmail').val();
+    // var password = $('#ddaPassword').val();
+    // var username = $('#ddaUsername').val();
+    // var district = $('select').val();
+    // var type = 'dda'
+
+
+    // $cf = $('#ddaNumber');
+    // $cf.blur(function(e) {
+    //     number = $(this).val();
+    //     number = number.replace(/^\d*(?:\.\d{1,2})?$/, '');
+    //     if (number.length != 10) {
+    //         alert('Phone number must be 10 digits.');
+    //         console.log("Phone number must be 10 digits.")
+    //             // $('#ddaNumber').val("");
+    //         $('#ddaNumber').focus();
+
+    // } else {
+    // var number = $('#ddaNumber').val();
+
+
+    // $.ajax({
+    //     url: "http://13.235.100.235:8000/api/user/",
+    //     type: 'POST',
+    //     headers: {
+    //         'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+    //     },
+    //     data: {
+    //         "name": name,
+    //         "number": number,
+    //         "email": email,
+    //         "username": username,
+    //         "password": password,
+    //         "type_of_user": type,
+    //         "district": district,
+    //     },
+    //     async: true,
+    //     dataType: 'json',
+    //     beforeSend: function() {
+    //         $(".loading").show();
+    //         $("tbody").html("");
+    //         $(".pagination").html("");
+    //     },
+    //     success: function(res) {
+    //         console.log('add successfull')
+    //         $(".loading").hide();
+    //         $(".modaladd").hide();
+    //         console.log(res)
+    //         getData();
+    //         M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
+    //     },
+    //     error: function(e) {
+    //         console.log(e);
+    //         M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+    //     }
+    // });
+
 });
 
 

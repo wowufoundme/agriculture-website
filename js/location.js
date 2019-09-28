@@ -3,6 +3,14 @@ $(document).ready(function() {
     getPendingData();
     getOngoingData();
     getCompletedData();
+    // var index = $('li a[href="#ongoing"]').parent().index();
+    // console.log(index);
+    // if(index==0){
+    //     getPendingData();
+    // }
+    // if(index==1){
+    //     getOngoingData();
+    // }
 });
 
 

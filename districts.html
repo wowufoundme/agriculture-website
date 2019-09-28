@@ -125,7 +125,7 @@
         </div>
         <div class="modal-footer">
             <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 
@@ -135,17 +135,27 @@
         </div>
         <div class="modal-footer">
             <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 
     <div id="addBulk" class="modal modalbulk">
         <div class="modal-content">
-            <p>Press UPLOAD CSV for uploading the districts.</p>
+            <form method="POST">
+                <div class="file-field input-field inline row">
+                    <div class="btn col xl4 l4 m12 s12">
+                        <span>UPLOAD CSV</span>
+                        <input id="csvfile" type="file">
+                    </div>
+                    <div class="file-path-wrapper col xl8 l8 m12 s12">
+                        <input id="csvpath" class="file-path validate" type="text">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
-            <a id="delete" class="modal-close waves-effect waves-green btn-flat">UPLOAD CSV</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <a id="uploaddistricts" class="modal-close waves-effect waves-green btn-flat">UPLOAD</a>
+            <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
 

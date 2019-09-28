@@ -237,12 +237,15 @@ $("#addid").click(function() {
     });
 });
 
-
+var fd = new FormData();
 $("#csvfile").change(function() {
-    var fd = new FormData();
-
-    fd.append('village_csv', this.files[0]); // since this is your file input
+    fd.append('village_csv', this.files[0], this.files[0].name); // since this is your file input
     console.log(this.files[0])
+
+});
+
+
+$('#uploadvillages').click(function() {
     $.ajax({
         url: "http://13.235.100.235:8000/api/upload/villages/",
         type: 'POST',
@@ -252,16 +255,21 @@ $("#csvfile").change(function() {
         enctype: 'multipart/form-data',
         contentType: false,
         processData: false,
-        data: {
-            "village_csv": fd
+        data: fd,
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
         },
         success: function(res) {
+            $(".loading").hide();
             console.log(res)
             console.log("uploaded successfully")
+            getData();
         },
         error: function(e) {
             console.log(e);
             alert("An error occured, please try again.");
         }
     });
-});
+})

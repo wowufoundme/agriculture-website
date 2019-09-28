@@ -24,7 +24,10 @@ function getData(page = 1) {
                 		<tr key=${item.auth_user.pk}>
                             <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
                             <td id="title">${item.name}</td>
-                            <td id="village">${item.village}</td>
+                            <td id="village">${item.village.map(vill=>(
+                                vill.village + ", "
+                                )
+                            )}</td>
                             <td id="number">${item.number}</td>
                             <td id="email">${item.email}</td>
                             <td>
@@ -195,6 +198,7 @@ $("#addid").click(function() {
     var password = $('#adoPassword').val();
     var username = $('#adoUsername').val();
     var village = $('#selectvillage').val();
+    console.log(village)
     var dda = $('#selectdda').val();
     var type = 'ado'
     $.ajax({
@@ -402,4 +406,42 @@ $("#delete").click(function() {
         }
 
     })
+})
+
+
+var fd = new FormData();
+$("#csvfile").change(function() {
+    fd.append('ado_csv', this.files[0], this.files[0].name); // since this is your file input
+    console.log(this.files[0])
+
+});
+
+
+$('#uploadados').click(function() {
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/upload/ado/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        enctype: 'multipart/form-data',
+        contentType: false,
+        processData: false,
+        data: fd,
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+            $(".pagination").html("");
+        },
+        success: function(res) {
+            $(".loading").hide();
+            console.log(res)
+            console.log("uploaded successfully")
+            getData();
+        },
+        error: function(e) {
+            console.log(e);
+            alert("An error occured, please try again.");
+        }
+    });
 })

@@ -42,7 +42,6 @@ span {
     tr th {
         padding: 10px 10px 10px 10px;
         margin: 5px 5px 5px 5px;
-        border: 1px solid black;
         min-width: 150px;
     }
     table {
@@ -51,14 +50,12 @@ span {
         width: 100%;
     }
     #titlevillage {
-        border: 1px solid black;
         position: relative;
         width: 45%;
         margin: 5px 5px 5px 5px;
     }
     #addbulkbtnid,
     #addbtnid {
-        border: 1px solid black;
         float: right;
         position: relative;
         margin: 5px 5px 5px 5px;
@@ -70,11 +67,9 @@ span {
         font-size: 24px;
     }
     #editbutton {
-        border: 1px solid black;
         display: block;
     }
     #deletebutton {
-        border: 1px solid black;
         display: block;
     }
 }
@@ -83,15 +78,12 @@ span {
     tr th {
         padding: 10px 10px 10px 10px;
         margin: 5px 5px 5px 5px;
-        border: 1px solid black;
         min-width: 175px;
     }
     #editbutton {
-        border: 1px solid black;
         display: block;
     }
     #deletebutton {
-        border: 1px solid black;
         display: block;
     }
     table {

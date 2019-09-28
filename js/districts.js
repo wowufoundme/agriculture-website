@@ -182,3 +182,40 @@ $("#cancelid").click(function() {
     $('#districtText').val("");
     $('#districtCode').val("");
 });
+
+
+var fd = new FormData();
+$("#csvfile").change(function() {
+    fd.append('district_csv', this.files[0], this.files[0].name); // since this is your file input
+    console.log(this.files[0])
+
+});
+
+
+$('#uploaddistricts').click(function() {
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/upload/districts/",
+        type: 'POST',
+        headers: {
+            'Authorization': 'Token a5ed9f187e22c861262a5e5a37eaed92a6c84c0c'
+        },
+        enctype: 'multipart/form-data',
+        contentType: false,
+        processData: false,
+        data: fd,
+        beforeSend: function() {
+            $(".loading").show();
+            $("tbody").html("");
+        },
+        success: function(res) {
+            $(".loading").hide();
+            console.log(res)
+            console.log("uploaded successfully")
+            getData();
+        },
+        error: function(e) {
+            console.log(e);
+            alert("An error occured, please try again.");
+        }
+    });
+})
