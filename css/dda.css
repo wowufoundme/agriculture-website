@@ -22,6 +22,10 @@ div {
 }
 
 .sidenav {
+    /* background: #FAFAD2; */
+    /* background: #EEE8AA; */
+    background: #FFE1E3;
+    /* background: lightpink; */
     transition: 1s;
     -webkit-transition: 1s;
     -moz-transition: 1s;
