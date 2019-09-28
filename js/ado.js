@@ -104,11 +104,18 @@ $(document).on("click", "#right", function() {
     getData(parseInt(id) + 1);
 });
 
+$(window).load(function() {
+    // Animate loader off screen
+    $("#loader").hide();
+});
+
 $(document).ready(function() {
+
     $('.modaladd').modal();
     $('.modaledit').modal();
     $('.modaldelete').modal();
     $('.modalbulk').modal();
+
     $(document).ready(function() {
         $('select').formSelect();
     });
@@ -125,6 +132,7 @@ $(document).ready(function() {
 
 // add functions
 $('#addbutton').click(function() {
+    $("#loader").show();
     $('#adoText').val("");
     $('#adoNumber').val("");
     $('#adoEmail').val("");
@@ -139,15 +147,18 @@ $('#addbutton').click(function() {
     // re-initialize material-select
     $('#selectdda').html("")
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
-
+}, function getdropdown() {
     $.ajax({
         url: "http://13.235.100.235:8000/api/village/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
         },
-        async: false,
+        async: true,
         dataType: 'json',
+        beforeSend: function before() {
+            $("#loader").show();
+        },
         success: function(res) {
             if (res.length > 0) {
                 res.map(item => {
@@ -157,10 +168,12 @@ $('#addbutton').click(function() {
                     $('#selectvillage').append(row)
                 })
             }
+            $("#loader").hide();
             console.log("village loaded");
             $('#selectvillage').formSelect();
         },
         error: function(e) {
+            $("#loader").hide();
             console.log(e);
             $('#selectvillage').formSelect();
         }
@@ -183,15 +196,19 @@ $('#addbutton').click(function() {
                     $('#selectdda').append(row)
                 })
             }
+            $("#loader").hide();
             console.log("dda list loaded")
             $('#selectdda').formSelect();
         },
         error: function(e) {
+            $("#loader").hide();
             console.log(e);
             $('#selectdda').formSelect();
         }
     });
 })
+
+
 
 $("#addid").click(function() {
     var name = $('#adoText').val();
