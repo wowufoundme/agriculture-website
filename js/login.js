@@ -1,15 +1,13 @@
+// if (localStorage.getItem("TokenFile") != null) {
+//     console.log("in if")
+//     window.location.href = "disricts.html"
+// }
+
 $(document).ready(function() {
-    $(".loading").hide();
     console.log("loaded")
-    if (localStorage.getItem("TokenFile") != null) {
-        console.log("in if")
-        window.location.href = "disricts.html"
-    } else {
-        console.log("in else")
-        $(".loading").hide();
-        $('#inputusername').val("");
-        $('#inputpassword').val("");
-    }
+    $(".loading").hide();
+    $('#inputusername').val("");
+    $('#inputpassword').val("");
 });
 
 $("form").on("submit", function sub(event) {
