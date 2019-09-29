@@ -156,11 +156,38 @@ $(document).on("click", "#editbutton", function() {
     // set id of the row to the modal
     $("#editVillage").attr("key", id);
     $('#villageName').val(village.html());
+    $('#editDistrict').val("default");
+    // re-initialize material-select
+    $('#editDistrict').html("")
+    $('#editDistrict').append(`<option value="default" disabled selected>Choose District</option>`)
+    $.ajax({
+        url: "http://13.235.100.235:8000/api/district/",
+        type: 'GET',
+        async: false,
+        dataType: 'json',
+        success: function(res) {
+            if (res.length > 0) {
+                res.map(item => {
+                    row = `
+                    <option value="${item.id}">${item.district}</option>
+                    `
+                    $('#editdistrict').append(row)
+                })
+            }
+            $('#editdistrict').formSelect();
+        },
+        error: function(e) {
+            console.log(e);
+            $('#editdistrict').formSelect();
+        }
+    });
 });
 
 $("#edit").click(function() {
     var id = $("#editVillage").attr("key");
     var villageName = $('#villageName').val();
+    var district = $('#editdistrict').val();
+    console.log(district)
     $.ajax({
         url: `http://13.235.100.235:8000/api/village/${id}/`,
         type: 'PUT',
@@ -169,6 +196,7 @@ $("#edit").click(function() {
         },
         data: {
             "village": villageName,
+            "district": district
         },
         async: true,
         dataType: 'json',
