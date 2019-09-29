@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    if (localStorage.get("TokenFile") != null) {
+    if (localStorage.getItem("TokenFile") != null) {
         window.location.href = "disricts.html"
     } else {
         $(".loading").hide();
