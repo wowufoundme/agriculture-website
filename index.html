@@ -22,7 +22,7 @@
         <div class="card white darken-1">
             <div class="card-content">
 
-                <div class="form-group">
+                <form class="form-group" method="POST">
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <h5>Login</h5>
@@ -31,24 +31,27 @@
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="inputusername" type="text" class="validate">
                                 <label for="inputusername">Username</label>
-                                <span class="helper-text" data-error="wrong"></span>
+                                <input id="inputusername" type="text" class="validate" required>
+
+                                <!-- <span class="helper-text" data-error="wrong"></span> -->
                             </div>
+
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="inputpassword" type="password" class="validate">
                                 <label for="inputpassword">Password</label>
+                                <input id="inputpassword" type="password" class="validate" required>
+
                                 <!-- <span class="helper-text" data-error="wrong"></span> -->
                             </div>
                         </div>
                     </div>
                     <div id="btnrow" class="row ">
                         <div class="col xl12 l12 m12 s12 ">
-                            <a id="loginbtn" class="waves-effect blue lighten-1 waves-light btn ">Login</a>
+                            <button id="loginbtn" class="waves-effect blue lighten-1 waves-light btn" type="submit" name="action">Login</button>
                         </div>
                     </div>
                     <center class="loading">
@@ -66,7 +69,7 @@
                             </div>
                         </div>
                     </center>
-                </div>
+                </form>
             </div>
         </div>
     </div>
