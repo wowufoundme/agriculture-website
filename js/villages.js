@@ -10,11 +10,36 @@ $(document).ready(function() {
         $('.modaledit').modal();
         $('.modaldelete').modal();
         $('.modalbulk').modal();
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+        $('select').append(`<option value="default" disabled selected>Choose District</option>`)
+        $.ajax({
+            url: "http://13.235.100.235:8000/api/district/",
+            type: 'GET',
+            async: false,
+            dataType: 'json',
+            success: function(res) {
+                if (res.length > 0) {
+                    res.map(item => {
+                        row = `
+                        <option value="${item.id}">${item.district}</option>
+                        `
+                        $('select').append(row)
+                    })
+                }
+                $('select').formSelect();
+            },
+            error: function(e) {
+                console.log(e);
+                $('select').formSelect();
+            }
+        });
         if ($(window).width() < 640 && $(window).width() > 320) {
 
             // $('a').remove();
-            $('#addbtnid').html('<a id="addbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addVillage">Add</a>')
-            $('#addbulkbtnid').html('<a id="addbulkbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+            $('#addbtnid').html("<a id='addbutton' class='waves-effect blue lighten-1 waves-light btn modal-trigger' data-target='addVillage'>Add</a>")
+            $('#addbulkbtnid').html("<a id='addbulkbutton' class='waves-effect blue lighten-1 waves-light btn modal-trigger' data-target='addBulk'>AddBulk</a>")
             console.log("width less than 600");
         }
 
@@ -205,14 +230,19 @@ $("#delete").click(function() {
     });
 });
 
-$('#addbutton').click(function() {
+$(document).on("click", "#addbutton", function() {
+    console.log("hello")
     $('#villageText').val("");
     $('#villageCode').val("");
+    $('select').val("default");
+    $('select').append(`<option value="default" disabled selected>Choose District</option>`)
 })
 
 $("#addid").click(function() {
     var villageName = $('#villageText').val();
     var villageCode = $('#villageCode').val();
+    var district = $('select').val();
+    console.log(district)
     console.log(villageName);
     console.log(villageCode);
     console.log('Add clicked')
@@ -224,7 +254,8 @@ $("#addid").click(function() {
         },
         data: {
             "village": villageName,
-            "village_code": villageCode
+            "village_code": villageCode,
+            "district": district
         },
         async: true,
         dataType: 'json',

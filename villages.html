@@ -49,14 +49,14 @@
             <div class="card white darken-1">
                 <div class="card-content">
                     <div id="heading" class="row">
-                        <div id="titlevillage" class="col xl8 l8 m8 s4 ">
+                        <div id="titlevillage" class="col xl8 l8 m8 s4">
                             <span id="listvillage " class="card-title ">Villages</span>
                         </div>
-                        <div id="addbulkbtnid" class="col xl2 l2 m2 s4 ">
-                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger " data-target="addBulk"><i class="material-icons left ">add</i>AddBulk</a>
+                        <div id="addbulkbtnid" class="col xl2 l2 m2 s4">
+                            <a id="addbulkbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk"><i class="material-icons left">add</i>AddBulk</a>
                         </div>
-                        <div id="addbtnid" class="col xl2 l2 m2 s4 ">
-                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger " data-target="addVillage"><i class="material-icons left ">add</i>Add</a>
+                        <div id="addbtnid" class="col xl2 l2 m2 s4">
+                            <a id="addbutton" class="right waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addVillage"><i class="material-icons left">add</i>Add</a>
                         </div>
                     </div>
 
@@ -106,22 +106,25 @@
     <div id="addVillage" class="modal modaladd">
         <div class="modal-content">
             <h4>Add Village</h4>
-            <div class="form-group ">
+            <form class="form-group">
                 <label class="control-label">Village name</label>
                 <input placeholder="Name of Village" name="village" required type="text" id="villageText" class="form-control" value="">
                 <label class="control-label ">Village Code</label>
                 <input placeholder="Code of Village" name="village_code" required type="number" id="villageCode" class="form-control" value="">
-            </div>
-
+                <div id="districtSelect" class="input-field col xl12 form-control">
+                    <select id="selectdistrict">
+                    </select>
+                </div>
+            </form>
         </div>
-        <div class="modal-footer ">
-            <a id="addid" class="modal-close waves-effect waves-green btn-flat ">ADD</a>
-            <a id="cancelid" class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
+        <div class="modal-footer">
+            <button id="addid" class="modal-close waves-effect waves-green btn-flat" type="submit">ADD</button>
+            <button id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</button>
         </div>
     </div>
 
     <div id="editVillage" class=" modal modaledit">
-        <div class="modal-content ">
+        <div class="modal-content">
             <h4>Edit</h4>
             <div class="form-group">
                 <label class="control-label ">Village name</label>
@@ -129,7 +132,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a id="edit " class="modal-close waves-effect waves-green btn-flat ">OK</a>
+            <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
             <a class="modal-close waves-effect waves-green btn-flat ">CANCEL</a>
         </div>
     </div>
@@ -170,7 +173,8 @@
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
     <script src="lib/materialize.min.js "></script>
-
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 </body>
 <script src="js/villages.js "></script>
 <script src="js/common.js "></script>

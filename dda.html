@@ -34,7 +34,7 @@
 
         <ul id="slide-out" class="sidenav invesible-top">
 
-            <li><a class="sidenav-close" href="#!"><i class="material-icons right">close</i></a></li>
+            <li><a class="sidenav-close"><i class="material-icons right">close</i></a></li>
             <li><a href="districts.html">DISTRICTS</a></li>
             <li><a href="villages.html">VILLAGES</a></li>
             <li class="active teal lighten-1"><a href="dda.html">DDA</a></li>
@@ -107,38 +107,38 @@
         </div>
     </div>
     <!-- Modals -->
-    <div id="addDda" class="modal fade modaladd">
+    <div id="addDda" class="modal modaladd">
         <div class="modal-content">
             <h4>Add Dda</h4>
-            <div class="form-group">
+            <form id="addform" class="form-group" method="POST">
                 <label for="ddaText" class="control-label"><b>Dda name:</b></label>
-                <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="">
+                <input placeholder="Name of dda" name="dda" required type="text" id="ddaText" class="form-control" value="" required>
 
 
 
                 <label for="ddanumber" class="control-label"><b>Phone:</b></label>
-                <input placeholder="Phone Number" name="phone" required type="number" id="ddaNumber" class="form-control" value="">
+                <input placeholder="Phone Number" name="phone" required type="number" id="ddaNumber" class="form-control validate" value="" required>
 
                 <label for="ddaemail" class="control-label"><b>Email Id:</b></label>
-                <input placeholder="Email" name="email" required type="email" id="ddaEmail" class="form-control" value="">
+                <input placeholder="Email" name="email" required type="email" id="ddaEmail" class="form-control validate" value="" required>
 
 
                 <label for="districtSelect" class="control-label"><b>District Name:</b></label>
                 <!-- <input placeholder="Name of district" name="district_name" required type="text" id="ddadistrict" class="form-control" value=""> -->
-                <div id="districtSelect" class="input-field col xl12 form-control">
+                <div id="districtSelect" class="input-field col xl12 l12 m12 s12 form-control" aria-required="true">
                     <select id="select-district">
                     </select>
                 </div>
                 <label for="ddaUsername" class="control-label"><b>Username</b></label>
-                <input placeholder="username" name="ddaUsername" required type="text" id="ddaUsername" class="form-control" value="">
+                <input placeholder="username" name="ddaUsername" required type="text" id="ddaUsername" class="form-control" value="" required>
 
                 <label for="ddaPassword" class="control-label"><b>Password:</b></label>
-                <input placeholder="Password" name="password" required type="password" id="ddaPassword" class="form-control" value="">
-            </div>
+                <input placeholder="Password" name="password" required type="password" id="ddaPassword" class="form-control" value="" required>
+            </form>
         </div>
         <div class="modal-footer">
-            <a id="addid" class="waves-effect waves-green btn-flat" data-toogle="modaladd">ADD</a>
-            <a id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
+            <button id="addid" class="waves-effect waves-green btn-flat" type="submit">ADD</button>
+            <button id="cancelid" class="modal-close waves-effect waves-green btn-flat">CANCEL</button>
         </div>
     </div>
 
@@ -168,7 +168,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a id="edit" class="modal-close waves-effect waves-green btn">OK</a>
+            <a id="edit" class="modal-close waves-effect waves-green btn-flat">OK</a>
             <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
@@ -178,7 +178,7 @@
             <p>Are you sure you want to remove this dda?</p>
         </div>
         <div class="modal-footer">
-            <a id="delete" class="modal-close waves-effect waves-green btn-flat">DELETE</a>
+            <a id="delete" class="modal-close modal-close waves-effect waves-green btn-flat">DELETE</a>
             <a class="modal-close waves-effect waves-green btn-flat">CANCEL</a>
         </div>
     </div>
@@ -209,6 +209,8 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="./lib/materialize.min.js"></script>
 </body>
 

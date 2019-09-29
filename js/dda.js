@@ -13,10 +13,35 @@ $(document).ready(function() {
         $(document).ready(function() {
             $('select').formSelect();
         });
+        $('select').append(`<option value="default" disabled selected>Choose District</option>`)
+        $.ajax({
+            url: "http://13.235.100.235:8000/api/district/",
+            type: 'GET',
+            // headers: {
+            //     'Authorization': 'Token ' + token
+            // },
+            async: false,
+            dataType: 'json',
+            success: function(res) {
+                if (res.length > 0) {
+                    res.map(item => {
+                        row = `
+                        <option value="${item.id}">${item.district}</option>
+                        `
+                        $('select').append(row)
+                    })
+                }
+                $('select').formSelect();
+            },
+            error: function(e) {
+                console.log(e);
+                $('select').formSelect();
+            }
+        });
         if ($(window).width() < 640 && $(window).width() > 320) {
 
             // $('a').remove();
-            $('#addbtnid').html('<a id="addbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDistrict">Add</a>')
+            $('#addbtnid').html('<a id="addbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addDda">Add</a>')
             $('#addbulkbtnid').html('<a id="addbulkbutton" class="waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
             console.log("width less than 600");
         }
@@ -129,7 +154,7 @@ $(document).on("click", "#right", function() {
 
 
 // add functions
-$("#addbutton").click(function() {
+$(document).on("click", "#addbutton", function() {
     console.log("#addbutton");
     $('#ddaText').val("");
     $('#ddaNumber').val("");
@@ -138,91 +163,134 @@ $("#addbutton").click(function() {
     $('#ddaPassword').val("");
     $('select').val("default");
     // re-initialize material-select
-    $('select').html("")
     $('select').append(`<option value="default" disabled selected>Choose District</option>`)
-    $.ajax({
-        url: "http://13.235.100.235:8000/api/district/",
-        type: 'GET',
-        headers: {
-            'Authorization': 'Token ' + token
-        },
-        async: false,
-        dataType: 'json',
-        success: function(res) {
-            if (res.length > 0) {
-                res.map(item => {
-                    row = `
-                    <option value="${item.id}">${item.district}</option>
-                    `
-                    $('select').append(row)
-                })
-            }
-            $('select').formSelect();
-        },
-        error: function(e) {
-            console.log(e);
-            $('select').formSelect();
-        }
-    });
 })
 
-$("#addid").click(function add() {
-    var number = $('#ddaNumber').val();
-    var name = $('#ddaText').val();
 
-    var email = $('#ddaEmail').val();
-    var password = $('#ddaPassword').val();
-    var username = $('#ddaUsername').val();
-    var district = $('select').val();
-    var type = 'dda'
+$("#addform").on("submit", function sub(event) {
+        console.log("hello")
+        event.preventDefault();
+        var number = $('#ddaNumber').val();
+        var name = $('#ddaText').val();
 
-    console.log(number)
-    if (number.length == 10 && name != "" && email != "" && username != "" && password != "") {
+        var email = $('#ddaEmail').val();
+        var password = $('#ddaPassword').val();
+        var username = $('#ddaUsername').val();
+        var district = $('select').val();
+        var type = 'dda'
 
-        console.log("valid  number")
-        $.ajax({
-            url: "http://13.235.100.235:8000/api/user/",
-            type: 'POST',
-            headers: {
-                'Authorization': 'Token ' + token
-            },
-            data: {
-                "name": name,
-                "number": number,
-                "email": email,
-                "username": username,
-                "password": password,
-                "type_of_user": type,
-                "district": district,
-            },
-            async: true,
-            dataType: 'json',
-            beforeSend: function() {
-                $(".loading").show();
-                $("tbody").html("");
-                $(".pagination").html("");
-            },
-            success: function(res) {
-                console.log('add successfull')
-                $(".loading").hide();
-                console.log(res)
-                getData();
-                M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
-            },
-            error: function(e) {
-                console.log(e);
-                M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
-            }
-        });
-    } else {
-        alert("Please put 10  digit mobile number and Please fill out all the required fields")
-        console.log("Please put 10  digit mobile number")
-        $('#ddaNumber').focus();
-        // return false;
-    }
-    console.log("#addid")
+        var pattern = /(7|8|9)\d{9}$/;
+        $('#ddaNumber').next('#error').remove();
 
-});
+        if (!number.match(pattern) || !number.length >= 10 || (!number.match(pattern) && number.length == 10)) {
+            console.log("number invalid")
+            console.log(number.match(pattern))
+            $('#ddaNumber').focus();
+            $('#ddaNumber').after("<span id='error' style='color:red; margin-bottom: 20px;'>Please enter a valid number</span>")
+            $('#ddaNumber').css('color', '#FF0000');
+            return false;
+        } else {
+            // $('#addid').html("Please wait..").attr('disabled', true);
+            $('#ddaNumber').removeAttr('style')
+            $('#ddaNUmber').next('#error').remove();
+            $(".loading").show();
+            console.log("form valid")
+            $.ajax({
+                url: "http://13.235.100.235:8000/api/user/",
+                type: 'POST',
+                headers: {
+                    'Authorization': 'Token ' + token
+                },
+                data: {
+                    "name": name,
+                    "number": number,
+                    "email": email,
+                    "username": username,
+                    "password": password,
+                    "type_of_user": type,
+                    "district": district,
+                },
+                async: true,
+                dataType: 'json',
+                beforeSend: function() {
+                    $(".loading").show();
+                    $("tbody").html("");
+                    $(".pagination").html("");
+                },
+                success: function(res) {
+                    console.log('add successfull')
+                    $(".loading").hide();
+                    $(".modal").modal('hide')
+                    console.log(res)
+                    getData();
+                    M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
+                },
+                error: function(e) {
+                    console.log(e);
+                    M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+                }
+            });
+        }
+    })
+    // $("#addid").click(function add() {
+    // var number = $('#ddaNumber').val();
+    // var name = $('#ddaText').val();
+
+// var email = $('#ddaEmail').val();
+// var password = $('#ddaPassword').val();
+// var username = $('#ddaUsername').val();
+// var district = $('select').val();
+// var type = 'dda'
+
+
+
+// console.log(number)
+// if (number.length == 10 && name != "" && email != "" && username != "" && password != "") {
+
+//     console.log("valid  number")
+//     $.ajax({
+//         url: "http://13.235.100.235:8000/api/user/",
+//         type: 'POST',
+//         headers: {
+//             'Authorization': 'Token ' + token
+//         },
+//         data: {
+//             "name": name,
+//             "number": number,
+//             "email": email,
+//             "username": username,
+//             "password": password,
+//             "type_of_user": type,
+//             "district": district,
+//         },
+//         async: true,
+//         dataType: 'json',
+//         beforeSend: function() {
+//             $(".loading").show();
+//             $("tbody").html("");
+//             $(".pagination").html("");
+//         },
+//         success: function(res) {
+//             console.log('add successfull')
+//             $(".loading").hide();
+//             console.log(res)
+//             getData();
+//             M.toast({ html: 'DDA added succesfully!!', classes: 'rounded green' })
+//         },
+//         error: function(e) {
+//             console.log(e);
+//             M.toast({ html: 'Some error occured.DDA not added!!', classes: 'rounded red' })
+//         }
+//     });
+//     } else {
+//         alert("Please put 10  digit mobile number and Please fill out all the required fields")
+//         console.log("Please put 10  digit mobile number")
+//         $('#ddaNumber').focus();
+//         // return false;
+//     }
+//     console.log("#addid")
+
+// });
 
 
 
