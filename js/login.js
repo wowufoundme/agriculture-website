@@ -1,7 +1,12 @@
 $(document).ready(function() {
-    $(".loading").hide();
-    $('#inputusername').val("");
-    $('#inputpassword').val("");
+    if (localStorage.TokenFile != null) {
+        window.location.href = "disricts.html"
+    } else {
+        $(".loading").hide();
+        $('#inputusername').val("");
+        $('#inputpassword').val("");
+    }
+
 });
 
 
