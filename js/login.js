@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $(".loading").hide();
     if (localStorage.getItem("TokenFile") != null) {
         window.location.href = "disricts.html"
     } else {
@@ -16,7 +17,6 @@ $("form").on("submit", function sub(event) {
     event.preventDefault();
     var username = $('#inputusername').val();
     var password = $('#inputpassword').val();
-    $(".loading").show();
     $.ajax({
         url: "http://13.235.100.235:8000/api-token-auth/",
         type: 'POST',
@@ -28,6 +28,9 @@ $("form").on("submit", function sub(event) {
             console.log("in before send")
         },
         dataType: 'json',
+        beforeSend: function() {
+            $(".loading").show();
+        },
         success: function(res) {
             $(".loading").hide();
             console.log('login successfull')
