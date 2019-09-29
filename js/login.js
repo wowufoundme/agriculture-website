@@ -10,11 +10,7 @@ $(document).ready(function() {
         $('#inputusername').val("");
         $('#inputpassword').val("");
     }
-
 });
-
-
-// $("#loginbtn").click(function() {
 
 $("form").on("submit", function sub(event) {
     event.preventDefault();
@@ -49,22 +45,3 @@ $("form").on("submit", function sub(event) {
         }
     });
 })
-
-// if (username == "" && password != "") {
-//     console.log("no username")
-//     $('#inputpassword').next("div").remove();
-//     $('#inputusername').after("<span style='color:red;margin-bottom: 20px;'>*required</span>")
-// } else if (password == "" && username != "") {
-//     console.log("no password")
-//     $('#inputusername').next("div").remove();
-//     $('#inputpassword').after("<span style='color:red;margin-bottom: 20px;'>*required</span>")
-// } else if (username == "" && password == "") {
-//     console.log("both")
-//     $('#inputusername').after("<div style='color:red;margin-bottom: 20px;'>*required</div>")
-//     $('#inputpassword').after("<div style='color:red;margin-bottom: 20px;min-height: 20px;'>*required</div>")
-// } else {
-
-// }
-
-
-// });
