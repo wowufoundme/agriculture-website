@@ -22,7 +22,7 @@
         <div class="card white darken-1">
             <div class="card-content">
 
-                <div class="form-group">
+                <form class="form-group" method="POST">
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <h5>SignUp</h5>
@@ -31,27 +31,26 @@
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="ddaname" type="text" class="validate">
+                                <input id="ddaname" type="text" class="validate" required>
                                 <label for="ddaname">Dda Name</label>
-                                <span class="helper-text" data-error="wrong" data-success=""></span>
+                                <span class="helper-text" data-error="" data-success=""></span>
                             </div>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="ddaphone" type="number" class="validate">
+                                <input id="ddaphone" type="number" minlength="10" maxlength="10" class="validate" pattern="/(7|8|9)\d{9}$/" required>
                                 <label for="ddaphone">Phone number</label>
-                                <span class="helper-text" data-error="wrong" data-success=""></span>
                             </div>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="ddaemail" type="email" class="validate">
+                                <input id="ddaemail" type="email" class="validate" required>
                                 <label for="ddaemail">Email</label>
-                                <span class="helper-text" data-error="wrong" data-success=""></span>
+                                <span class="helper-text" data-error="Please enter a valid email!" data-success=""></span>
                             </div>
                         </div>
                     </div>
@@ -61,7 +60,7 @@
                         <!-- <div class="input-field inline"> -->
                         <!-- <input id="ddadistrict" type="text" class="validate"> -->
                         <!-- <label for="ddadistrict">District</label> -->
-                        <div id="districtSelect" class="input-field col xl12 l12 m12 s12 form-control">
+                        <div id="districtSelect" class="input-field col xl12 l12 m12 s12 form-control" aria-required="true">
                             <select id="select-district">
                                     </select>
                         </div>
@@ -72,24 +71,22 @@
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="ddausername" type="text" class="validate">
+                                <input id="ddausername" type="text" class="validate" required>
                                 <label for="ddausername">Username</label>
-                                <span class="helper-text" data-error="wrong" data-success=""></span>
                             </div>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col xl12 l12 m12 s12 ">
                             <div class="input-field inline">
-                                <input id="ddapassword" type="password" class="validate">
+                                <input id="ddapassword" type="password" class="validate" required>
                                 <label for="ddapassword">Password</label>
-                                <span class="helper-text" data-error="wrong" data-success=""></span>
                             </div>
                         </div>
                     </div>
                     <div id="btnrow" class="row ">
                         <div class="col xl12 l12 m12 s12 ">
-                            <a id="ddasignupbtn" class="waves-effect blue lighten-1 waves-light btn ">SignUp</a>
+                            <button id="ddasignupbtn" class="waves-effect blue lighten-1 waves-light btn" type="submit">SignUp</button>
                         </div>
                     </div>
                     <center class="loading">
@@ -107,11 +104,13 @@
                             </div>
                         </div>
                     </center>
-                </div>
+                </form>
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="lib/materialize.min.js "></script>
     <script src="js/ddaregister.js"></script>
 </body>

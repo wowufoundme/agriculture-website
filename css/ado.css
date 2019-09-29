@@ -29,7 +29,8 @@ div {
     -o-transition: 1s;
 }
 
-#loader {
+
+/* #loader {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -37,7 +38,7 @@ div {
     height: 100%;
     z-index: 9999;
     background: url("../images/Preloader_7.gif") center no-repeat #fff;
-}
+} */
 
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
