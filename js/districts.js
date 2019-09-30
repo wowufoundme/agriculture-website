@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function getData() {
     $.ajax({
-        url: "http://13.235.100.235:8000/api/district/",
+        url: "http://13.235.100.235/api/district/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -77,7 +77,7 @@ $("#edit").click(function() {
     var id = $("#editDistrict").attr("key");
     var districtName = $('#districtName').val();
     $.ajax({
-        url: `http://13.235.100.235:8000/api/district/${id}/`,
+        url: `http://13.235.100.235/api/district/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
@@ -119,7 +119,7 @@ $(document).on("click", "#deletebutton", function() {
 $("#delete").click(function() {
     var id = $("#deleteDistrict").attr("key");
     $.ajax({
-        url: `http://13.235.100.235:8000/api/district/${id}/`,
+        url: `http://13.235.100.235/api/district/${id}/`,
         type: 'DELETE',
         headers: {
             'Authorization': 'Token ' + token
@@ -155,7 +155,7 @@ $("#addid").click(function() {
     var districtCode = $('#districtCode').val();
     console.log('Add clicked')
     $.ajax({
-        url: "http://13.235.100.235:8000/api/district/",
+        url: "http://13.235.100.235/api/district/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
@@ -202,7 +202,7 @@ $("#csvfile").change(function() {
 
 $('#uploaddistricts').click(function() {
     $.ajax({
-        url: "http://13.235.100.235:8000/api/upload/districts/",
+        url: "http://13.235.100.235/api/upload/districts/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token

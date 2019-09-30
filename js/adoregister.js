@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
 
     $.ajax({
-        url: "http://13.235.100.235:8000/api/village/",
+        url: "http://13.235.100.235/api/village/",
         type: 'GET',
         async: false,
         dataType: 'json',
@@ -37,7 +37,7 @@ $(document).ready(function() {
     });
 
     $.ajax({
-        url: "http://13.235.100.235:8000/api/user/dda/",
+        url: "http://13.235.100.235/api/user/dda/",
         type: 'GET',
         async: false,
         dataType: 'json',
@@ -103,7 +103,7 @@ $("form").on("submit", function sub(event) {
         $('#adophone').next('#error').remove();
         $(".loading").show();
         $.ajax({
-            url: "http://13.235.100.235:8000/api/user/",
+            url: "http://13.235.100.235/api/user/",
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -147,7 +147,7 @@ $("form").on("submit", function sub(event) {
 //         'dda': parseInt(dda)
 //     }
 //     $.ajax({
-//         url: "http://13.235.100.235:8000/api/user/",
+//         url: "http://13.235.100.235/api/user/",
 //         type: 'POST',
 //         contentType: 'application/json',
 //         data: JSON.stringify(data),

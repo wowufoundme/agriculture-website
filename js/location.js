@@ -25,9 +25,9 @@ $(document).ready(function() {
 function getPendingData(page = 1) {
     console.log("in pending")
     if (page !== 1)
-        url = `http://13.235.100.235:8000/api/locations/pending?page=${page}`
+        url = `http://13.235.100.235/api/locations/pending?page=${page}`
     else
-        url = `http://13.235.100.235:8000/api/locations/pending`
+        url = `http://13.235.100.235/api/locations/pending`
     $.ajax({
         url: url,
         type: 'GET',
@@ -106,9 +106,9 @@ function getPendingData(page = 1) {
 function getOngoingData(page = 1) {
     console.log("in ongoing")
     if (page !== 1)
-        url = `http://13.235.100.235:8000/api/locations/ongoing?page=${page}`
+        url = `http://13.235.100.235/api/locations/ongoing?page=${page}`
     else
-        url = `http://13.235.100.235:8000/api/locations/ongoing`
+        url = `http://13.235.100.235/api/locations/ongoing`
     $.ajax({
         url: url,
         type: 'GET',
@@ -186,9 +186,9 @@ function getOngoingData(page = 1) {
 function getCompletedData(page = 1) {
     console.log("in completed")
     if (page !== 1)
-        url = `http://13.235.100.235:8000/api/locations/completed?page=${page}`
+        url = `http://13.235.100.235/api/locations/completed?page=${page}`
     else
-        url = `http://13.235.100.235:8000/api/locations/completed`
+        url = `http://13.235.100.235/api/locations/completed`
     $.ajax({
         url: url,
         type: 'GET',
