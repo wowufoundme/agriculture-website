@@ -15,7 +15,7 @@ $(document).ready(function() {
         });
         $('select').append(`<option value="default" disabled selected>Choose District</option>`)
         $.ajax({
-            url: "http://13.235.100.235:8000/api/district/",
+            url: "http://13.235.100.235/api/district/",
             type: 'GET',
             // headers: {
             //     'Authorization': 'Token ' + token
@@ -53,9 +53,9 @@ $(document).ready(function() {
 
 function getData(page = 1) {
     if (page !== 1)
-        url = `http://13.235.100.235:8000/api/users-list/dda/?page=${page}`
+        url = `http://13.235.100.235/api/users-list/dda/?page=${page}`
     else
-        url = `http://13.235.100.235:8000/api/users-list/dda/`
+        url = `http://13.235.100.235/api/users-list/dda/`
     $.ajax({
         url: url,
         type: 'GET',
@@ -196,7 +196,7 @@ $("#addform").on("submit", function sub(event) {
         $(".loading").show();
         console.log("form valid")
         $.ajax({
-            url: "http://13.235.100.235:8000/api/user/",
+            url: "http://13.235.100.235/api/user/",
             type: 'POST',
             headers: {
                 'Authorization': 'Token ' + token
@@ -265,7 +265,7 @@ $(document).on("click", "#editbutton", function() {
     $('#ddaeditDistrict').html("")
     $('#ddaeditDistrict').append(`<option value="default" disabled selected>Choose District</option>`)
     $.ajax({
-        url: "http://13.235.100.235:8000/api/district/",
+        url: "http://13.235.100.235/api/district/",
         type: 'GET',
         async: false,
         dataType: 'json',
@@ -301,7 +301,7 @@ $("#edit").click(function() {
     console.log(number);
     console.log(email);
     $.ajax({
-        url: `http://13.235.100.235:8000/api/user/${id}/`,
+        url: `http://13.235.100.235/api/user/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
@@ -349,7 +349,7 @@ $(document).on("click", "#deletebutton", function() {
 $("#delete").click(function() {
     var id = $("#deleteDda").attr("key");
     $.ajax({
-        url: `http://13.235.100.235:8000/api/user/${id}/`,
+        url: `http://13.235.100.235/api/user/${id}/`,
         type: 'DELETE',
         headers: {
             'Authorization': 'Token ' + token
@@ -387,7 +387,7 @@ $("#csvfile").change(function() {
 
 $('#uploaddda').click(function() {
     $.ajax({
-        url: "http://13.235.100.235:8000/api/upload/dda/",
+        url: "http://13.235.100.235/api/upload/dda/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
