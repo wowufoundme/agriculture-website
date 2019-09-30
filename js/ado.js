@@ -14,6 +14,67 @@ $(document).ready(function() {
         $(document).ready(function() {
             $('select').formSelect();
         });
+        $('#selectvillage').select2({
+            placeholder: "Choose Village",
+            allowClear: true,
+            minimumResultsForSearch: Infinity,
+            ajax: {
+                url: "http://13.235.100.235/api/villages-list/",
+                dataType: 'json',
+                delay: 250,
+                type: "GET",
+                // headers: {
+                //     'Authorization': 'Token ' + token
+                // },
+                data: function(params) {
+                    console.log("in data")
+                    var query = {
+                        search: params.term, // search term
+                        page: params.page || 1
+                    };
+                    return query;
+                },
+                // if (res.length > 0) {
+                //     res.map(item => {
+                //         row = `
+                //     <option value="${item.id}">${item.village}</option>
+                //     `
+                //         $('#selectvillage').append(row)
+                //     })
+                // }
+                processResults: function(data, params) {
+                    console.log("in processresults")
+                    console.log(data.results)
+                    params.page = params.page || 1
+                    return {
+                        results: data.results,
+                        pagination: {
+                            more: (params.page * 10) < data.count_filtered
+                        }
+                    };
+
+                },
+                transport: function(params) {
+                    console.log("in transport")
+                    params.beforeSend = function(request) {
+                        request.setRequestHeader("Authorization", 'Token ' + token);
+                    };
+                    return $.ajax(params);
+                },
+            },
+
+            // initSelection: function(element, callback) {
+            //     var id = $(element).val();
+            //     if (id !== "") {
+            //         $.ajax("http://13.235.100.235/api/villages-list/" + id, {
+            //             dataType: "json"
+            //         }).done(function(data) { callback(data); });
+            //     }
+            // },
+
+        })
+
+
         if ($(window).width() < 640 && $(window).width() > 320) {
 
             // $('a').remove();
@@ -153,31 +214,31 @@ $('#addbutton').click(function() {
     // re-initialize material-select
     $('#selectdda').html("")
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
-    $.ajax({
-        url: "http://13.235.100.235:8000/api/village/",
-        type: 'GET',
-        headers: {
-            'Authorization': 'Token ' + token
-        },
-        async: true,
-        dataType: 'json',
-        success: function(res) {
-            if (res.length > 0) {
-                res.map(item => {
-                    row = `
-                    <option value="${item.id}">${item.village}</option>
-                    `
-                    $('#selectvillage').append(row)
-                })
-            }
-            console.log("village loaded");
-            $('#selectvillage').formSelect();
-        },
-        error: function(e) {
-            console.log(e);
-            $('#selectvillage').formSelect();
-        }
-    });
+        // $.ajax({
+        //     url: "http://13.235.100.235:8000/api/village/",
+        //     type: 'GET',
+        //     headers: {
+        //         'Authorization': 'Token ' + token
+        //     },
+        //     async: true,
+        //     dataType: 'json',
+        //     success: function(res) {
+        //         if (res.length > 0) {
+        //             res.map(item => {
+        //                 row = `
+        //                 <option value="${item.id}">${item.village}</option>
+        //                 `
+        //                 $('#selectvillage').append(row)
+        //             })
+        //         }
+        //         console.log("village loaded");
+        //         $('#selectvillage').formSelect();
+        //     },
+        //     error: function(e) {
+        //         console.log(e);
+        //         $('#selectvillage').formSelect();
+        //     }
+        // });
 
     $.ajax({
         url: "http://13.235.100.235:8000/api/user/dda/",
