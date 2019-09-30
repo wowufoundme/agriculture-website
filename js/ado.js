@@ -89,9 +89,9 @@ $(document).ready(function() {
 
 function getData(page = 1) {
     if (page !== 1)
-        url = `http://13.235.100.235:8000/api/users-list/ado/?page=${page}`
+        url = `http://13.235.100.235/api/users-list/ado/?page=${page}`
     else
-        url = `http://13.235.100.235:8000/api/users-list/ado/`
+        url = `http://13.235.100.235/api/users-list/ado/`
     $.ajax({
         url: url,
         type: 'GET',
@@ -215,7 +215,7 @@ $('#addbutton').click(function() {
     $('#selectdda').html("")
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
         // $.ajax({
-        //     url: "http://13.235.100.235:8000/api/village/",
+        //     url: "http://13.235.100.235/api/village/",
         //     type: 'GET',
         //     headers: {
         //         'Authorization': 'Token ' + token
@@ -241,7 +241,7 @@ $('#addbutton').click(function() {
         // });
 
     $.ajax({
-        url: "http://13.235.100.235:8000/api/user/dda/",
+        url: "http://13.235.100.235/api/user/dda/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -290,7 +290,7 @@ $("#addid").click(function() {
         "dda": parseInt(dda)
     }
     $.ajax({
-        url: "http://13.235.100.235:8000/api/user/",
+        url: "http://13.235.100.235/api/user/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
@@ -348,7 +348,7 @@ $(document).on("click", "#editbutton", function() {
     $('#selecteditdda').html("")
     $('#selecteditdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
     $.ajax({
-        url: "http://13.235.100.235:8000/api/village/",
+        url: "http://13.235.100.235/api/village/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -374,7 +374,7 @@ $(document).on("click", "#editbutton", function() {
     });
 
     $.ajax({
-        url: "http://13.235.100.235:8000/api/user/dda/",
+        url: "http://13.235.100.235/api/user/dda/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -419,7 +419,7 @@ $("#edit").click(function() {
         "dda": parseInt(dda)
     }
     $.ajax({
-        url: `http://13.235.100.235:8000/api/user/${id}/`,
+        url: `http://13.235.100.235/api/user/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
@@ -463,7 +463,7 @@ $("#delete").click(function() {
     var id = $("#deleteAdo").attr("key");
     console.log(id)
     $.ajax({
-        url: `http://13.235.100.235:8000/api/user/${id}/`,
+        url: `http://13.235.100.235/api/user/${id}/`,
         type: 'DELETE',
         headers: {
             'Authorization': 'Token ' + token
@@ -501,7 +501,7 @@ $("#csvfile").change(function() {
 
 $('#uploadados').click(function() {
     $.ajax({
-        url: "http://13.235.100.235:8000/api/upload/ado/",
+        url: "http://13.235.100.235/api/upload/ado/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
