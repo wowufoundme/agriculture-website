@@ -227,3 +227,26 @@ $('#uploaddistricts').click(function() {
         }
     });
 })
+
+
+function search() {
+    input = $("#searchdistrict");
+    filter = input.val().toUpperCase();
+    table = $("#districttable");
+    tr = table.children().children("tr")
+    var i;
+
+
+    tr.each(function() {
+        var td = $(this).find('td:eq(1)')
+        if (td) {
+            var txtValue = td.text()
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                $(this).css("display", "")
+            } else {
+                $(this).css("display", "none")
+            }
+        }
+    })
+
+}
