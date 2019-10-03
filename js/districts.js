@@ -233,7 +233,7 @@ function search() {
     input = $("#searchdistrict");
     filter = input.val().toUpperCase();
     table = $("#districttable");
-    tr = table.children().children("tr")
+    tr = table.children("tbody").children("tr")
     var i;
 
 
@@ -245,6 +245,7 @@ function search() {
                 $(this).css("display", "")
             } else {
                 $(this).css("display", "none")
+                console.log($('tbody').html())
             }
         }
     })
