@@ -35,6 +35,19 @@ div {
     -o-transition: 1s;
 }
 
+
+/* #searchdistrict {
+    border: 1px solid black;
+}
+
+.material-icons {
+    border: 1px solid black;
+} */
+
+#searchcol {
+    float: right;
+}
+
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;

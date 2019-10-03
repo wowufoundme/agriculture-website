@@ -33,6 +33,10 @@ span {
     font-size: 20px;
 }
 
+#searchcol {
+    float: right;
+}
+
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;

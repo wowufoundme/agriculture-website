@@ -29,6 +29,10 @@ div {
     -o-transition: 1s;
 }
 
+#searchcol {
+    float: right;
+}
+
 
 /* #loader {
     position: fixed;

@@ -37,6 +37,10 @@ input:invalid {
     border: 2px dashed red;
 }
 
+#searchcol {
+    float: right;
+}
+
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
         float: none;
