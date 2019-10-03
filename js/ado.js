@@ -14,66 +14,129 @@ $(document).ready(function() {
         $(document).ready(function() {
             $('select').formSelect();
         });
-        $('#selectvillage').select2({
-            placeholder: "Choose Village",
-            allowClear: true,
-            minimumResultsForSearch: Infinity,
-            ajax: {
-                url: "http://13.235.100.235/api/villages-list/",
-                dataType: 'json',
-                delay: 250,
-                type: "GET",
-                // headers: {
-                //     'Authorization': 'Token ' + token
-                // },
-                data: function(params) {
-                    console.log("in data")
-                    var query = {
-                        search: params.term, // search term
-                        page: params.page || 1
-                    };
-                    return query;
-                },
-                // if (res.length > 0) {
-                //     res.map(item => {
-                //         row = `
-                //     <option value="${item.id}">${item.village}</option>
-                //     `
-                //         $('#selectvillage').append(row)
-                //     })
-                // }
-                processResults: function(data, params) {
-                    console.log("in processresults")
-                    console.log(data.results)
-                    params.page = params.page || 1
-                    return {
-                        results: data.results,
-                        pagination: {
-                            more: (params.page * 10) < data.count_filtered
-                        }
-                    };
 
-                },
-                transport: function(params) {
-                    console.log("in transport")
-                    params.beforeSend = function(request) {
-                        request.setRequestHeader("Authorization", 'Token ' + token);
-                    };
-                    return $.ajax(params);
-                },
+        $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
+        $.ajax({
+            url: "http://13.235.100.235/api/user/dda/",
+            type: 'GET',
+            headers: {
+                'Authorization': 'Token ' + token
             },
+            async: false,
+            dataType: 'json',
+            success: function(res) {
+                if (res.length > 0) {
+                    res.map(item => {
+                        row = `
+                        <option value="${item.id}">${item.name}</option>
+                        `
+                        $('#selectdda').append(row)
+                    })
+                }
+                console.log("dda list loaded")
+                $('#selectdda').formSelect();
+            },
+            error: function(e) {
+                console.log(e);
+                $('#selectdda').formSelect();
+            }
+        });
 
-            // initSelection: function(element, callback) {
-            //     var id = $(element).val();
-            //     if (id !== "") {
-            //         $.ajax("http://13.235.100.235/api/villages-list/" + id, {
-            //             dataType: "json"
-            //         }).done(function(data) { callback(data); });
-            //     }
-            // },
 
-        })
+        $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
+        $('#adovillage').keyup(function() {
+                $('#selectvillage').html('')
+                var searchfield = $('#search').val();
+                var expression = new RegExp(searchfield, "i");
+                $.ajax({
+                    url: "http://13.235.100.235/api/villages-list/",
+                    type: 'GET',
+                    headers: {
+                        'Authorization': 'Token ' + token
+                    },
+                    dataType: 'json',
+                    success: function(res) {
+                        console.log(res.results)
+                        $.each(res.results, function(key, value) {
+                                if (value.village.search(expression) != -1) {
+                                    console.log(value.village)
+                                    if (res.length > 0) {
+                                        row = ` <option value="${value.village}></option>`
+                                        $('#selectvillage').append(row)
+                                    }
+                                }
+                            })
+                            // res.results.map(item => {
+                            //     row = `
+                            //         <option value="${item.village}></option>
+                            //         `
+                            //     $('#selectvillage').append(row)
+                            // })
 
+
+                    },
+                    error: function(e) {
+                        $('#selectvillage').formSelect()
+                        console.log(e);
+                    }
+                })
+            })
+            // $('#selectvillage').select2({
+            //     matcher: matchCustom,
+            //     placeholder: "Choose Village",
+            //     allowClear: true,
+            //     minimumResultsForSearch: Infinity,
+            //     ajax: {
+            //         url: "http://13.235.100.235/api/villages-list/",
+            //         dataType: 'json',
+            //         delay: 250,
+            //         type: "GET",
+            //         // headers: {
+            //         //     'Authorization': 'Token ' + token
+            //         // },
+            //         data: function(params) {
+            //             console.log("in data")
+            //             var query = {
+            //                 search: params.term, // search term
+            //                 page: params.page || 1
+            //             };
+            //             return query;
+            //         },
+            //         // processresults: function(data, params) {
+            //         //     console.log("in processresults")
+            //         //     console.log(data.results)
+            //         //     params.page = params.page || 1
+            //         //     return {
+            //         //         results: data.results,
+            //         //         pagination: {
+            //         //             more: (params.page * 10) < data.count
+            //         //         }
+            //         //     };
+
+        //         processResults: function(data) {
+        //             console.log(data)
+        //             console.log("hello")
+        //             return {
+        //                 results: $.map(data.results, function(item) {
+        //                     return {
+        //                         text: item.village,
+        //                         id: item.id
+        //                     };
+        //                 })
+        //             };
+        //         },
+        //         cache: true,
+        //         transport: function(params) {
+        //             console.log("in transport")
+        //             params.beforeSend = function(request) {
+        //                 request.setRequestHeader("Authorization", 'Token ' + token);
+        //             };
+        //             return $.ajax(params);
+        //         }
+
+        //     },
+
+        // });
 
         if ($(window).width() < 640 && $(window).width() > 320) {
 
@@ -86,6 +149,32 @@ $(document).ready(function() {
     }
 
 });
+
+function matchCustom(params, data) {
+    // If there are no search terms, return all of the data
+    if ($.trim(params.term) === '') {
+        return data;
+    }
+
+    // Do not display the item if there is no 'text' property
+    if (typeof data.text === 'undefined') {
+        return null;
+    }
+
+    // `params.term` should be the term that is used for searching
+    // `data.text` is the text that is displayed for the data object
+    if (data.text.indexOf(params.term) > -1) {
+        var modifiedData = $.extend({}, data, true);
+        modifiedData.text += ' (matched)';
+
+        // You can return modified objects from here
+        // This includes matching the `children` how you want in nested data sets
+        return modifiedData;
+    }
+
+    // Return `null` if the term should not be displayed
+    return null;
+}
 
 function getData(page = 1) {
     if (page !== 1)
@@ -138,8 +227,16 @@ function getData(page = 1) {
                     $('.pagination').append(arrow_left_enabled);
                 }
                 for (var i = 0; i < res.count / 10; i++) {
+                    console.log(res.count)
+                    var n = res.count / 10;
+                    // if ((n / 10) > 10 && (i == 0 || i == 1 || i == 2 || i == n || i == n - 1 || i == n - 2)) {
+                    //     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
+                    //     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
+                    // } else {
                     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
+                        // }
+
                     if (i === page - 1) {
                         $('.pagination').append(active_tab);
                     } else {
@@ -205,66 +302,17 @@ $('#addbutton').click(function() {
     $('#adoEmail').val("");
     $('#adoUsername').val("");
     $('#adoPassword').val("");
-    $('#selectvillage').val("default");
-    // re-initialize material-select
-    $('#selectvillage').html("")
-    $('#selectvillage').append(`<option value="default" disabled selected>Choose Village</option>`)
+    // $('#selectvillage').val("default");
+    // // re-initialize material-select
+    // $('#selectvillage').html("")
+    // $('#selectvillage').append(`<option value="default" disabled selected>Choose Village</option>`)
 
     $('#selectdda').val("default");
     // re-initialize material-select
-    $('#selectdda').html("")
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
-        // $.ajax({
-        //     url: "http://13.235.100.235/api/village/",
-        //     type: 'GET',
-        //     headers: {
-        //         'Authorization': 'Token ' + token
-        //     },
-        //     async: true,
-        //     dataType: 'json',
-        //     success: function(res) {
-        //         if (res.length > 0) {
-        //             res.map(item => {
-        //                 row = `
-        //                 <option value="${item.id}">${item.village}</option>
-        //                 `
-        //                 $('#selectvillage').append(row)
-        //             })
-        //         }
-        //         console.log("village loaded");
-        //         $('#selectvillage').formSelect();
-        //     },
-        //     error: function(e) {
-        //         console.log(e);
-        //         $('#selectvillage').formSelect();
-        //     }
-        // });
 
-    $.ajax({
-        url: "http://13.235.100.235/api/user/dda/",
-        type: 'GET',
-        headers: {
-            'Authorization': 'Token ' + token
-        },
-        async: false,
-        dataType: 'json',
-        success: function(res) {
-            if (res.length > 0) {
-                res.map(item => {
-                    row = `
-                    <option value="${item.id}">${item.name}</option>
-                    `
-                    $('#selectdda').append(row)
-                })
-            }
-            console.log("dda list loaded")
-            $('#selectdda').formSelect();
-        },
-        error: function(e) {
-            console.log(e);
-            $('#selectdda').formSelect();
-        }
-    });
+    $('#selectvillage').val("default")
+    $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
 })
 
 
