@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Home Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/materialize.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <div id="navid" class="navbar-toggleable-lg navbar-expand-lg">
+        <nav class="teal s12" role="navigation">
+            <a data-target="slide-out" class="sidenav-trigger show-on-large">
+                <i class="material-icons">menu</i>
+            </a>
+            <div class="nav-wrapper">
+                <a id="logo-container" class="brand-logo">Dashboard</a>
+                <ul id="nav-mobile" class="right show-on-extra-large">
+                    <li id="logout"><a>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    </div>
+
+    <div id="side">
+
+        <ul id="slide-out" class="sidenav invesible-top">
+
+            <li><a class="sidenav-close"><i class="material-icons right">close</i></a></li>
+            <li class="active teal lighten-1"><a href="home.html">HOME</a></li>
+            <li><a href="districts.html">DISTRICTS</a></li>
+            <li><a href="villages.html">VILLAGES</a></li>
+            <li><a href="dda.html">DDA</a></li>
+            <li><a href="ado.html">ADO</a></li>
+            <li><a href="location.html">LOCATIONS</a></li>
+        </ul>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="./lib/materialize.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

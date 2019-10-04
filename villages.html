@@ -34,6 +34,7 @@
         <ul id="slide-out" class="sidenav invesible-top">
 
             <li><a class="sidenav-close"><i class="material-icons right">close</i></a></li>
+            <li><a href="home.html">HOME</a></li>
             <li><a href="districts.html">DISTRICTS</a></li>
             <li class="active teal lighten-1"><a href="villages.html">VILLAGES</a></li>
             <li><a href="dda.html">DDA</a></li>
@@ -64,15 +65,14 @@
                         <div id="searchcol" class="col xl6 l4 m6 s12">
                             <div class="input-field">
                                 <i class="material-icons prefix">search</i>
-                                <input id="searchdistrict" type="text" name="search" class="autocomplete">
-                                <label for="searchdistrict">Search</label>
+                                <input id="searchvillage" type="text" name="search" class="autocomplete" onkeyup="search()" placeholder="Search..">
                             </div>
                         </div>
                     </div>
 
-                    <div class="row " id="tablerow ">
+                    <div class="row" id="tablerow">
                         <div class="col xl12 l12 ">
-                            <table class="highlight centered bordered ">
+                            <table id="villagetable" class="highlight centered bordered">
                                 <thead>
                                     <tr>
                                         <th>S.No.</th>

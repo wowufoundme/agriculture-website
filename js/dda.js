@@ -51,11 +51,11 @@ $(document).ready(function() {
 
 });
 
-function getData(page = 1) {
+function getData(page = 1, search = "") {
     if (page !== 1)
-        url = `http://13.235.100.235/api/users-list/dda/?page=${page}`
+        url = `http://13.235.100.235/api/users-list/dda/?search=${search}&page=${page}`
     else
-        url = `http://13.235.100.235/api/users-list/dda/`
+        url = `http://13.235.100.235/api/users-list/dda/?search=${search}`
     $.ajax({
         url: url,
         type: 'GET',
@@ -130,25 +130,41 @@ function getData(page = 1) {
     });
 }
 
+function search() {
+    input = $("#searchdda");
+    filter = input.val().toUpperCase();
+    var id = $('#page-tab').children('a').html()
+    console.log(id)
+    console.log(filter)
+    getData(parseInt(id), filter);
+}
+
+
 // pagination handle functions
 $(document).on("click", "#page-tab", function() {
     // get id of the row clicked
     var id = $(this).children('a').html()
-    getData(parseInt(id));
+    input = $("#searchvillage");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id), filter);
 });
 
 // left arrow
 $(document).on("click", "#left", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id) - 1);
+    input = $("#searchvillage");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id) - 1, filter);
 });
 
 // right arrow
 $(document).on("click", "#right", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id) + 1);
+    input = $("#searchvillage");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id) + 1, filter);
 });
 
 

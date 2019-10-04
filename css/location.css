@@ -59,11 +59,11 @@ div {
 /*Background and text color when a tab is active*/
 
 .sidenav {
-    transition: 1s;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -ms-transition: 1s;
-    -o-transition: 1s;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
 
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {

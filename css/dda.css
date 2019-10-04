@@ -22,15 +22,11 @@ div {
 }
 
 .sidenav {
-    /* background: #FAFAD2; */
-    /* background: #EEE8AA; */
-    /* background: #FFE1E3; */
-    /* background: lightpink; */
-    transition: 1s;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -ms-transition: 1s;
-    -o-transition: 1s;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
 
 input:invalid {

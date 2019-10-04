@@ -43,100 +43,37 @@ $(document).ready(function() {
         });
 
 
-        $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
-        $('#adovillage').keyup(function() {
-                $('#selectvillage').html('')
-                var searchfield = $('#search').val();
-                var expression = new RegExp(searchfield, "i");
-                $.ajax({
-                    url: "http://13.235.100.235/api/villages-list/",
-                    type: 'GET',
-                    headers: {
-                        'Authorization': 'Token ' + token
-                    },
-                    dataType: 'json',
-                    success: function(res) {
-                        console.log(res.results)
-                        $.each(res.results, function(key, value) {
-                                if (value.village.search(expression) != -1) {
-                                    console.log(value.village)
-                                    if (res.length > 0) {
-                                        row = ` <option value="${value.village}></option>`
-                                        $('#selectvillage').append(row)
-                                    }
-                                }
-                            })
-                            // res.results.map(item => {
-                            //     row = `
-                            //         <option value="${item.village}></option>
-                            //         `
-                            //     $('#selectvillage').append(row)
-                            // })
+        // $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
+        // $('#adovillage').keyup(function() {
+        //         $('#selectvillage').html('')
+        //         var searchfield = $('#search').val();
+        //         var expression = new RegExp(searchfield, "i");
+        //         $.ajax({
+        //             url: "http://13.235.100.235/api/villages-list/",
+        //             type: 'GET',
+        //             headers: {
+        //                 'Authorization': 'Token ' + token
+        //             },
+        //             dataType: 'json',
+        //             success: function(res) {
+        //                 console.log(res.results)
+        //                 $.each(res.results, function(key, value) {
+        //                         if (value.village.search(expression) != -1) {
+        //                             console.log(value.village)
+        //                             if (res.length > 0) {
+        //                                 row = ` <option value="${value.village}></option>`
+        //                                 $('#selectvillage').append(row)
+        //                             }
+        //                         }
+        //                     })
 
 
-                    },
-                    error: function(e) {
-                        $('#selectvillage').formSelect()
-                        console.log(e);
-                    }
-                })
-            })
-            // $('#selectvillage').select2({
-            //     matcher: matchCustom,
-            //     placeholder: "Choose Village",
-            //     allowClear: true,
-            //     minimumResultsForSearch: Infinity,
-            //     ajax: {
-            //         url: "http://13.235.100.235/api/villages-list/",
-            //         dataType: 'json',
-            //         delay: 250,
-            //         type: "GET",
-            //         // headers: {
-            //         //     'Authorization': 'Token ' + token
-            //         // },
-            //         data: function(params) {
-            //             console.log("in data")
-            //             var query = {
-            //                 search: params.term, // search term
-            //                 page: params.page || 1
-            //             };
-            //             return query;
-            //         },
-            //         // processresults: function(data, params) {
-            //         //     console.log("in processresults")
-            //         //     console.log(data.results)
-            //         //     params.page = params.page || 1
-            //         //     return {
-            //         //         results: data.results,
-            //         //         pagination: {
-            //         //             more: (params.page * 10) < data.count
-            //         //         }
-            //         //     };
-
-        //         processResults: function(data) {
-        //             console.log(data)
-        //             console.log("hello")
-        //             return {
-        //                 results: $.map(data.results, function(item) {
-        //                     return {
-        //                         text: item.village,
-        //                         id: item.id
-        //                     };
-        //                 })
-        //             };
-        //         },
-        //         cache: true,
-        //         transport: function(params) {
-        //             console.log("in transport")
-        //             params.beforeSend = function(request) {
-        //                 request.setRequestHeader("Authorization", 'Token ' + token);
-        //             };
-        //             return $.ajax(params);
-        //         }
-
-        //     },
-
-        // });
+        //             },
+        //             error: function(e) {
+        //                 $('#selectvillage').formSelect()
+        //                 console.log(e);
+        //             }
+        //         })
 
         if ($(window).width() < 640 && $(window).width() > 320) {
 
@@ -176,11 +113,11 @@ function matchCustom(params, data) {
     return null;
 }
 
-function getData(page = 1) {
+function getData(page = 1, search = "") {
     if (page !== 1)
-        url = `http://13.235.100.235/api/users-list/ado/?page=${page}`
+        url = `http://13.235.100.235/api/users-list/ado/?search=${search}&page=${page}`
     else
-        url = `http://13.235.100.235/api/users-list/ado/`
+        url = `http://13.235.100.235/api/users-list/ado/?search=${search}`
     $.ajax({
         url: url,
         type: 'GET',
@@ -266,34 +203,43 @@ function getData(page = 1) {
     });
 }
 
+
+function search() {
+    input = $("#searchado");
+    filter = input.val().toUpperCase();
+    var id = $('#page-tab').children('a').html()
+    console.log(id)
+    console.log(filter)
+    getData(parseInt(id), filter);
+}
+
+
 // pagination handle functions
 $(document).on("click", "#page-tab", function() {
     // get id of the row clicked
     var id = $(this).children('a').html()
-    getData(parseInt(id));
+    input = $("#searchado");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id), filter);
 });
 
 // left arrow
 $(document).on("click", "#left", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id) - 1);
+    input = $("#searchado");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id) - 1, filter);
 });
 
 // right arrow
 $(document).on("click", "#right", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
-    getData(parseInt(id) + 1);
+    input = $("#searchado");
+    filter = input.val().toUpperCase();
+    getData(parseInt(id) + 1, filter);
 });
-
-$(window).load(function() {
-    // Animate loader off screen
-    $("#loader").hide();
-});
-
-
-
 
 // add functions
 $('#addbutton').click(function() {
