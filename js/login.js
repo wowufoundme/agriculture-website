@@ -33,7 +33,7 @@ $("form").on("submit", function sub(event) {
             console.log('login successfull')
             localStorage.setItem("TokenFile", res.token)
             M.toast({ html: 'Login successfull', classes: 'rounded green' })
-            window.location.href = "districts.html"
+            window.location.href = "home.html"
         },
         error: function(e) {
             $(".loading").hide();
