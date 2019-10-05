@@ -124,7 +124,7 @@ function getData(page = 1, search = "") {
                 arrow_left_enabled =
                     `
                     <li id="left" class="waves-effect">
-                        <a href="#!">
+                        <a>
                             <i class="material-icons">chevron_left</i>
                         </a>
                     </li>
@@ -147,7 +147,7 @@ function getData(page = 1, search = "") {
                 if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="right" class="waves-effect">
-                            <a href="#!">
+                            <a>
                                 <i class="material-icons">chevron_right</i>
                             </a>
                         </li>
@@ -167,14 +167,19 @@ function getData(page = 1, search = "") {
 }
 
 
-function search() {
-    input = $("#searchado");
-    filter = input.val().toUpperCase();
-    var id = $('#page-tab').children('a').html()
-    console.log(id)
-    console.log(filter)
-    getData(parseInt(id), filter);
-}
+$('#searchado').keypress(function(event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        input = $("#searchado");
+        filter = input.val().toUpperCase();
+        var id = $('#page-tab').children('a').html()
+        console.log(id)
+        console.log(filter)
+        getData(parseInt(id), filter);
+    }
+})
+
+
 
 
 // pagination handle functions

@@ -84,7 +84,7 @@ function getData(page = 1, search = "") {
                 arrow_left_enabled =
                     `
                     <li id="left" class="waves-effect">
-                        <a href="#!">
+                        <a>
                             <i class="material-icons">chevron_left</i>
                         </a>
                     </li>
@@ -102,10 +102,10 @@ function getData(page = 1, search = "") {
                     }
                 }
 
-                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
+                if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="right" class="waves-effect">
-                            <a href="#!">
+                            <a>
                                 <i class="material-icons">chevron_right</i>
                             </a>
                         </li>
