@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('select').html("")
     $('select').append(`<option value="default" disabled selected>Choose District</option>`)
     $.ajax({
-        url: "http://13.235.100.235/api/district/",
+        url: "http://18.224.202.135/api/district/",
         type: 'GET',
         async: false,
         dataType: 'json',
@@ -60,7 +60,7 @@ $("form").on("submit", function sub(event) {
         $(".loading").show();
         console.log("form valid")
         $.ajax({
-            url: "http://13.235.100.235/api/user/",
+            url: "http://18.224.202.135/api/user/",
             type: 'POST',
             data: {
                 "name": name,

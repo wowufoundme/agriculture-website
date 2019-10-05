@@ -17,7 +17,7 @@ $(document).ready(function() {
 
         $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
         $.ajax({
-            url: "http://13.235.100.235/api/user/dda/",
+            url: "http://18.224.202.135/api/user/dda/",
             type: 'GET',
             headers: {
                 'Authorization': 'Token ' + token
@@ -43,49 +43,18 @@ $(document).ready(function() {
         });
 
 
-        // $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
-        // $('#adovillage').keyup(function() {
-        //         $('#selectvillage').html('')
-        //         var searchfield = $('#search').val();
-        //         var expression = new RegExp(searchfield, "i");
-        //         $.ajax({
-        //             url: "http://13.235.100.235/api/villages-list/",
-        //             type: 'GET',
-        //             headers: {
-        //                 'Authorization': 'Token ' + token
-        //             },
-        //             dataType: 'json',
-        //             success: function(res) {
-        //                 console.log(res.results)
-        //                 $.each(res.results, function(key, value) {
-        //                         if (value.village.search(expression) != -1) {
-        //                             console.log(value.village)
-        //                             if (res.length > 0) {
-        //                                 row = ` <option value="${value.village}></option>`
-        //                                 $('#selectvillage').append(row)
-        //                             }
-        //                         }
-        //                     })
-
-
-        //             },
-        //             error: function(e) {
-        //                 $('#selectvillage').formSelect()
-        //                 console.log(e);
-        //             }
-        //         })
-
-        if ($(window).width() < 640 && $(window).width() > 320) {
-
-            // $('a').remove();
-            $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo">Add</a>')
-            $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
-            console.log("width less than 600");
-        }
-        getData();
     }
 
-});
+    if ($(window).width() < 640 && $(window).width() > 320) {
+
+        // $('a').remove();
+        $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo">Add</a>')
+        $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
+        console.log("width less than 600");
+    }
+    getData();
+})
+
 
 function matchCustom(params, data) {
     // If there are no search terms, return all of the data
@@ -115,9 +84,9 @@ function matchCustom(params, data) {
 
 function getData(page = 1, search = "") {
     if (page !== 1)
-        url = `http://13.235.100.235/api/users-list/ado/?search=${search}&page=${page}`
+        url = `http://18.224.202.135/api/users-list/ado/?search=${search}&page=${page}`
     else
-        url = `http://13.235.100.235/api/users-list/ado/?search=${search}`
+        url = `http://18.224.202.135/api/users-list/ado/?search=${search}`
     $.ajax({
         url: url,
         type: 'GET',
@@ -278,7 +247,7 @@ $("#addid").click(function() {
         "dda": parseInt(dda)
     }
     $.ajax({
-        url: "http://13.235.100.235/api/user/",
+        url: "http://18.224.202.135/api/user/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
@@ -336,7 +305,7 @@ $(document).on("click", "#editbutton", function() {
     $('#selecteditdda').html("")
     $('#selecteditdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
     $.ajax({
-        url: "http://13.235.100.235/api/village/",
+        url: "http://18.224.202.135/api/village/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -362,7 +331,7 @@ $(document).on("click", "#editbutton", function() {
     });
 
     $.ajax({
-        url: "http://13.235.100.235/api/user/dda/",
+        url: "http://18.224.202.135/api/user/dda/",
         type: 'GET',
         headers: {
             'Authorization': 'Token ' + token
@@ -407,7 +376,7 @@ $("#edit").click(function() {
         "dda": parseInt(dda)
     }
     $.ajax({
-        url: `http://13.235.100.235/api/user/${id}/`,
+        url: `http://18.224.202.135/api/user/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
@@ -451,7 +420,7 @@ $("#delete").click(function() {
     var id = $("#deleteAdo").attr("key");
     console.log(id)
     $.ajax({
-        url: `http://13.235.100.235/api/user/${id}/`,
+        url: `http://18.224.202.135/api/user/${id}/`,
         type: 'DELETE',
         headers: {
             'Authorization': 'Token ' + token
@@ -489,7 +458,7 @@ $("#csvfile").change(function() {
 
 $('#uploadados').click(function() {
     $.ajax({
-        url: "http://13.235.100.235/api/upload/ado/",
+        url: "http://18.224.202.135/api/upload/ado/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token

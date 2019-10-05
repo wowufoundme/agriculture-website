@@ -11,7 +11,7 @@ $("form").on("submit", function sub(event) {
     var username = $('#inputusername').val();
     var password = $('#inputpassword').val();
     $.ajax({
-        url: "http://13.235.100.235/api-token-auth/",
+        url: "http://18.224.202.135/api-token-auth/",
         type: 'POST',
         data: {
             "username": username,

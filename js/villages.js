@@ -15,7 +15,7 @@ $(document).ready(function() {
         });
         $('select').append(`<option value="default" disabled selected>Choose District</option>`)
         $.ajax({
-            url: "http://13.235.100.235/api/district/",
+            url: "http://18.224.202.135/api/district/",
             type: 'GET',
             async: false,
             dataType: 'json',
@@ -50,9 +50,9 @@ $(document).ready(function() {
 
 function getData(page = 1, search = "") {
     if (page !== 1)
-        url = `http://13.235.100.235/api/villages-list/?search=${search}&page=${page}`
+        url = `http://18.224.202.135/api/villages-list/?search=${search}&page=${page}`
     else
-        url = `http://13.235.100.235/api/villages-list/?search=${search}`
+        url = `http://18.224.202.135/api/villages-list/?search=${search}`
     $.ajax({
         url: url,
         type: 'GET',
@@ -180,7 +180,7 @@ $(document).on("click", "#editbutton", function() {
     $('#editDistrict').html("")
     $('#editDistrict').append(`<option value="default" disabled selected>Choose District</option>`)
     $.ajax({
-        url: "http://13.235.100.235/api/district/",
+        url: "http://18.224.202.135/api/district/",
         type: 'GET',
         async: false,
         dataType: 'json',
@@ -208,7 +208,7 @@ $("#edit").click(function() {
     var district = $('#editdistrict').val();
     console.log(district)
     $.ajax({
-        url: `http://13.235.100.235/api/village/${id}/`,
+        url: `http://18.224.202.135/api/village/${id}/`,
         type: 'PUT',
         headers: {
             'Authorization': 'Token ' + token
@@ -251,7 +251,7 @@ $(document).on("click", "#deletebutton", function() {
 $("#delete").click(function() {
     var id = $("#deleteVillage").attr("key");
     $.ajax({
-        url: `http://13.235.100.235/api/village/${id}/`,
+        url: `http://18.224.202.135/api/village/${id}/`,
         type: 'DELETE',
         headers: {
             'Authorization': 'Token ' + token
@@ -294,7 +294,7 @@ $("#addid").click(function() {
     console.log(villageCode);
     console.log('Add clicked')
     $.ajax({
-        url: "http://13.235.100.235/api/village/",
+        url: "http://18.224.202.135/api/village/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
@@ -335,7 +335,7 @@ $("#csvfile").change(function() {
 
 $('#uploadvillages').click(function() {
     $.ajax({
-        url: "http://13.235.100.235/api/upload/villages/",
+        url: "http://18.224.202.135/api/upload/villages/",
         type: 'POST',
         headers: {
             'Authorization': 'Token ' + token
