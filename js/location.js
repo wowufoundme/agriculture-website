@@ -230,7 +230,7 @@ function getCompletedData(page = 1) {
                 if (page !== 1) {
                     $('#paginationcompleted').append(arrow_left_enabled);
                 }
-                for (var i = 0; i < res.count / 10; i++) {
+                for (var i = 0; i < res.count / 20; i++) {
                     page_tab = `<li id="page-tabcompleted" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tabcompleted" class="active"><a href="#!">${i+1}</a></li>`
                     if (i === page - 1) {
@@ -240,7 +240,7 @@ function getCompletedData(page = 1) {
                     }
                 }
 
-                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
+                if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="rightcompleted" class="waves-effect">
                             <a href="#!">

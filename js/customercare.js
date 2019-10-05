@@ -1,11 +1,3 @@
-var token = localStorage.getItem("TokenFile")
-
-$(document).ready(function() {
-    if (token == null) {
-        window.location.href = "index.html"
-    }
-})
-
 function initMap() {
     // The location of Uluru
     var uluru = { lat: -25.344, lng: 131.036 };

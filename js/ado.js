@@ -163,13 +163,7 @@ function getData(page = 1, search = "") {
                 if (page !== 1) {
                     $('.pagination').append(arrow_left_enabled);
                 }
-                for (var i = 0; i < res.count / 10; i++) {
-                    console.log(res.count)
-                    var n = res.count / 10;
-                    // if ((n / 10) > 10 && (i == 0 || i == 1 || i == 2 || i == n || i == n - 1 || i == n - 2)) {
-                    //     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
-                    //     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
-                    // } else {
+                for (var i = 0; i < res.count / 20; i++) {
                     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
                         // }
@@ -181,7 +175,7 @@ function getData(page = 1, search = "") {
                     }
                 }
 
-                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
+                if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="right" class="waves-effect">
                             <a href="#!">

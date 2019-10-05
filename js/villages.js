@@ -93,7 +93,7 @@ function getData(page = 1, search = "") {
                 if (page !== 1) {
                     $('.pagination').append(arrow_left_enabled);
                 }
-                for (var i = 0; i < res.count / 10; i++) {
+                for (var i = 0; i < res.count / 20; i++) {
                     page_tab = `<li id="page-tab" class="waves-effect"><a>${i+1}</a></li>`
                     active_tab = `<li id="page-tab" class="active"><a>${i+1}</a></li>`
                     if (i === page - 1) {
