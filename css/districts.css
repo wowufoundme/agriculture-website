@@ -27,6 +27,11 @@ div {
     cursor: pointer;
 }
 
+.sidenav-close {
+    margin-bottom: 0px;
+    color: white
+}
+
 .sidenav {
     transition: 0.5s;
     -webkit-transition: 0.5s;
@@ -35,14 +40,17 @@ div {
     -o-transition: 0.5s;
 }
 
-
-/* #searchdistrict {
-    border: 1px solid black;
+h5 {
+    margin-top: 16px;
+    width: 100%;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    color: white;
 }
 
-.material-icons {
-    border: 1px solid black;
-} */
+#sidebarheader {
+    background-color: teal;
+}
 
 #searchcol {
     float: right;

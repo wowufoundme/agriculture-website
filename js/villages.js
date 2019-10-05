@@ -67,7 +67,6 @@ function getData(page = 1, search = "") {
             $(".loading").show();
         },
         success: function(res) {
-            console.log(res);
             if (res.results.length > 0) {
                 res.results.map(item => {
                     row = `
@@ -125,14 +124,18 @@ function getData(page = 1, search = "") {
     });
 }
 
-function search() {
-    input = $("#searchvillage");
-    filter = input.val().toUpperCase();
-    var id = $('#page-tab').children('a').html()
-    console.log(id)
-    console.log(filter)
-    getData(parseInt(id), filter);
-}
+$('#searchvillage').keypress(function(event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        $(".loading").show();
+        input = $("#searchvillage");
+        filter = input.val().toUpperCase();
+        var id = $('#page-tab').children('a').html()
+        console.log(id)
+        console.log(filter)
+        getData(parseInt(id), filter);
+    }
+})
 
 // pagination handle functions
 $(document).on("click", "#page-tab", function() {

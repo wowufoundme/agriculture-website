@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Dda Login</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/materialize.min.css">
+    <link rel="stylesheet" href="css/registerstyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="heading" class="row">
+            <div class="col xl12 l12 m12 s12">
+                <h4>Welcome</h4>
+            </div>
+        </div>
+        <div class="card white darken-1">
+            <div class="card-content">
+
+                <form class="form-group" method="POST">
+                    <div class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <h5>Login</h5>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <div class="input-field inline">
+                                <label for="inputusername">Username</label>
+                                <input id="inputusername" type="text" class="validate" required>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col xl12 l12 m12 s12">
+                            <div class="input-field inline">
+                                <label for="inputpassword">Password</label>
+                                <input id="inputpassword" type="password" class="validate" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btnrow" class="row">
+                        <div class="col xl12 l12 m12 s12 ">
+                            <button id="loginbtn" class="waves-effect blue lighten-1 waves-light btn" type="submit" name="action">Login</button>
+                        </div>
+                    </div>
+                    <center class="loading">
+                        <div class="preloader-wrapper active">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
+    <script src="lib/materialize.min.js "></script>
+    <script src="js/ddalogin.js"></script>
+</body>
+
+</html>

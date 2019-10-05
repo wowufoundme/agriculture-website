@@ -21,6 +21,11 @@ div {
     cursor: pointer;
 }
 
+.sidenav-close {
+    margin-bottom: 0px;
+    color: white
+}
+
 .sidenav {
     transition: 0.5s;
     -webkit-transition: 0.5s;
@@ -35,6 +40,18 @@ input:invalid {
 
 #searchcol {
     float: right;
+}
+
+h5 {
+    margin-top: 16px;
+    width: 100%;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+#sidebarheader {
+    background-color: teal;
 }
 
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
