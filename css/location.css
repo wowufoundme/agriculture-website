@@ -12,7 +12,7 @@ div {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -100,6 +100,11 @@ h5 {
     table {
         display: block;
         overflow-x: scroll;
+    }
+    .container {
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
     /* #listdda {
         font-size: 18px;

@@ -12,8 +12,13 @@ div {
 }
 
 .container {
+    width: 90%;
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+#village {
+    min-width: 250px;
 }
 
 .sidenav-trigger,
@@ -63,7 +68,6 @@ h5 {
 
 @media screen and (min-device-width:320px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 2) {
     * {
-        float: none;
         width: auto;
         height: auto;
     }
@@ -71,6 +75,11 @@ h5 {
         padding: 10px 10px 10px 10px;
         margin: 5px 5px 5px 5px;
         min-width: 150px;
+    }
+    .container {
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
     table {
         display: block;
