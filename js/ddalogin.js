@@ -27,9 +27,9 @@ $("form").on("submit", function sub(event) {
         success: function(res) {
             $(".loading").hide();
             console.log('login successfull')
-            localStorage.setItem("TokenFile", res.token)
+            localStorage.setItem("DdaToken", res.token)
             M.toast({ html: 'Login successfull', classes: 'rounded green' })
-            window.location.href = "ddahome.html"
+            window.location.href = "ddadashboard.html"
         },
         error: function(e) {
             $(".loading").hide();
@@ -39,3 +39,5 @@ $("form").on("submit", function sub(event) {
         }
     });
 })
+
+//55974ec4
