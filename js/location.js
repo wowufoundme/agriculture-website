@@ -47,6 +47,9 @@ function getPendingData(page = 1) {
                     <td>${item.block_name + "," + item.village_name + "," + item.district}</td>
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
+                    <td>
+                        ${item.ado==null ? '<a id="assignbtn" class="waves-effect blue lighten-1 waves-light btn">Assign</a>' : '<a id="reassignbtn" class="waves-effect blue lighten-1 waves-light btn">ReAssign</a>'}
+                    </td>
                 </tr>
                     `
                     $('#pendingtbody').append(row)
@@ -129,7 +132,7 @@ function getOngoingData(page = 1) {
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
                     <td>
-                        <a id="reportbtn" class="waves-effect blue lighten-1 waves-light btn">View Report</a>
+                        <a id="reportbtn" class="waves-effect blue lighten-1 waves-light btn">View</a>
                     </td>
                 </tr>
                     `

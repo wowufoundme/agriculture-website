@@ -21,25 +21,53 @@ $("form").on("submit", function sub(event) {
             "username": username,
             "password": password
         },
+        dataType: 'json',
         beforeSend: function() {
-            console.log("in before send")
+            $(".loading").show();
+        },
+        success: function(res) {
+            checkadmin(res.token)
+        },
+        error: function(e) {
+            $(".loading").hide();
+            console.log(e);
+            alert("Invalid username or password. Please try again..");
+            M.toast({ html: 'Login failed!!.Please Try Again', classes: 'rounded red' });
+        }
+    });
+})
+
+
+function checkadmin(token) {
+    $.ajax({
+        url: "http://18.224.202.135/api/get-user/",
+        type: 'GET',
+        headers: {
+            'Authorization': 'Token ' + token
         },
         dataType: 'json',
         beforeSend: function() {
             $(".loading").show();
         },
         success: function(res) {
-            $(".loading").hide();
-            console.log('login successfull')
-            localStorage.setItem("TokenFile", res.token)
-            M.toast({ html: 'Login successfull', classes: 'rounded green' })
-            window.location.href = "home.html"
+            var type = res.auth_user.type_of_user
+            if (type == "admin") {
+                $(".loading").hide();
+                console.log('login successfull')
+                localStorage.setItem("TokenFile", token)
+                M.toast({ html: 'Login successfull', classes: 'rounded green' })
+                window.location.href = "districts.html"
+            } else {
+                $(".loading").hide();
+                alert("Invalid username or password. Please try again..");
+                M.toast({ html: 'Login failed!!.Please Try Again', classes: 'rounded red' });
+            }
         },
         error: function(e) {
             $(".loading").hide();
             console.log(e);
-            alert("Incorrect username or password. Please try again..");
+            alert("Some error ocuured. Please try again..");
             M.toast({ html: 'Login failed!!.Please Try Again', classes: 'rounded red' });
         }
     });
-})
+}
