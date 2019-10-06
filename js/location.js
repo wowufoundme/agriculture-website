@@ -5,14 +5,21 @@ $(document).ready(function() {
     if (token == null) {
         window.location.href = "index.html"
     } else {
-        $('.tabs').tabs();
+        // $('.tabs').tabs({
+        //     activate: function(event, ui) {
+        //         var active = $('.tabs').tabs('option', 'active')
+        //         console.log(active)
+        //     }
+        // });
         getPendingData();
         getOngoingData();
         getCompletedData();
     }
 
-    // var index = $('li a[href="#ongoing"]').parent().index();
-    // console.log(index);
+    var index = $('li a[href="#completed"]').parent().index();
+    // var active = $('.tabs').tabs('class', 'active')
+    // console.log(active)
+    console.log(index);
     // if(index==0){
     //     getPendingData();
     // }
@@ -47,7 +54,7 @@ function getPendingData(page = 1) {
                 res.results.map(item => {
                     row = `
                     <tr key=${item.id}>
-                    <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
+                    <td>${res.results.indexOf(item) + (page-1)*20 + 1}</td>
                     <td>${item.block_name + "," + item.village_name + "," + item.district}</td>
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
@@ -66,7 +73,7 @@ function getPendingData(page = 1) {
                 if (page !== 1) {
                     $('#paginationpending').append(arrow_left_enabled);
                 }
-                for (var i = 0; i < res.count / 10; i++) {
+                for (var i = 0; i < res.count / 20; i++) {
                     page_tab = `<li id="page-tab" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tab" class="active"><a href="#!">${i+1}</a></li>`
                     if (i === page - 1) {
@@ -76,7 +83,7 @@ function getPendingData(page = 1) {
                     }
                 }
 
-                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
+                if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="right" class="waves-effect">
                             <a href="#!">
@@ -128,7 +135,7 @@ function getOngoingData(page = 1) {
                 res.results.map(item => {
                     row = `
                     <tr key=${item.id}>
-                    <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
+                    <td>${res.results.indexOf(item) + (page-1)*20 + 1}</td>
                     <td>${item.block_name + "," + item.village_name + "," + item.district}</td>
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
@@ -150,7 +157,7 @@ function getOngoingData(page = 1) {
                 if (page !== 1) {
                     $('#paginationongoing').append(arrow_left_enabled);
                 }
-                for (var i = 0; i < res.count / 10; i++) {
+                for (var i = 0; i < res.count / 20; i++) {
                     page_tab = `<li id="page-tabongoing" class="waves-effect"><a href="#!">${i+1}</a></li>`
                     active_tab = `<li id="page-tabongoing" class="active"><a href="#!">${i+1}</a></li>`
                     if (i === page - 1) {
@@ -160,7 +167,7 @@ function getOngoingData(page = 1) {
                     }
                 }
 
-                if (res.count > 10 && page - 1 !== parseInt(res.count / 10)) {
+                if (res.count > 20 && page - 1 !== parseInt(res.count / 20)) {
                     arrow_right = `
                         <li id="rightongoing" class="waves-effect">
                             <a href="#!">
@@ -208,7 +215,7 @@ function getCompletedData(page = 1) {
                 res.results.map(item => {
                     row = `
                     <tr key=${item.id}>
-                    <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
+                    <td>${res.results.indexOf(item) + (page-1)*20 + 1}</td>
                     <td>${item.block_name + "," + item.village_name + "," + item.district}</td>
                     <td>${item.dda==null ? 'not assigned' : item.dda.name}</td>
                     <td>${item.ado==null ? 'not assigned' : item.ado.name}</td>
