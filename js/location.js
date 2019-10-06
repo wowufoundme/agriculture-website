@@ -20,6 +20,8 @@ $(document).ready(function() {
     // var active = $('.tabs').tabs('class', 'active')
     // console.log(active)
     console.log(index);
+    var ref_this = $("ul.tabs li a").find(".active");
+    alert(ref_this.data("id"));
     // if(index==0){
     //     getPendingData();
     // }
