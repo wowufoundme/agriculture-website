@@ -171,7 +171,7 @@ $('#searchado').keypress(function(event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if (keycode == '13') {
         input = $("#searchado");
-        filter = input.val().toUpperCase();
+        filter = input.val()
         var id = $('#page-tab').children('a').html()
         console.log(id)
         console.log(filter)
@@ -187,7 +187,7 @@ $(document).on("click", "#page-tab", function() {
     // get id of the row clicked
     var id = $(this).children('a').html()
     input = $("#searchado");
-    filter = input.val().toUpperCase();
+    filter = input.val()
     getData(parseInt(id), filter);
 });
 
@@ -196,7 +196,7 @@ $(document).on("click", "#left", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
     input = $("#searchado");
-    filter = input.val().toUpperCase();
+    filter = input.val()
     getData(parseInt(id) - 1, filter);
 });
 
@@ -205,7 +205,7 @@ $(document).on("click", "#right", function() {
     // get id of the row clicked
     var id = $(this).siblings('.active').children('a').html();
     input = $("#searchado");
-    filter = input.val().toUpperCase();
+    filter = input.val()
     getData(parseInt(id) + 1, filter);
 });
 
