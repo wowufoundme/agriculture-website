@@ -74,7 +74,7 @@ function getData(page = 1, search = "") {
                 res.results.map(item => {
                     row = `
                 		<tr key=${item.auth_user.pk}>
-                            <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
+                            <td>${res.results.indexOf(item) + (page-1)*20 + 1}</td>
                             <td id="title">${item.name}</td>
                             <td id="district">${item.district==null ? "" : item.district.district}</td>
                             <td id="number">${item.number}</td>

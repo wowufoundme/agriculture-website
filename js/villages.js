@@ -71,7 +71,7 @@ function getData(page = 1, search = "") {
                 res.results.map(item => {
                     row = `
                         <tr key=${item.id}>
-                            <td>${res.results.indexOf(item) + (page-1)*10 + 1}</td>
+                            <td>${res.results.indexOf(item) + (page-1)*20 + 1}</td>
                             <td id="title">${item.village}</td>
                             <td>
                                 <a id="editbutton" class="btn waves-effect waves-light modal-trigger" data-target="editVillage"><i class="large material-icons left">edit</i>Edit</a>
