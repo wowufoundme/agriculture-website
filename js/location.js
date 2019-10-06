@@ -5,29 +5,16 @@ $(document).ready(function() {
     if (token == null) {
         window.location.href = "index.html"
     } else {
-        // $('.tabs').tabs({
-        //     activate: function(event, ui) {
-        //         var active = $('.tabs').tabs('option', 'active')
-        //         console.log(active)
-        //     }
-        // });
+
+        $('.tabs').tabs({
+            active: 0
+        });
+        // var active = $(".tabs").tabs("option", "active");
+        // console.log(active)
         getPendingData();
         getOngoingData();
         getCompletedData();
     }
-
-    var index = $('li a[href="#completed"]').parent().index();
-    // var active = $('.tabs').tabs('class', 'active')
-    // console.log(active)
-    console.log(index);
-    var ref_this = $("ul.tabs li a").find(".active");
-    alert(ref_this.data("id"));
-    // if(index==0){
-    //     getPendingData();
-    // }
-    // if(index==1){
-    //     getOngoingData();
-    // }
 });
 
 
