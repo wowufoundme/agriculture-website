@@ -29,10 +29,13 @@
     <div id="side">
 
         <ul id="slide-out" class="sidenav invesible-top">
-
-            <li><a class="sidenav-close"><i class="material-icons">menu</i></a></li>
-            <li><a href="map.html">MAP</a></li>
-            <li><a href="pending.html">Pending</a></li>
+            <li>
+                <div class="user-view" id="sidebarheader">
+                    <a class="sidenav-close"><i class="material-icons">close</i></a>
+                    <h5>WELCOME</h5>
+                </div>
+            </li>
+            <li class="active teal lighten-1"><a href="map.html">MAP</a></li>
         </ul>
     </div>
     <div id="map"></div>
@@ -41,6 +44,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./lib/materialize.min.js"></script>
     <script src="js/customercare.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcSMbTfNHBxrULOR9Cp9PTVsHszE04bW4&callback=initMap"></script>
 </body>
 <script src="./js/common.js"></script>
