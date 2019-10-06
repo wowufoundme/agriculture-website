@@ -30,17 +30,12 @@ div {
     cursor: pointer;
 }
 
-
-/* .tabs .tab a:hover {
+.tabs .tab a h6:hover {
     color: #5145bd;
-    /*Custom Color On Hover*/
+}
 
-
-/* }  */
-
-.tabs .tab a {
+.tabs .tab a h6 {
     color: #088f08;
-    /*Custom Text Color*/
 }
 
 .tabs .tab a:focus.active {

@@ -9,11 +9,11 @@ $(document).ready(function() {
         $('.tabs').tabs({
             active: 0
         });
-        // var active = $(".tabs").tabs("option", "active");
-        // console.log(active)
-        getPendingData();
-        getOngoingData();
-        getCompletedData();
+
+        // getPendingData();
+        $('#tabpending').click(getPendingData());
+        $('#tabongoing').click(getOngoingData());
+        $('#tabcompleted').click(getCompletedData());
     }
 });
 
