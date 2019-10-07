@@ -55,7 +55,7 @@ $(document).ready(function() {
         $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
         console.log("width less than 600");
     }
-    // getData();
+    getData();
 })
 
 
@@ -237,6 +237,15 @@ $(document).on('click', '#addbutton', function() {
             'Authorization': 'Token ' + token
         },
         async: false,
+        delay: 250,
+        data: function (params) {
+            console.log(params)
+            var queryParameters = {
+              search: 'be', //search string,
+            }
+
+            return queryParameters;
+          },
         processResults: function (data) {
           console.log(data.results)
           // Transforms the top-level key of the response object from 'items' to 'results'
@@ -246,7 +255,10 @@ $(document).on('click', '#addbutton', function() {
                     id: item.id,
                     text: item.village
                 }
-            })
+            }),
+            pagination:{
+                more: data.next != null
+            }
           };
         }
         // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
