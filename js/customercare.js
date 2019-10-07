@@ -9,7 +9,10 @@ function initMap() {
     //initialising map
     var map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(28.622472, 77.211867),
-        zoom: 5
+        zoom: 5,
+        gestureHandling: 'cooperative',
+        zoomControl: true,
+        scaleControl: false
     });
 
 

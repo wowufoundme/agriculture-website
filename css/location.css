@@ -104,6 +104,12 @@ h5 {
     /* #listdda {
         font-size: 18px;
     } */
+    #assignbtn {
+        display: block;
+    }
+    #reassignbtn {
+        display: block;
+    }
 }
 
 @media screen and (min-device-width:641px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -120,5 +126,11 @@ h5 {
         display: block;
         overflow-x: scroll;
         width: 100%;
+    }
+    #assignbtn {
+        display: block;
+    }
+    #reassignbtn {
+        display: block;
     }
 }
