@@ -210,7 +210,6 @@ $(document).on("click", "#right", function() {
 
 // add functions
 $(document).on('click', '#addbutton', function() {
-    console.log('asddas')
     $('#adoText').val("");
     $('#adoNumber').val("");
     $('#adoEmail').val("");
@@ -222,14 +221,7 @@ $(document).on('click', '#addbutton', function() {
     // re-initialize material-select
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
 
-    // $('.e1').val("default")
-    // $('.e1').append(`<option value="default" disabled<input type="text"></option>`)
-
     console.log('start')
-    $('.e1').keyup(function() {
-        var search = $('.e1').val()
-        console.log("search=" + search)
-    })
     $('.e1').select2({
         placeholder: "Choose a village",
         allowClear: true,
