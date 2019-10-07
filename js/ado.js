@@ -216,59 +216,64 @@ $(document).on('click', '#addbutton', function() {
     $('#adoEmail').val("");
     $('#adoUsername').val("");
     $('#adoPassword').val("");
-    // $('#selectvillage').val("default");
-    // // re-initialize material-select
-    // $('#selectvillage').html("")
     // $('#selectvillage').append(`<option value="default" disabled selected>Choose Village</option>`)
 
     $('#selectdda').val("default");
     // re-initialize material-select
     $('#selectdda').append(`<option value="default" disabled selected>Choose DDA</option>`)
 
-    $('#selectvillage').val("default")
-    $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
-    console.log('start')
-    $('.e1').select2({
-      ajax: {
-        url: 'http://18.224.202.135/api/villages-list/',
-        dataType: 'json',
-        headers: {
-            'Authorization': 'Token ' + token
-        },
-        async: false,
-        delay: 250,
-        data: function (params) {
-            console.log(params)
-            var page = 1;
-            if(params._type === "query:append"){
-                page = params.page
-            }else{
-                page = 1;
-            }
-            var queryParameters = {
-              search: 'be', //search string,
-              page: page
-            }
+    // $('.e1').val("default")
+    // $('.e1').append(`<option value="default" disabled<input type="text"></option>`)
 
-            return queryParameters;
-          },
-        processResults: function (data) {
-          console.log(data.results)
-          // Transforms the top-level key of the response object from 'items' to 'results'
-          return {
-            results: data.results.map(item=>{
-                return {
-                    id: item.id,
-                    text: item.village
+    console.log('start')
+    $('.e1').keyup(function() {
+        var search = $('.e1').val()
+        console.log("search=" + search)
+    })
+    $('.e1').select2({
+        placeholder: "Choose a village",
+        allowClear: true,
+        ajax: {
+            url: 'http://18.224.202.135/api/villages-list/',
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Token ' + token
+            },
+            async: false,
+            delay: 250,
+            data: function(params) {
+                console.log(params)
+                var term = params.term
+                var page = 1;
+                if (params._type === "query:append") {
+                    page = params.page
+                } else {
+                    page = 1;
                 }
-            }),
-            pagination:{
-                more: data.next != null
-            }
-          };
+                var queryParameters = {
+                    search: term, //search string,
+                    page: page
+                }
+
+                return queryParameters;
+            },
+            processResults: function(data) {
+                    console.log(data.results)
+                        // Transforms the top-level key of the response object from 'items' to 'results'
+                    return {
+                        results: data.results.map(item => {
+                            return {
+                                id: item.id,
+                                text: item.village
+                            }
+                        }),
+                        pagination: {
+                            more: data.next != null
+                        }
+                    };
+                }
+                // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
         }
-        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-      }
     });
 })
 
