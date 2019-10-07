@@ -1,19 +1,30 @@
+var pendinglocation
+var ongoinglocation
+var completedlocation
+var array1 = []
+var array2 = []
+var array3 = []
+
+
 function initMap() {
-    var pendinglocation
-    var ongoinglocation
-    var completedlocation
-    var array1 = []
-    var array2 = []
-    var array3 = []
 
     //initialising map
     var map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(28.622472, 77.211867),
         zoom: 5,
-        gestureHandling: 'cooperative',
-        zoomControl: true,
-        scaleControl: false
+        gestureHandling: 'cooperative'
     });
+
+
+    var icon = {
+
+        path: "M 256,480c-84.828,0-153.6-68.157-153.6-152.228c0-84.081, 153.6-359.782, 153.6-359.782s 153.6,275.702, 153.6,359.782C 409.6,411.843, 340.828,480, 256,480z M 255.498,282.245c-26.184,0-47.401,21.043-47.401,46.981c0,25.958, 21.217,46.991, 47.401,46.991c 26.204,0, 47.421-21.033, 47.421-46.991 C 302.92,303.288, 281.702,282.245, 255.498,282.245z",
+        fillOpacity: .6,
+        anchor: new google.maps.Point(255.498, -26.204),
+        strokeWeight: 0,
+        scale: .25,
+        rotation: 180
+    }
 
 
     //pending
@@ -42,8 +53,11 @@ function initMap() {
             position: location,
             label: 'P',
             // icon: {
-            //     url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            //     url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+            //     anchor: new google.maps.Point(255.498, -26.204),
             // }
+            icon: icon
+
         });
     });
     var markerCluster1 = new MarkerClusterer(map, markers1, { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
