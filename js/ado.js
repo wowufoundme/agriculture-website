@@ -49,7 +49,6 @@ $(document).ready(function() {
     }
 
     if ($(window).width() < 640 && $(window).width() > 320) {
-
         // $('a').remove();
         $('#addbtnid').html('<a id="addbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addAdo">Add</a>')
         $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
@@ -240,8 +239,15 @@ $(document).on('click', '#addbutton', function() {
         delay: 250,
         data: function (params) {
             console.log(params)
+            var page = 1;
+            if(params._type === "query:append"){
+                page = params.page
+            }else{
+                page = 1;
+            }
             var queryParameters = {
               search: 'be', //search string,
+              page: page
             }
 
             return queryParameters;
