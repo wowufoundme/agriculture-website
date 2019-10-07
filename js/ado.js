@@ -3,6 +3,7 @@ var token = localStorage.getItem("TokenFile")
 
 $(document).ready(function() {
 
+    $("#e1").select2();
     if (token == null) {
         window.location.href = "index.html"
     } else {
@@ -52,7 +53,7 @@ $(document).ready(function() {
         $('#addbulkbtnid').html('<a id="addbulkbutton" class="center waves-effect blue lighten-1 waves-light btn modal-trigger" data-target="addBulk">AddBulk</a>')
         console.log("width less than 600");
     }
-    getData();
+    // getData();
 })
 
 
@@ -179,9 +180,6 @@ $('#searchado').keypress(function(event) {
     }
 })
 
-
-
-
 // pagination handle functions
 $(document).on("click", "#page-tab", function() {
     // get id of the row clicked
@@ -210,7 +208,8 @@ $(document).on("click", "#right", function() {
 });
 
 // add functions
-$('#addbutton').click(function() {
+$(document).on('click', '#addbutton', function() {
+    console.log('asddas')
     $('#adoText').val("");
     $('#adoNumber').val("");
     $('#adoEmail').val("");
@@ -227,6 +226,30 @@ $('#addbutton').click(function() {
 
     $('#selectvillage').val("default")
     $('#selectvillage').append(`<option value="default" disabled selected>Choose village</option>`)
+    console.log('start')
+    $('.e1').select2({
+      ajax: {
+        url: 'http://18.224.202.135/api/villages-list/',
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Token ' + token
+        },
+        async: false,
+        processResults: function (data) {
+          console.log(data.results)
+          // Transforms the top-level key of the response object from 'items' to 'results'
+          return {
+            results: data.results.map(item=>{
+                return {
+                    id: item.id,
+                    text: item.village
+                }
+            })
+          };
+        }
+        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+      }
+    });
 })
 
 

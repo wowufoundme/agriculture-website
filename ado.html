@@ -7,6 +7,7 @@
     <title>Ado page</title>
 
     <!-- CSS  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./lib/materialize.min.css">
     <link rel="stylesheet" href="./css/ado.css">
@@ -135,18 +136,13 @@
                 <label for="adoemail" class="control-label"><b>Email Id:</b></label>
                 <input placeholder="Email" name="email" required type="email" id="adoEmail" class="form-control" value="">
 
-                <div id="adovillage" class="input-field col xl12 l12 m12 s12 form-control">
-                    <select multiple id="selectvillage">
-                    </select>
-                </div>
-                <!-- <div>
-                 <label for="autocomplete-input" class="control-label">Choose the village</label> -->
-                <!-- <input id="search" name="search" type="search" placeholder="Choose Village" class="form-control">
-            </div> -->
-
                 <div id="ddalist" class="input-field col xl12 l12 m12 s12 form-control">
                     <select id="selectdda">
                     </select>
+                </div>
+
+                <div id="adovillage" class="input-field col xl12 l12 m12 s12 form-control">
+                    <select class="e1 browser-default"></select>
                 </div>
 
                 <label for="adoUsername" class="control-label"><b>Username:</b></label>
@@ -241,6 +237,6 @@
 
 <script src="./js/ado.js"></script>
 <script src="./js/common.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 </html>
