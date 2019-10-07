@@ -3,7 +3,9 @@ var token = localStorage.getItem("TokenFile")
 
 $(document).ready(function() {
 
-    $("#e1").select2();
+    $("#e1").select2({
+        searchInputPlaceholder: 'Search for village name...',
+    });
     if (token == null) {
         window.location.href = "index.html"
     } else {
